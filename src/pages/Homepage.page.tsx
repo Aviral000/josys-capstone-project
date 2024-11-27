@@ -1,9 +1,9 @@
 import React, { useLayoutEffect, useRef } from 'react'
 import MemoizedHeader from '../components/header/Header.module'
 import MemoizedBanner from '../components/header/AdBanner.module';
-import RegSlider from '../customs/components/RegSlider.module';
 import gsap from 'gsap';
 import ResponsiveBanner from '../components/advertisement/ResponsiveBanner.module';
+import ProductCarousel from '../customs/components/ProCarousel.module';
 
 const Homepage: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -27,16 +27,16 @@ const Homepage: React.FC = () => {
 }, [])
 
   return (
-    <div ref={containerRef}>
+    <>
+      <div ref={containerRef}>
         <MemoizedBanner />
         <MemoizedHeader />
-        <div className='flex justify-end relative'>
-          <RegSlider />
-        </div>
-        <div className='absolute'>
-          <ResponsiveBanner />
-        </div>
-    </div>
+        <ResponsiveBanner />
+      </div>
+      <div>
+        <ProductCarousel />
+      </div>
+    </>
   )
 }
 

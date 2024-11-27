@@ -27,7 +27,7 @@ const AdvBanner: React.FC = () => {
     return (
         <>
             {bannerData.description && (
-                <div className="bg-zinc-950 text-slate-400 w-full text-center font-serif">
+                <div className="bg-zinc-950 text-slate-300 tracking-wider w-full font-serif h-10 flex justify-center items-center">
                     {bannerData.description} {bannerData.discount}
                 </div>
             )}

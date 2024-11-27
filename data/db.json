@@ -73,6 +73,18 @@
       "roleId": "3",
       "addressIds": [],
       "cartId": ""
+    },
+    {
+      "firstName": "Mukesh",
+      "lastName": "Kapoor",
+      "email": "mukesh@gmail.com",
+      "phoneNumber": "6467245561",
+      "password": "$2a$10$uVLaRF.8k8Dk5VPP7Nt9v.HwbPuMXf9cjtCtWBI/zR8ZxOv8L797G",
+      "id": "cdc366bf-80ba-4598-9dd4-18db7d758df6",
+      "name": "Mukesh Kapoor",
+      "roleId": "3",
+      "addressIds": [],
+      "cartId": ""
     }
   ],
   "addresses": [
@@ -94,14 +106,14 @@
   "carts": [
     {
       "id": "201",
-      "customer_id": "1",
+      "customerId": "1",
       "items": [
         {
-          "product_id": "301",
+          "productId": "301",
           "quantity": 2
         },
         {
-          "product_id": "302",
+          "productId": "302",
           "quantity": 1
         }
       ]
@@ -110,28 +122,68 @@
   "products": [
     {
       "id": "301",
-      "product_name": "Men's Running T-Shirt",
-      "product_desc": "Lightweight and breathable running t-shirt.",
+      "productName": "Women's Running Outfit",
+      "productDesc": "Lightweight and breathable running t-shirt.",
       "cost": 25,
-      "vendor_id": "401",
-      "category_id": "501",
-      "sub_type_id": "601",
+      "vendorId": "401",
+      "categoryId": "502",
+      "subtypeId": "601",
       "images": [
-        "https://example.com/images/mens_running_tshirt.jpg"
+        "https://img.freepik.com/free-photo/sports-girl-crouching_23-2147678018.jpg?t=st=1732721743~exp=1732725343~hmac=c5db0358d9679638657f1e5ad35f77ba6479f967e9ea6d0c5f377edb2bd303fa&w=996",
+        "https://img.freepik.com/free-photo/sportive-girl-working-out-doing-push-ups_23-2147678024.jpg?t=st=1732721796~exp=1732725396~hmac=ea41c7522f21823a828b1175047e6ac72e1017e3e4e4923e346a32d9e8fac13e&w=826",
+        "https://img.freepik.com/free-photo/athletic-girl-with-sunglasses_23-2147678016.jpg?t=st=1732721861~exp=1732725461~hmac=66234a7db7260f27f24a166383f4385f9a0580dafd89d78ce5424f4b643705ef&w=996",
+        "https://img.freepik.com/free-photo/young-woman-standing-with-skateboard_23-2147678050.jpg?t=st=1732722025~exp=1732725625~hmac=298f050c51bbd152d3964e369d551a9d4fec6d54f291caadf676cd349207ac19&w=996"
       ],
       "discount": 10,
       "stock": 100
     },
     {
       "id": "302",
-      "product_name": "Women's Yoga Leggings",
-      "product_desc": "Comfortable and stretchy yoga leggings.",
+      "productName": "Women's Yoga Leggings",
+      "productDesc": "Comfortable and stretchy yoga leggings.",
       "cost": 40,
-      "vendor_id": "402",
-      "category_id": "502",
-      "sub_type_id": "602",
+      "vendorId": "402",
+      "categoryId": "502",
+      "subtypeId": "602",
       "images": [
-        "https://example.com/images/womens_yoga_leggings.jpg"
+        "https://img.freepik.com/free-photo/beautiful-model-with-perfect-tanned-body-female-posing-studio-near-gray-wall_158538-3523.jpg?t=st=1732722064~exp=1732725664~hmac=565453a331b8b4a33862f41df4e3c0bdd78e923b3178f7f9baf7354e8f6423c2&w=900",
+        "https://img.freepik.com/free-photo/beautiful-model-with-perfect-tanned-body-female-posing-studio-near-gray-wall-holds-hand-hair-tail_158538-3526.jpg?t=st=1732722080~exp=1732725680~hmac=65ac955427e300a2469dc8f9de2db3c6b1680058feeb1dee101c1f6409dd3fab&w=900",
+        "https://img.freepik.com/free-photo/beautiful-model-with-perfect-tanned-body-female-posing-studio-near-gray-wall_158538-3544.jpg?t=st=1732722110~exp=1732725710~hmac=cb4230407e25cf5769351155dff2a2d6d08104b060e80ac076aea6e0ba8a886c&w=900",
+        "https://img.freepik.com/free-photo/beautiful-model-with-perfect-tanned-body-female-posing-studio-near-gray-wall_158538-3542.jpg?t=st=1732722125~exp=1732725725~hmac=de984f166732afd2fd73e7fe6d25a0c2d59ee31746a44ed0e5b37d9a4b5d6ed7&w=900"
+      ],
+      "discount": 15,
+      "stock": 80
+    },
+    {
+      "id": "302",
+      "productName": "Women's Yoga Leggings",
+      "productDesc": "Comfortable and stretchy yoga leggings.",
+      "cost": 40,
+      "vendorId": "402",
+      "categoryId": "502",
+      "subtypeId": "602",
+      "images": [
+        "https://img.freepik.com/free-photo/man-tank-top-working-out-nature_23-2148773847.jpg?t=st=1732722316~exp=1732725916~hmac=0b822af279b9bb5fb6c9a691b1660485f31d9820534928767e0a0f977cbe6f7d&w=996",
+        "https://img.freepik.com/free-photo/front-view-man-working-out-nature_23-2148773846.jpg?t=st=1732722368~exp=1732725968~hmac=2e76f6bad803578a8bfe778da2b5ec11c56acf8b68eebabc082704fd1a11ad9a&w=996",
+        "https://img.freepik.com/free-photo/side-view-man-working-out-nature_23-2148773845.jpg?t=st=1732722394~exp=1732725994~hmac=82c88ee8529b44a35700f882ec120603ef0134c01af7810ab2c82dfa0054f16b&w=996",
+        "https://img.freepik.com/free-photo/man-tank-top-looking-smartphone-while-working-out-outdoors_23-2148773849.jpg?t=st=1732722410~exp=1732726010~hmac=667e291faaa0d1c21f339299ef84b3d479d1df220342dd2bbfe83d837f6fd474&w=996"
+      ],
+      "discount": 15,
+      "stock": 80
+    },
+    {
+      "id": "302",
+      "productName": "Women's Yoga Leggings",
+      "productDesc": "Comfortable and stretchy yoga leggings.",
+      "cost": 40,
+      "vendorId": "402",
+      "categoryId": "502",
+      "subtypeId": "602",
+      "images": [
+        "https://img.freepik.com/free-photo/young-brutal-sportive-woman-sportswear-sitting-with-bit-white_176420-7799.jpg?t=st=1732722485~exp=1732726085~hmac=35321a091bdeefd2d550447c865cf91196b037b1f7602f308d259fb4e560526d&w=996",
+        "https://img.freepik.com/free-photo/young-brutal-sportive-woman-sportswear-sitting-with-bit-white_176420-7801.jpg?t=st=1732722501~exp=1732726101~hmac=831e8ca82dcd9ebc7e4a7438aa7ec5c15b8f634ca66b6981fc165194de1fcc6d&w=996",
+        "https://img.freepik.com/free-photo/young-brutal-sportive-woman-sportswear-sitting-with-bit-white_176420-7798.jpg?t=st=1732722519~exp=1732726119~hmac=f656d59b0b6f3916b66795f48d20b7359867afdb1334a76d547b739015f65cf1&w=996",
+        "https://img.freepik.com/free-photo/young-brutal-sportive-woman-sportswear-sitting-with-bit-white_176420-7802.jpg?t=st=1732722532~exp=1732726132~hmac=8992b1579cf5fccb46d10f2e020e4979bd83f613c743bd8fa4981170e84387e1&w=996"
       ],
       "discount": 15,
       "stock": 80
@@ -140,62 +192,53 @@
   "categories": [
     {
       "id": "501",
-      "category_name": "Men",
+      "categoryName": "Men",
       "icon": "https://example.com/icons/men.png",
-      "sub_type_ids": [
+      "subtypeIds": [
         "601",
+        "602",
         "603"
       ]
     },
     {
       "id": "502",
-      "category_name": "Women",
+      "categoryName": "Women",
       "icon": "https://example.com/icons/women.png",
-      "sub_type_ids": [
+      "subtypeIds": [
+        "601",
         "602",
-        "604"
+        "603"
       ]
     },
     {
       "id": "503",
-      "category_name": "Kids",
+      "categoryName": "Kids",
       "icon": "https://example.com/icons/kids.png",
       "sub_type_ids": [
-        "605",
-        "606"
+        "601",
+        "602",
+        "603"
       ]
     }
   ],
   "sub_types": [
     {
       "id": "601",
-      "name": "T-Shirts"
+      "name": "Clothing"
     },
     {
       "id": "602",
-      "name": "Leggings"
+      "name": "Footwear"
     },
     {
       "id": "603",
-      "name": "Shorts"
-    },
-    {
-      "id": "604",
-      "name": "Sports Bras"
-    },
-    {
-      "id": "605",
-      "name": "Jackets"
-    },
-    {
-      "id": "606",
-      "name": "Pants"
+      "name": "Accessories"
     }
   ],
   "vendors": [
     {
       "id": "401",
-      "company_name": "ActiveWear Co.",
+      "companyName": "ActiveWear Co.",
       "email": "contact@activewearco.com",
       "product_ids": [
         "301"
@@ -203,7 +246,7 @@
     },
     {
       "id": "402",
-      "company_name": "Yoga Essentials",
+      "companyName": "Yoga Essentials",
       "email": "support@yogaessentials.com",
       "product_ids": [
         "302"
@@ -216,7 +259,7 @@
       "name": "Admin-1",
       "email": "admin@example.com",
       "password": "admin1",
-      "role_id": "1"
+      "roleId": "1"
     }
   ],
   "roles": [
@@ -238,6 +281,13 @@
       "discount": "20%",
       "description": "Get discount on every GiGi products",
       "id": 1
+    },
+    {
+      "heading": "BLACK FRIDAY",
+      "discount": "UPTO 60% + EXTRA 20% OFF",
+      "description": "Buy More! Save More!",
+      "image": "",
+      "id": 2
     }
   ]
 }

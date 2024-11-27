@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ProDropper from '../../customs/components/ProDropper.module';
 
 interface NavItem {
   name: string;
@@ -8,9 +9,9 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { name: 'Home', path: '/' },
-  { name: 'Men', path: '/men' },
-  { name: 'Women', path: '/women' },
-  { name: 'Kids', path: '/kids' },
+  { name: 'Men', path: '/shop/men-clothing' },
+  { name: 'Women', path: '/shop/women-clothing' },
+  { name: 'Kids', path: '/shop/kids-clothing' },
   { name: 'Sale', path: '/sale' },
 ];
 
@@ -21,7 +22,7 @@ const Header: React.FC = () => {
         <Link to="/" className="text-2xl font-bold text-gray-800">
           Active Attire
         </Link>
-        <nav>
+        {/* <nav>
           <ul className="flex space-x-10 font-bold">
             {navItems.map((item) => (
               <li key={item.name}>
@@ -34,7 +35,8 @@ const Header: React.FC = () => {
               </li>
             ))}
           </ul>
-        </nav>
+        </nav> */}
+        <ProDropper />
         <div className="flex items-center space-x-4">
           <Link to="/search" aria-label="Search">
             <svg

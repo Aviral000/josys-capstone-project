@@ -1,7 +1,7 @@
 import { Product } from "../models/Product.type";
 import axios from "axios";
-import crypto from "crypto";
 import { config } from "../utils/config";
+import { v4 as uuidv4 } from 'uuid';
 
 const BASE_URL: string | undefined = `${config.BASE_URL}/products`;
 
@@ -25,7 +25,7 @@ export const getProductById = async (id: string): Promise<Product> => {
 
 export const createProduct = async (product: Omit<Product, "id">): Promise<Product> => {
     try {
-        const newProduct = { ...product, id: crypto.randomUUID() };
+        const newProduct = { ...product, id: uuidv4() };
         const response = await axios.post(BASE_URL, newProduct);
         return response.data;
     } catch (error) {
