@@ -1,0 +1,243 @@
+{
+  "customers": [
+    {
+      "id": "1",
+      "firstName": "John",
+      "lastName": "Doe",
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "phoneNumber": "1234567890",
+      "addressIds": [
+        "101",
+        "102"
+      ],
+      "cartId": "201",
+      "password": "hashed_password"
+    },
+    {
+      "firstName": "Aviral",
+      "lastName": "Malik",
+      "name": "Aviral Malik",
+      "email": "avimalik02@gmail.com",
+      "phoneNumber": "9528410057",
+      "password": "Avimalik",
+      "roleId": "3",
+      "id": "315326bf-840e-4181-b44d-ab9b9f97b201",
+      "addressIds": [],
+      "cartId": ""
+    },
+    {
+      "firstName": "Rakesh",
+      "lastName": "Kumar",
+      "email": "rakesh@gmail.com",
+      "phoneNumber": "9956224531",
+      "password": "Rakesh@2024",
+      "id": "eb25a1dd-29fe-461b-8903-ef34a6bfa620",
+      "name": "Rakesh Kumar",
+      "roleId": "3",
+      "addressIds": [],
+      "cartId": ""
+    },
+    {
+      "firstName": "Anil",
+      "lastName": "Kapoor",
+      "email": "anil@gmail.com",
+      "phoneNumber": "8956224533",
+      "password": "$2a$10$b6sstThDPbO07X8M.pQSMOLph75mB7wL89cG81ZOimRODs./C9kiq",
+      "id": "52e4a05f-9faf-4295-809c-fad6826b0e53",
+      "name": "Anil Kapoor",
+      "roleId": "3",
+      "addressIds": [],
+      "cartId": ""
+    },
+    {
+      "firstName": "Anil",
+      "lastName": "Sharma",
+      "email": "anil22@gmail.com",
+      "phoneNumber": "6956224533",
+      "password": "$2a$10$eyvkcmLtDyR9FzNGVVhdI.xj/9k8F5J1Mja3LIYb.9/xKZzoFN84S",
+      "id": "85da6f14-db5d-4912-a3d4-9d29ce9743ba",
+      "name": "Anil Sharma",
+      "roleId": "3",
+      "addressIds": [],
+      "cartId": ""
+    },
+    {
+      "firstName": "Pappu",
+      "lastName": "Kumar",
+      "email": "pappu@gmail.com",
+      "phoneNumber": "7895624567",
+      "password": "$2a$10$jmMaPJcZkPpAVxI3US4LxOki/nJP0kw/9VRQmXKnVQVE4FBQ.ckTS",
+      "id": "800c2fcf-a526-4d5e-9343-a2ac43a6b417",
+      "name": "Pappu Kumar",
+      "roleId": "3",
+      "addressIds": [],
+      "cartId": ""
+    }
+  ],
+  "addresses": [
+    {
+      "id": "101",
+      "lines": "123 Main St",
+      "city": "Los Angeles",
+      "state": "CA",
+      "pincode": "90001"
+    },
+    {
+      "id": "102",
+      "lines": "456 Elm St",
+      "city": "San Francisco",
+      "state": "CA",
+      "pincode": "94101"
+    }
+  ],
+  "carts": [
+    {
+      "id": "201",
+      "customer_id": "1",
+      "items": [
+        {
+          "product_id": "301",
+          "quantity": 2
+        },
+        {
+          "product_id": "302",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "301",
+      "product_name": "Men's Running T-Shirt",
+      "product_desc": "Lightweight and breathable running t-shirt.",
+      "cost": 25,
+      "vendor_id": "401",
+      "category_id": "501",
+      "sub_type_id": "601",
+      "images": [
+        "https://example.com/images/mens_running_tshirt.jpg"
+      ],
+      "discount": 10,
+      "stock": 100
+    },
+    {
+      "id": "302",
+      "product_name": "Women's Yoga Leggings",
+      "product_desc": "Comfortable and stretchy yoga leggings.",
+      "cost": 40,
+      "vendor_id": "402",
+      "category_id": "502",
+      "sub_type_id": "602",
+      "images": [
+        "https://example.com/images/womens_yoga_leggings.jpg"
+      ],
+      "discount": 15,
+      "stock": 80
+    }
+  ],
+  "categories": [
+    {
+      "id": "501",
+      "category_name": "Men",
+      "icon": "https://example.com/icons/men.png",
+      "sub_type_ids": [
+        "601",
+        "603"
+      ]
+    },
+    {
+      "id": "502",
+      "category_name": "Women",
+      "icon": "https://example.com/icons/women.png",
+      "sub_type_ids": [
+        "602",
+        "604"
+      ]
+    },
+    {
+      "id": "503",
+      "category_name": "Kids",
+      "icon": "https://example.com/icons/kids.png",
+      "sub_type_ids": [
+        "605",
+        "606"
+      ]
+    }
+  ],
+  "sub_types": [
+    {
+      "id": "601",
+      "name": "T-Shirts"
+    },
+    {
+      "id": "602",
+      "name": "Leggings"
+    },
+    {
+      "id": "603",
+      "name": "Shorts"
+    },
+    {
+      "id": "604",
+      "name": "Sports Bras"
+    },
+    {
+      "id": "605",
+      "name": "Jackets"
+    },
+    {
+      "id": "606",
+      "name": "Pants"
+    }
+  ],
+  "vendors": [
+    {
+      "id": "401",
+      "company_name": "ActiveWear Co.",
+      "email": "contact@activewearco.com",
+      "product_ids": [
+        "301"
+      ]
+    },
+    {
+      "id": "402",
+      "company_name": "Yoga Essentials",
+      "email": "support@yogaessentials.com",
+      "product_ids": [
+        "302"
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "ZOYVszN",
+      "name": "Admin-1",
+      "email": "admin@example.com",
+      "password": "admin1",
+      "role_id": "1"
+    }
+  ],
+  "roles": [
+    {
+      "id": "1",
+      "type": "admin"
+    },
+    {
+      "id": "2",
+      "type": "vendor"
+    },
+    {
+      "id": "3",
+      "type": "customer"
+    }
+  ],
+  "banner": [
+    {
+      "discount": "20%",
+      "description": "Get discount on every GiGi products",
+      "id": 1
+    }
+  ]
+}
