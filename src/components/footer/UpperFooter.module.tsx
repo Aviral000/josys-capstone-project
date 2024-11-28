@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 const UpperFooter: React.FC = () => {
   return (
@@ -21,4 +21,4 @@ const UpperFooter: React.FC = () => {
   );
 };
 
-export default UpperFooter;
+export default memo(UpperFooter);

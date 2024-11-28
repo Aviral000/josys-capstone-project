@@ -162,8 +162,8 @@
       "productDesc": "Comfortable and baggy look gym t-shirt",
       "cost": 40,
       "vendorId": "402",
-      "categoryId": "502",
-      "subtypeId": "602",
+      "categoryId": "501",
+      "subtypeId": "601",
       "images": [
         "https://img.freepik.com/free-photo/man-tank-top-working-out-nature_23-2148773847.jpg?t=st=1732722316~exp=1732725916~hmac=0b822af279b9bb5fb6c9a691b1660485f31d9820534928767e0a0f977cbe6f7d&w=996",
         "https://img.freepik.com/free-photo/front-view-man-working-out-nature_23-2148773846.jpg?t=st=1732722368~exp=1732725968~hmac=2e76f6bad803578a8bfe778da2b5ec11c56acf8b68eebabc082704fd1a11ad9a&w=996",
@@ -216,7 +216,7 @@
       "id": "501",
       "categoryName": "Men",
       "icon": "https://example.com/icons/men.png",
-      "subtypeIds": [
+      "subTypeIds": [
         "601",
         "602",
         "603"
@@ -226,7 +226,7 @@
       "id": "502",
       "categoryName": "Women",
       "icon": "https://example.com/icons/women.png",
-      "subtypeIds": [
+      "subTypeIds": [
         "601",
         "602",
         "603"
@@ -236,7 +236,7 @@
       "id": "503",
       "categoryName": "Kids",
       "icon": "https://example.com/icons/kids.png",
-      "sub_type_ids": [
+      "subTypeIds": [
         "601",
         "602",
         "603"

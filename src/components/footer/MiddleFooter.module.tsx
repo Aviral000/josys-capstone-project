@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link } from "react-router-dom";
 import { FaShippingFast, FaSyncAlt, FaCreditCard } from "react-icons/fa";
 
@@ -33,4 +33,4 @@ const MiddleFooter: React.FC = () => {
   );
 };
 
-export default MiddleFooter;
+export default memo(MiddleFooter);

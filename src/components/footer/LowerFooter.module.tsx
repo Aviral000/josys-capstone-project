@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { FaInstagram } from "react-icons/fa";
 
 const LowerFooter: React.FC = () => {
@@ -91,7 +91,6 @@ const LowerFooter: React.FC = () => {
               Cookies
             </a>
           </div>
-          {/* Copyright */}
           <div>
             &copy; 2024 ActiveAttire India Marketing Pvt. Ltd
           </div>
@@ -101,4 +100,4 @@ const LowerFooter: React.FC = () => {
   );
 };
 
-export default LowerFooter;
+export default memo(LowerFooter);

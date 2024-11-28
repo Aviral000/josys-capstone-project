@@ -63,7 +63,7 @@ const NavigationMenuItem: React.FC<MenuItemProps> = ({ category, index }) => {
     return (
       <li key={category.id} ref={ref} {...anchorProps} className="relative">
         <Link
-          to={`/shop/${category.category_name.toLowerCase()}`}
+          to={`/shop/${category.category_name.toLowerCase()}-clothing`}
           className="text-gray-600 hover:text-gray-800 transition-colors duration-200 px-10 text-lg"
         >
           {category.category_name}
@@ -87,7 +87,8 @@ const NavigationMenuItem: React.FC<MenuItemProps> = ({ category, index }) => {
               <MenuItem key={subId} className="hover:bg-gray-100">
                 <Link 
                   className="block w-full px-2 py-2 font-serif font-semibold"
-                  to={`/shop/${category.category_name.toLowerCase()}/${subCategory.name.toLowerCase()}`}
+                  // to={`/shop/${category.category_name.toLowerCase()}/${subCategory.name.toLowerCase()}`}
+                  to={`/shop/${category.category_name.toLowerCase()}-clothing`}
                 >
                   {subCategory.name}
                 </Link>
