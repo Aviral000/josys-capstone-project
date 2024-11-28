@@ -134,8 +134,9 @@
         "https://img.freepik.com/free-photo/athletic-girl-with-sunglasses_23-2147678016.jpg?t=st=1732721861~exp=1732725461~hmac=66234a7db7260f27f24a166383f4385f9a0580dafd89d78ce5424f4b643705ef&w=996",
         "https://img.freepik.com/free-photo/young-woman-standing-with-skateboard_23-2147678050.jpg?t=st=1732722025~exp=1732725625~hmac=298f050c51bbd152d3964e369d551a9d4fec6d54f291caadf676cd349207ac19&w=996"
       ],
-      "discount": 10,
-      "stock": 100
+      "discount": 40,
+      "stock": 100,
+      "uploadedDate": ""
     },
     {
       "id": "302",
@@ -152,12 +153,13 @@
         "https://img.freepik.com/free-photo/beautiful-model-with-perfect-tanned-body-female-posing-studio-near-gray-wall_158538-3542.jpg?t=st=1732722125~exp=1732725725~hmac=de984f166732afd2fd73e7fe6d25a0c2d59ee31746a44ed0e5b37d9a4b5d6ed7&w=900"
       ],
       "discount": 15,
-      "stock": 80
+      "stock": 18,
+      "uploadedDate": ""
     },
     {
-      "id": "302",
-      "productName": "Women's Yoga Leggings",
-      "productDesc": "Comfortable and stretchy yoga leggings.",
+      "id": "303",
+      "productName": "Lose Gym t-shirt",
+      "productDesc": "Comfortable and baggy look gym t-shirt",
       "cost": 40,
       "vendorId": "402",
       "categoryId": "502",
@@ -168,13 +170,14 @@
         "https://img.freepik.com/free-photo/side-view-man-working-out-nature_23-2148773845.jpg?t=st=1732722394~exp=1732725994~hmac=82c88ee8529b44a35700f882ec120603ef0134c01af7810ab2c82dfa0054f16b&w=996",
         "https://img.freepik.com/free-photo/man-tank-top-looking-smartphone-while-working-out-outdoors_23-2148773849.jpg?t=st=1732722410~exp=1732726010~hmac=667e291faaa0d1c21f339299ef84b3d479d1df220342dd2bbfe83d837f6fd474&w=996"
       ],
-      "discount": 15,
-      "stock": 80
+      "discount": 65,
+      "stock": 80,
+      "uploadedDate": ""
     },
     {
-      "id": "302",
-      "productName": "Women's Yoga Leggings",
-      "productDesc": "Comfortable and stretchy yoga leggings.",
+      "id": "304",
+      "productName": "Women's Track Suit",
+      "productDesc": "Gray full-track Suit, ready to go in fields",
       "cost": 40,
       "vendorId": "402",
       "categoryId": "502",
@@ -186,7 +189,26 @@
         "https://img.freepik.com/free-photo/young-brutal-sportive-woman-sportswear-sitting-with-bit-white_176420-7802.jpg?t=st=1732722532~exp=1732726132~hmac=8992b1579cf5fccb46d10f2e020e4979bd83f613c743bd8fa4981170e84387e1&w=996"
       ],
       "discount": 15,
-      "stock": 80
+      "stock": 20,
+      "uploadedDate": ""
+    },
+    {
+      "id": "305",
+      "productName": "Leather Shoes",
+      "productDesc": "Comfortable shoes for both men and women",
+      "cost": 80,
+      "vendorId": "401",
+      "categoryId": "501",
+      "subtypeId": "602",
+      "images": [
+        "https://img.freepik.com/free-photo/shoes_1203-8153.jpg?t=st=1732766044~exp=1732769644~hmac=fcfbff8bdb7cb3c31d5293fa643e1cc964b92e5b8e3cdfd99354678ab8be7fed&w=996",
+        "https://img.freepik.com/free-photo/shoes_1203-8155.jpg?t=st=1732766215~exp=1732769815~hmac=8c3c61cae4017cb2854ba7224da6d28054a11b1cef7279bb6f5fd7238ff3bc8a&w=996",
+        "https://img.freepik.com/free-photo/shoes_1203-8150.jpg?t=st=1732766228~exp=1732769828~hmac=dc0e8541b7b8efe0dd482d7bf1b25d70bbd8e02981a69e7dc19980997e65add7&w=996",
+        "https://img.freepik.com/free-photo/shoes_1203-8152.jpg?t=st=1732766240~exp=1732769840~hmac=f2db1c51c5c00fe0a0d030e393758ddb93c32fcb4cc0739ba279c6f20218b258&w=996"
+      ],
+      "discount": 55,
+      "stock": 15,
+      "uploadedDate": ""
     }
   ],
   "categories": [
@@ -288,6 +310,13 @@
       "description": "Buy More! Save More!",
       "image": "",
       "id": 2
+    },
+    {
+      "heading": "CLOTHES: November Collection by Edison Chen",
+      "discount": "UPTO 30% + EXTRA 10% OFF",
+      "description": "adidas Originals and Edison Chen transform iconic sports silhouettes, merging western court with eastern culture.",
+      "image": "",
+      "id": 3
     }
   ]
 }

@@ -1,11 +1,11 @@
-import { Product } from "../models/Product.type";
+import { Category } from "../models/Category.type";
 import axios from "axios";
-import crypto from "crypto";
+import { v4 as uuidv4 } from "uuid";
 import { config } from "../utils/config";
 
-const BASE_URL: string | undefined = `${config.BASE_URL}/products`;
+const BASE_URL: string | undefined = `${config.BASE_URL}/categories`;
 
-export const getAllProducts = async (): Promise<Product[]> => {
+export const getAllCategories = async (): Promise<Category[]> => {
     try {
         const response = await axios.get(BASE_URL);
         return response.data;
@@ -14,7 +14,7 @@ export const getAllProducts = async (): Promise<Product[]> => {
     }
 };
 
-export const getProductById = async (id: string): Promise<Product> => {
+export const getCategoryById = async (id: string): Promise<Category> => {
     try {
         const response = await axios.get(`${BASE_URL}/${id}`);
         return response.data;
@@ -23,17 +23,17 @@ export const getProductById = async (id: string): Promise<Product> => {
     }
 };
 
-export const createProduct = async (product: Omit<Product, "id">): Promise<Product> => {
+export const createCategory = async (category: Omit<Category, "id">): Promise<Category> => {
     try {
-        const newProduct = { ...product, id: crypto.randomUUID() };
-        const response = await axios.post(BASE_URL, newProduct);
+        const newCategory = { ...category, id: uuidv4() };
+        const response = await axios.post(BASE_URL, newCategory);
         return response.data;
     } catch (error) {
         throw new Error(`Failed to create product: ${error}`);
     }
 };
 
-export const updateProduct = async (id: string, updates: Partial<Product>): Promise<Product> => {
+export const updateCategory = async (id: string, updates: Partial<Category>): Promise<Category> => {
     try {
         const response = await axios.patch(`${BASE_URL}/${id}`, updates);
         return response.data;
@@ -42,7 +42,7 @@ export const updateProduct = async (id: string, updates: Partial<Product>): Prom
     }
 };
 
-export const deleteProduct = async (id: string): Promise<void> => {
+export const deleteCategory = async (id: string): Promise<void> => {
     try {
         await axios.delete(`${BASE_URL}/${id}`);
     } catch (error) {

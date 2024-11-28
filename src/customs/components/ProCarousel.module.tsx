@@ -2,11 +2,13 @@ import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { useProduct } from '../hooks/useProduct';
+import { Link } from 'react-router-dom';
+import loadingGif from '../../assets/others/loadinggif.gif';
 
-const ProductCarousel = () => {
+const ProductCarousel: React.FC = () => {
   const { products, isFetchingProducts, fetchError } = useProduct();
 
-  if (isFetchingProducts) return <p>Loading products...</p>;
+  if (isFetchingProducts) return (<><img src={loadingGif} alt='loading-gif' className="w-20 h-20" /></>);
   if (fetchError) return <p>Error fetching products: {fetchError.message}</p>;
 
   const responsive = {
@@ -29,32 +31,38 @@ const ProductCarousel = () => {
   };
 
   return (
-    <Carousel
-      responsive={responsive}
-      infinite
-      autoPlay
-      autoPlaySpeed={3000}
-      containerClass="carousel-container"
-      itemClass="carousel-item"
-    >
-      {products?.map((product) => (
-        <div
-          key={product.id}
-          className="relative m-4 group mt-8"
-        >
-          <img
-            src={product.images[0]}
-            alt={product.productName}
-            className="w-full h-60 object-cover rounded-md"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-white p-4">
-            <h3 className="text-lg font-semibold">{product.productName}</h3>
-            <p className="text-sm">{product.productDesc}</p>
-            <p className="mt-2 text-lg">${product.cost}</p>
+    <div>
+      <h1 className='m-4 mt-8 text-4xl font-serif font-bold'>Biggest Deals on Your Must-Have Categories!</h1>
+      <Carousel
+        responsive={responsive}
+        infinite
+        autoPlay
+        autoPlaySpeed={3000}
+        containerClass="carousel-container"
+        itemClass="carousel-item"
+      >
+        {products?.slice(0,6).map((product) => (
+          <div
+            key={product.id}
+            className="relative m-4 group mt-8"
+          >
+            <img
+              src={product.images[0]}
+              alt={product.productName}
+              className="w-full h-60 object-cover rounded-md"
+            />
+            <Link to={`/product/${product.id}`}>
+              <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-white p-4">
+                <h3 className="text-xl font-semibold">{product.productName}</h3>
+                <p className="text-sm">{product.productDesc}</p>
+                <p className="mt-2 text-lg line-through">${product.cost}</p>
+                <p className="mt-2 text-lg">Only ${(product.cost - ((product.cost)*(product.discount))/100)}</p>
+              </div>
+            </Link>
           </div>
-        </div>
-      ))}
-    </Carousel>
+        ))}
+      </Carousel>
+    </div>
   );
 };
 

@@ -2,6 +2,7 @@ import { Product } from "../models/Product.type";
 import axios from "axios";
 import { config } from "../utils/config";
 import { v4 as uuidv4 } from 'uuid';
+import { formatDate } from "../utils/formatData";
 
 const BASE_URL: string | undefined = `${config.BASE_URL}/products`;
 
@@ -25,7 +26,14 @@ export const getProductById = async (id: string): Promise<Product> => {
 
 export const createProduct = async (product: Omit<Product, "id">): Promise<Product> => {
     try {
-        const newProduct = { ...product, id: uuidv4() };
+        const date = formatDate(new Date());
+        console.log(date);
+        const newProduct: Product = {
+            ...product,
+            id: uuidv4(),
+            uploadedDate: date
+        };
+        console.log(newProduct);
         const response = await axios.post(BASE_URL, newProduct);
         return response.data;
     } catch (error) {

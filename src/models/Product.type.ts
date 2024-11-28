@@ -4,9 +4,10 @@ export interface Product {
     productDesc: string;
     cost: number;
     vendorId: string;
-    productType: string;
+    categoryId: string;
+    subtypeId: string;
     images: string[];
     discount: number;
     stock: number;
+    uploadedDate: string
 }
-  
