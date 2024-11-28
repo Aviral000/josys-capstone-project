@@ -145,7 +145,7 @@
       "cost": 40,
       "vendorId": "402",
       "categoryId": "502",
-      "subtypeId": "602",
+      "subtypeId": "601",
       "images": [
         "https://img.freepik.com/free-photo/beautiful-model-with-perfect-tanned-body-female-posing-studio-near-gray-wall_158538-3523.jpg?t=st=1732722064~exp=1732725664~hmac=565453a331b8b4a33862f41df4e3c0bdd78e923b3178f7f9baf7354e8f6423c2&w=900",
         "https://img.freepik.com/free-photo/beautiful-model-with-perfect-tanned-body-female-posing-studio-near-gray-wall-holds-hand-hair-tail_158538-3526.jpg?t=st=1732722080~exp=1732725680~hmac=65ac955427e300a2469dc8f9de2db3c6b1680058feeb1dee101c1f6409dd3fab&w=900",
@@ -181,7 +181,7 @@
       "cost": 40,
       "vendorId": "402",
       "categoryId": "502",
-      "subtypeId": "602",
+      "subtypeId": "601",
       "images": [
         "https://img.freepik.com/free-photo/young-brutal-sportive-woman-sportswear-sitting-with-bit-white_176420-7799.jpg?t=st=1732722485~exp=1732726085~hmac=35321a091bdeefd2d550447c865cf91196b037b1f7602f308d259fb4e560526d&w=996",
         "https://img.freepik.com/free-photo/young-brutal-sportive-woman-sportswear-sitting-with-bit-white_176420-7801.jpg?t=st=1732722501~exp=1732726101~hmac=831e8ca82dcd9ebc7e4a7438aa7ec5c15b8f634ca66b6981fc165194de1fcc6d&w=996",
@@ -209,38 +209,247 @@
       "discount": 55,
       "stock": 15,
       "uploadedDate": ""
-    }
-  ],
-  "categories": [
-    {
-      "id": "501",
-      "categoryName": "Men",
-      "icon": "https://example.com/icons/men.png",
-      "subTypeIds": [
-        "601",
-        "602",
-        "603"
-      ]
     },
     {
-      "id": "502",
-      "categoryName": "Women",
-      "icon": "https://example.com/icons/women.png",
-      "subTypeIds": [
-        "601",
-        "602",
-        "603"
-      ]
+      "id": "306",
+      "productName": "Men's Running Shorts",
+      "productDesc": "Lightweight and sweat-wicking shorts for running.",
+      "cost": 35,
+      "vendorId": "403",
+      "categoryId": "501",
+      "subtypeId": "601",
+      "images": [
+        "https://img.freepik.com/free-photo/runner-shorts_1203-8145.jpg",
+        "https://img.freepik.com/free-photo/runner-shorts_1203-8146.jpg"
+      ],
+      "discount": 20,
+      "stock": 50,
+      "uploadedDate": ""
     },
     {
-      "id": "503",
-      "categoryName": "Kids",
-      "icon": "https://example.com/icons/kids.png",
-      "subTypeIds": [
-        "601",
-        "602",
-        "603"
-      ]
+      "id": "307",
+      "productName": "Men's Football Cleats",
+      "productDesc": "Professional-grade football shoes for the field.",
+      "cost": 70,
+      "vendorId": "404",
+      "categoryId": "501",
+      "subtypeId": "602",
+      "images": [
+        "https://img.freepik.com/free-photo/football-cleats_1203-8160.jpg",
+        "https://img.freepik.com/free-photo/football-cleats_1203-8162.jpg"
+      ],
+      "discount": 25,
+      "stock": 25,
+      "uploadedDate": ""
+    },
+    {
+      "id": "308",
+      "productName": "Men's Gym Bag",
+      "productDesc": "Spacious and durable gym bag for everyday use.",
+      "cost": 50,
+      "vendorId": "407",
+      "categoryId": "501",
+      "subtypeId": "603",
+      "images": [
+        "https://img.freepik.com/free-photo/gym-bag_1203-8171.jpg",
+        "https://img.freepik.com/free-photo/gym-bag_1203-8173.jpg"
+      ],
+      "discount": 30,
+      "stock": 30,
+      "uploadedDate": ""
+    },
+    {
+      "id": "309",
+      "productName": "Men's Basketball Jersey",
+      "productDesc": "Breathable jersey designed for basketball players.",
+      "cost": 45,
+      "vendorId": "406",
+      "categoryId": "501",
+      "subtypeId": "601",
+      "images": [
+        "https://img.freepik.com/free-photo/basketball-jersey_1203-8143.jpg",
+        "https://img.freepik.com/free-photo/basketball-jersey_1203-8144.jpg"
+      ],
+      "discount": 15,
+      "stock": 40,
+      "uploadedDate": ""
+    },
+    {
+      "id": "310",
+      "productName": "Men's Training Shoes",
+      "productDesc": "Perfect shoes for gym and workout sessions.",
+      "cost": 75,
+      "vendorId": "405",
+      "categoryId": "501",
+      "subtypeId": "602",
+      "images": [
+        "https://img.freepik.com/free-photo/training-shoes_1203-8127.jpg",
+        "https://img.freepik.com/free-photo/training-shoes_1203-8128.jpg"
+      ],
+      "discount": 20,
+      "stock": 30,
+      "uploadedDate": ""
+    },
+    {
+      "id": "311",
+      "productName": "Women's Tennis Skirt",
+      "productDesc": "Stylish and flexible skirt for tennis players.",
+      "cost": 30,
+      "vendorId": "404",
+      "categoryId": "502",
+      "subtypeId": "601",
+      "images": [
+        "https://img.freepik.com/free-photo/tennis-skirt_1203-8130.jpg",
+        "https://img.freepik.com/free-photo/tennis-skirt_1203-8131.jpg"
+      ],
+      "discount": 25,
+      "stock": 40,
+      "uploadedDate": ""
+    },
+    {
+      "id": "312",
+      "productName": "Women's Running Shoes",
+      "productDesc": "Lightweight running shoes for active women.",
+      "cost": 60,
+      "vendorId": "405",
+      "categoryId": "502",
+      "subtypeId": "602",
+      "images": [
+        "https://img.freepik.com/free-photo/womens-running-shoes_1203-8124.jpg",
+        "https://img.freepik.com/free-photo/womens-running-shoes_1203-8125.jpg"
+      ],
+      "discount": 15,
+      "stock": 30,
+      "uploadedDate": ""
+    },
+    {
+      "id": "313",
+      "productName": "Women's Yoga Mat",
+      "productDesc": "Non-slip mat for yoga and pilates.",
+      "cost": 20,
+      "vendorId": "407",
+      "categoryId": "502",
+      "subtypeId": "603",
+      "images": [
+        "https://img.freepik.com/free-photo/yoga-mat_1203-8140.jpg",
+        "https://img.freepik.com/free-photo/yoga-mat_1203-8141.jpg"
+      ],
+      "discount": 10,
+      "stock": 50,
+      "uploadedDate": ""
+    },
+    {
+      "id": "314",
+      "productName": "Women's Gym Gloves",
+      "productDesc": "Padded gloves for better grip during workouts.",
+      "cost": 15,
+      "vendorId": "406",
+      "categoryId": "502",
+      "subtypeId": "603",
+      "images": [
+        "https://img.freepik.com/free-photo/gym-gloves_1203-8138.jpg",
+        "https://img.freepik.com/free-photo/gym-gloves_1203-8139.jpg"
+      ],
+      "discount": 20,
+      "stock": 80,
+      "uploadedDate": ""
+    },
+    {
+      "id": "315",
+      "productName": "Women's Sports Jacket",
+      "productDesc": "Windproof jacket for outdoor sports.",
+      "cost": 90,
+      "vendorId": "403",
+      "categoryId": "502",
+      "subtypeId": "601",
+      "images": [
+        "https://img.freepik.com/free-photo/sports-jacket_1203-8132.jpg",
+        "https://img.freepik.com/free-photo/sports-jacket_1203-8133.jpg"
+      ],
+      "discount": 35,
+      "stock": 20,
+      "uploadedDate": ""
+    },
+
+    {
+      "id": "316",
+      "productName": "Kids' Running T-Shirt",
+      "productDesc": "Breathable t-shirt for young runners.",
+      "cost": 15,
+      "vendorId": "405",
+      "categoryId": "503",
+      "subtypeId": "601",
+      "images": [
+        "https://img.freepik.com/free-photo/kids-tshirt_1203-8134.jpg",
+        "https://img.freepik.com/free-photo/kids-tshirt_1203-8135.jpg"
+      ],
+      "discount": 15,
+      "stock": 40,
+      "uploadedDate": ""
+    },
+    {
+      "id": "317",
+      "productName": "Kids' Football Shoes",
+      "productDesc": "Durable shoes for young football players.",
+      "cost": 25,
+      "vendorId": "407",
+      "categoryId": "503",
+      "subtypeId": "602",
+      "images": [
+        "https://img.freepik.com/free-photo/kids-football-shoes_1203-8136.jpg",
+        "https://img.freepik.com/free-photo/kids-football-shoes_1203-8137.jpg"
+      ],
+      "discount": 20,
+      "stock": 25,
+      "uploadedDate": ""
+    },
+    {
+      "id": "318",
+      "productName": "Kids' Backpack",
+      "productDesc": "Lightweight backpack for sports gear.",
+      "cost": 20,
+      "vendorId": "406",
+      "categoryId": "503",
+      "subtypeId": "603",
+      "images": [
+        "https://img.freepik.com/free-photo/kids-backpack_1203-8142.jpg",
+        "https://img.freepik.com/free-photo/kids-backpack_1203-8143.jpg"
+      ],
+      "discount": 10,
+      "stock": 50,
+      "uploadedDate": ""
+    },
+    {
+      "id": "319",
+      "productName": "Kids' Swimwear",
+      "productDesc": "Comfortable swimwear for kids.",
+      "cost": 18,
+      "vendorId": "404",
+      "categoryId": "503",
+      "subtypeId": "601",
+      "images": [
+        "https://img.freepik.com/free-photo/kids-swimwear_1203-8144.jpg",
+        "https://img.freepik.com/free-photo/kids-swimwear_1203-8145.jpg"
+      ],
+      "discount": 10,
+      "stock": 30,
+      "uploadedDate": ""
+    },
+    {
+      "id": "320",
+      "productName": "Kids' Sports Cap",
+      "productDesc": "Stylish cap for outdoor sports.",
+      "cost": 12,
+      "vendorId": "403",
+      "categoryId": "503",
+      "subtypeId": "603",
+      "images": [
+        "https://img.freepik.com/free-photo/kids-cap_1203-8146.jpg",
+        "https://img.freepik.com/free-photo/kids-cap_1203-8147.jpg"
+      ],
+      "discount": 5,
+      "stock": 100,
+      "uploadedDate": ""
     }
   ],
   "sub_types": [
@@ -257,22 +466,61 @@
       "name": "Accessories"
     }
   ],
+  "categories": [
+    {
+      "id": "501",
+      "categoryName": "Men",
+      "icon": "https://example.com/icons/men.png",
+      "subTypeIds": ["601", "602", "603"]
+    },
+    {
+      "id": "502",
+      "categoryName": "Women",
+      "icon": "https://example.com/icons/women.png",
+      "subTypeIds": ["601", "602", "603"]
+    },
+    {
+      "id": "503",
+      "categoryName": "Kids",
+      "icon": "https://example.com/icons/kids.png",
+      "subTypeIds": ["601", "602", "603"]
+    }
+  ],
   "vendors": [
     {
       "id": "401",
       "companyName": "ActiveWear Co.",
-      "email": "contact@activewearco.com",
-      "product_ids": [
-        "301"
-      ]
+      "email": "contact@activewearco.com"
     },
     {
       "id": "402",
       "companyName": "Yoga Essentials",
-      "email": "support@yogaessentials.com",
-      "product_ids": [
-        "302"
-      ]
+      "email": "support@yogaessentials.com"
+    },
+    {
+      "id": "403",
+      "companyName": "ProSports",
+      "email": "info@prosports.com"
+    },
+    {
+      "id": "404",
+      "companyName": "FitGear",
+      "email": "sales@fitgear.com"
+    },
+    {
+      "id": "405",
+      "companyName": "EliteActive",
+      "email": "elite@active.com"
+    },
+    {
+      "id": "406",
+      "companyName": "KidsZone",
+      "email": "support@kidszone.com"
+    },
+    {
+      "id": "407",
+      "companyName": "SportyStyle",
+      "email": "contact@sportystyle.com"
     }
   ],
   "users": [

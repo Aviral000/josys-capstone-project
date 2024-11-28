@@ -1,97 +1,197 @@
-import React from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { debounce } from 'lodash';
+import { useProduct } from '../../customs/hooks/useProduct';
 import ProDropper from '../../customs/components/ProDropper.module';
+import { Search, ShoppingCart, User } from 'lucide-react';
+import RegSlider from '../../customs/components/RegSlider.module';
 
-interface NavItem {
-  name: string;
-  path: string;
-}
+// Types for better type safety
+type Product = {
+  id: string;
+  productName: string;
+  cost: number;
+  images: string[];
+};
 
-const navItems: NavItem[] = [
-  { name: 'Home', path: '/' },
-  { name: 'Men', path: '/shop/men-clothing' },
-  { name: 'Women', path: '/shop/women-clothing' },
-  { name: 'Kids', path: '/shop/kids-clothing' },
-  { name: 'Sale', path: '/sale' },
-];
+// Separate SearchResult component for better organization
+const SearchResult = ({ 
+  product, 
+  onSelect 
+}: { 
+  product: Product; 
+  onSelect: () => void;
+}) => (
+  <Link
+    to={`/product/${product.id}`}
+    className="block p-2 hover:bg-gray-100 rounded-md transition-colors duration-200"
+    onClick={onSelect}
+  >
+    <div className="flex items-center space-x-3">
+      <img 
+        src={product.images[0]} 
+        alt={product.productName}
+        className="w-12 h-12 object-cover rounded-md"
+      />
+      <div>
+        <p className="font-medium">{product.productName}</p>
+        <p className="text-sm text-gray-500">₹{product.cost.toFixed(2)}</p>
+      </div>
+    </div>
+  </Link>
+);
 
-const Header: React.FC = () => {
+// Separate SearchBox component for better modularity
+const SearchBox = ({
+  isOpen,
+  searchTerm,
+  onSearchChange,
+  searchResults,
+  onResultSelect
+}: {
+  isOpen: boolean;
+  searchTerm: string;
+  onSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  searchResults: Product[];
+  onResultSelect: () => void;
+}) => {
+  if (!isOpen) return null;
+
   return (
-    <header className="bg-white shadow-md">
+    <div 
+      className="absolute top-12 right-0 w-96 bg-white shadow-lg rounded-lg p-4 border"
+      style={{ 
+        position: 'absolute',
+        zIndex: 10000,
+      }}
+    >
+      <input
+        type="text"
+        className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="Search for products..."
+        value={searchTerm}
+        onChange={onSearchChange}
+        autoFocus
+      />
+      <div className="mt-4 max-h-64 overflow-y-auto">
+        {searchResults.length > 0 ? (
+          searchResults.map((product) => (
+            <SearchResult
+              key={product.id}
+              product={product}
+              onSelect={onResultSelect}
+            />
+          ))
+        ) : searchTerm ? (
+          <p className="text-gray-500 p-2">No products found.</p>
+        ) : null}
+      </div>
+    </div>
+  );
+};
+
+const Header = () => {
+  const { products } = useProduct();
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState<Product[]>([]);
+  const [showSearchBox, setShowSearchBox] = useState(false);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
+
+  const debouncedSearch = useCallback(
+    debounce((query: string) => {
+      if (!products) return;
+      
+      if (query.trim()) {
+        const filteredProducts = products.filter((product) =>
+          product.productName.toLowerCase().includes(query.toLowerCase())
+        );
+        setSearchResults(filteredProducts);
+      } else {
+        setSearchResults([]);
+      }
+    }, 300),
+    [products]
+  );
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const query = e.target.value;
+    setSearchTerm(query);
+    debouncedSearch(query);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        searchContainerRef.current && 
+        !searchContainerRef.current.contains(event.target as Node)
+      ) {
+        setShowSearchBox(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const navigationItems = [
+    {
+      to: "/cart",
+      ariaLabel: "Cart",
+      icon: ShoppingCart
+    },
+    {
+      to: "/profile",
+      ariaLabel: "Profile",
+      icon: User
+    }
+  ];
+
+  return (
+    <header className="bg-white shadow-md relative" style={{ zIndex: 9999 }}>
       <div className="container mx-auto flex justify-between items-center p-4">
         <Link to="/" className="text-2xl font-bold text-gray-800">
           Active Attire
         </Link>
-        {/* <nav>
-          <ul className="flex space-x-10 font-bold">
-            {navItems.map((item) => (
-              <li key={item.name}>
-                <Link
-                  to={item.path}
-                  className="text-gray-600 hover:text-gray-800 transition-colors duration-200"
-                >
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav> */}
+
         <ProDropper />
+
         <div className="flex items-center space-x-4">
-          <Link to="/search" aria-label="Search">
-            <svg
-              className="w-6 h-6 text-gray-600 hover:text-gray-800 transition-colors duration-200"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+          <div ref={searchContainerRef} className="relative" style={{ position: 'relative', zIndex: 9999 }}>
+            <button
+              onClick={() => setShowSearchBox(!showSearchBox)}
+              className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
+              aria-label="Search"
+              aria-expanded={showSearchBox}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
-              />
-            </svg>
-          </Link>
-          <Link to="/cart" aria-label="Cart">
-            <svg
-              className="w-6 h-6 text-gray-600 hover:text-gray-800 transition-colors duration-200"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+              <Search className="w-6 h-6 text-gray-600 hover:text-gray-800 transition-colors duration-200" />
+            </button>
+
+            <SearchBox
+              isOpen={showSearchBox}
+              searchTerm={searchTerm}
+              onSearchChange={handleSearchChange}
+              searchResults={searchResults}
+              onResultSelect={() => setShowSearchBox(false)}
+            />
+          </div>
+
+          {navigationItems.map(({ to, ariaLabel, icon: Icon }) => (
+            <Link
+              key={to}
+              to={to}
+              className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
+              aria-label={ariaLabel}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.5 6m0 0h11m-11 0a1.5 1.5 0 11-3 0m14.5 0a1.5 1.5 0 11-3 0"
-              />
-            </svg>
-          </Link>
-          <Link to="/profile" aria-label="Profile">
-            <svg
-              className="w-6 h-6 text-gray-600 hover:text-gray-800 transition-colors duration-200"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5.121 17.804A9 9 0 1112 21a9 9 0 01-6.879-3.196z"
-              />
-            </svg>
-          </Link>
+              <Icon className="w-6 h-6 text-gray-600 hover:text-gray-800 transition-colors duration-200" />
+            </Link>
+          ))}
+          <div className="fixed right-8 z-50">
+            <RegSlider />
+          </div>
         </div>
       </div>
     </header>
   );
 };
 
-const MemoizedHeader = React.memo(Header);
-
-export default MemoizedHeader;
+export default React.memo(Header);

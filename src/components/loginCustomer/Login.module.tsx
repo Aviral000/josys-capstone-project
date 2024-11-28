@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import back1 from '../../assets/main/bg-4.webp';
 import { isValidEmail } from './Login.validator';
 import { verifyCustomer } from '../../services/Customer.service';
+import { customerContext } from '../../contextAPI/customers/createContext';
 
 type UserForm = {
   email: string,
@@ -14,10 +15,15 @@ type UserForm = {
 const Login: React.FC = () => {
     const [formData, setFormData] = useState<UserForm>({ email: '', password: '' });
     const navigate = useNavigate();
+    const { setIsLoggedIn, setUserId, setCartId, setRole } = useContext(customerContext);
 
     const mutation = useMutation({
         mutationFn: ({ email, password }: { email: string; password: string }) => verifyCustomer(email, password),
-        onSuccess: () => {
+        onSuccess: (data) => {
+            setIsLoggedIn(true);
+            setUserId(data.id);
+            setCartId(data.cartId || undefined);
+            setRole(data.roleId || 'Customer');
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',

@@ -1,11 +1,10 @@
-import React, { useLayoutEffect, useRef } from 'react'
+import  { useLayoutEffect, useRef } from 'react'
 import MemoizedHeader from '../components/header/Header.module';
 import AdBannerModule from '../components/header/AdBanner.module';
-import ResponsiveBanner from '../components/advertisement/ResponsiveBanner.module';
 import gsap from 'gsap';
-import CategoryFirstModule from '../components/menclothes/MenCategory.module';
+import Cart from '../components/cart/Cart.module';
 
-const MenClothing = () => {
+const CartPage = () => {
     const containerRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
@@ -33,13 +32,10 @@ const MenClothing = () => {
             <MemoizedHeader />
         </div>
         <div>
-            <ResponsiveBanner />
-        </div>
-        <div>
-            <CategoryFirstModule />
+            <Cart />
         </div>
         </>
     )
 }
 
-export default MenClothing
+export default CartPage

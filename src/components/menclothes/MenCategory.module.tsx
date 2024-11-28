@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { memo, useEffect, useState, useRef } from "react";
 import SubCategoryCarousel from "../../customs/components/SubCategory.module";
 import { useCategory } from "../../customs/hooks/useCategory";
 import { useProduct } from "../../customs/hooks/useProduct";
@@ -7,23 +7,21 @@ import { getAllSubCategories } from "../../services/SubCategory.service";
 import { SubType } from "../../models/Category.type";
 import { FaFilter } from "react-icons/fa";
 
-const CategoryFirst: React.FC = () => {
+const MenCategory: React.FC = () => {
   const { categories, isFetchingCategories, fetchError: categoryFetchError } = useCategory();
   const { products, isFetchingProducts, fetchError: productFetchError } = useProduct();
-
-  const {
-    data: subTypes = [],
-    error: subTypeFetchError,
-    isError: isSubTypeFetchError,
-    isLoading: isFetchingSubTypes,
-  } = useQuery<SubType[], Error>({
-    queryKey: ["subTypes"],
-    queryFn: getAllSubCategories,
-  });
+  
+  const { data: subTypes = [], error: subTypeFetchError, isLoading: isFetchingSubTypes } =
+    useQuery<SubType[], Error>({
+      queryKey: ["subTypes"],
+      queryFn: getAllSubCategories,
+    });
 
   const [filterDrawerOpen, setFilterDrawerOpen] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
+
+  const subTypeRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   useEffect(() => {
     if (products?.length && categories?.length) {
@@ -37,13 +35,8 @@ const CategoryFirst: React.FC = () => {
     return <div>Loading...</div>;
   }
 
-  if (categoryFetchError || productFetchError || isSubTypeFetchError) {
-    return (
-      <div>
-        Error fetching data:{" "}
-        {categoryFetchError?.message || productFetchError?.message || subTypeFetchError?.message}
-      </div>
-    );
+  if (categoryFetchError || productFetchError || subTypeFetchError) {
+    return <div>Error fetching data.</div>;
   }
 
   const menCategory = categories!.find((category) => category.categoryName === "Men");
@@ -70,10 +63,18 @@ const CategoryFirst: React.FC = () => {
   const handleSubCategoryFilter = (subTypeId: string) => {
     const menProducts = products!.filter((product) => product.categoryId === menCategory?.id);
     setFilteredProducts(menProducts.filter((product) => product.subtypeId === subTypeId));
+    scrollToSubCategory(subTypeId);
   };
 
   const toggleFilterDrawer = () => {
     setFilterDrawerOpen(!filterDrawerOpen);
+  };
+
+  const scrollToSubCategory = (subTypeId: string) => {
+    const targetRef = subTypeRefs.current[subTypeId];
+    if (targetRef) {
+      targetRef.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
@@ -91,8 +92,6 @@ const CategoryFirst: React.FC = () => {
       {filterDrawerOpen && (
         <div className="absolute right-0 top-16 bg-white border-l shadow-lg w-80 h-full p-4 z-50">
           <h2 className="text-lg font-semibold mb-4">Filter Products</h2>
-
-          {/* Search */}
           <div className="mb-4">
             <label htmlFor="search" className="block text-sm font-medium mb-2">
               Search by Name
@@ -112,7 +111,6 @@ const CategoryFirst: React.FC = () => {
             </button>
           </div>
 
-          {/* Subcategory Filters */}
           <div>
             <h3 className="text-sm font-semibold mb-2">Subcategories</h3>
             {menSubTypes?.map((subType) => (
@@ -135,22 +133,25 @@ const CategoryFirst: React.FC = () => {
         </div>
       )}
 
-      {/* Subcategories */}
       <h2 className="text-lg font-semibold mb-2">Subcategories</h2>
       <div className="flex flex-wrap gap-4">
         {menSubTypes?.map((subType) => (
           <div
             key={subType?.id}
-            className="border p-2 rounded-md shadow-md bg-gray-100 text-center"
+            className="border p-2 rounded-md shadow-md bg-gray-100 text-center cursor-pointer"
+            onClick={() => scrollToSubCategory(subType?.id!)}
           >
             <p className="font-medium">{subType?.name}</p>
           </div>
         ))}
       </div>
 
-      {/* Product Carousels */}
       {menSubTypes?.map((subType) => (
-        <div key={subType?.id} className="mt-8">
+        <div
+          key={subType?.id}
+          className="mt-8"
+          ref={(el) => (subTypeRefs.current[subType?.id!] = el)}
+        >
           <h2 className="text-xl font-semibold mb-4">{subType?.name}</h2>
           <SubCategoryCarousel
             products={filteredProducts.filter((product) => product.subtypeId === subType?.id)}
@@ -161,4 +162,4 @@ const CategoryFirst: React.FC = () => {
   );
 };
 
-export default memo(CategoryFirst);
+export default memo(MenCategory);

@@ -1,11 +1,11 @@
-import React, { useLayoutEffect, useRef } from 'react'
+import  { useLayoutEffect, useRef } from 'react'
 import MemoizedHeader from '../components/header/Header.module';
 import AdBannerModule from '../components/header/AdBanner.module';
 import ResponsiveBanner from '../components/advertisement/ResponsiveBanner.module';
 import gsap from 'gsap';
-import CategoryFirstModule from '../components/menclothes/MenCategory.module';
+import KidsCategoryModule from '../components/kidsclothes/KidsCategory.module';
 
-const MenClothing = () => {
+const KidsClothing = () => {
     const containerRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
@@ -36,10 +36,10 @@ const MenClothing = () => {
             <ResponsiveBanner />
         </div>
         <div>
-            <CategoryFirstModule />
+            <KidsCategoryModule />
         </div>
         </>
     )
 }
 
-export default MenClothing
+export default KidsClothing

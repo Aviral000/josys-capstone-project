@@ -83,3 +83,12 @@ export const deleteCustomer = async (id: string): Promise<void> => {
         throw new Error(`Failed to delete customer with id ${id}: ${error}`);
     }
 };
+
+export const updateCustomerCart = async (id: string, cartId: string): Promise<Customer> => {
+    try {
+        const response = await axios.patch(`${BASE_URL}/${id}`, { cartId });
+        return response.data;
+    } catch (error) {
+        throw new Error(`Failed to update cart for customer with id ${id}: ${error}`);
+    }
+};

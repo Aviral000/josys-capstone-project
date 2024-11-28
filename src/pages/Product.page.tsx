@@ -1,11 +1,10 @@
-import React, { useLayoutEffect, useRef } from 'react'
+import React, { memo, useLayoutEffect, useRef } from 'react'
 import MemoizedHeader from '../components/header/Header.module';
 import AdBannerModule from '../components/header/AdBanner.module';
-import ResponsiveBanner from '../components/advertisement/ResponsiveBanner.module';
 import gsap from 'gsap';
-import CategoryFirstModule from '../components/menclothes/MenCategory.module';
+import ProductDetail from '../components/products/ProductDetail.module';
 
-const MenClothing = () => {
+const Product = () => {
     const containerRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
@@ -33,13 +32,10 @@ const MenClothing = () => {
             <MemoizedHeader />
         </div>
         <div>
-            <ResponsiveBanner />
-        </div>
-        <div>
-            <CategoryFirstModule />
+            <ProductDetail />
         </div>
         </>
     )
 }
 
-export default MenClothing
+export default memo(Product)
