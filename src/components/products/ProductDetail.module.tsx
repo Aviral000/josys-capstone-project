@@ -5,6 +5,7 @@ import { useProduct } from "../../customs/hooks/useProduct";
 import { useCustomer } from "../../customs/hooks/useCustomer";
 import { customerContext } from "../../contextAPI/customers/createContext";
 import { useCart } from "../../customs/hooks/useCart";
+import Swal from 'sweetalert2';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -17,11 +18,13 @@ const ProductDetail = () => {
   const { userId, cartId } = useContext(customerContext);
   const { cart, updateCart } = useCart(cartId);
 
-  console.log(cartId);
-
   const handleAddToCart = async () => {
     if (!cartId) {
-      alert("Cart not found!");
+      Swal.fire({
+        icon: "error",
+        title: "Cart not found!",
+        text: "Please try again later.",
+      });
       return;
     }
   
@@ -36,19 +39,37 @@ const ProductDetail = () => {
     );
   
     if (existingItemIndex >= 0) {
-      updatedItems[existingItemIndex].quantity += newItem.quantity;
+      Swal.fire({
+        icon: "info",
+        title: "Already in Cart",
+        text: `${product?.productName} is already in your cart.`,
+        timer: 2000,
+        showConfirmButton: false,
+      });
+      return;
     } else {
       updatedItems.push(newItem);
     }
   
-    const updatedCart = { customerId: userId ,items: updatedItems };
+    const updatedCart = { customerId: userId, items: updatedItems };
   
     try {
       await updateCart.mutateAsync({ id: cartId, updates: updatedCart });
-      navigate('/cart');
+      Swal.fire({
+        icon: "success",
+        title: "Added to Cart",
+        text: `${product?.productName} has been added to your cart.`,
+        timer: 2000,
+        showConfirmButton: false,
+      });
+      navigate("/cart");
     } catch (error) {
       console.error("Error updating cart:", error);
-      alert("Failed to update cart. Please try again.");
+      Swal.fire({
+        icon: "error",
+        title: "Failed to Add",
+        text: "An error occurred while adding the item to your cart. Please try again.",
+      });
     }
   };
   
