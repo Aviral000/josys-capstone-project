@@ -11,7 +11,6 @@ import { Category } from '../../models/Category.type';
 const useCategory = (categoryId?: string) => {
   const queryClient = useQueryClient();
 
-  // Fetch all categories
   const {
     data: categories,
     error: fetchError,
@@ -22,7 +21,6 @@ const useCategory = (categoryId?: string) => {
     queryFn: getAllCategories,
   });
 
-  // Fetch a single category by ID
   const {
     data: category,
     error: fetchErrorById,
@@ -34,7 +32,6 @@ const useCategory = (categoryId?: string) => {
     enabled: !!categoryId,
   });
 
-  // Create a category
   const createCategoryMutation = useMutation({
     mutationFn: createCategory,
     onSuccess: () => {
@@ -42,7 +39,6 @@ const useCategory = (categoryId?: string) => {
     },
   });
 
-  // Update a category
   const updateCategoryMutation = useMutation({
     mutationFn: ({ id, updates }: { id: string; updates: Partial<Category> }) =>
       updateCategory(id, updates),
@@ -51,7 +47,6 @@ const useCategory = (categoryId?: string) => {
     },
   });
 
-  // Delete a category
   const deleteCategoryMutation = useMutation({
     mutationFn: deleteCategory,
     onSuccess: () => {

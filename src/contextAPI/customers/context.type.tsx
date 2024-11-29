@@ -9,4 +9,5 @@ export interface ContextType {
   setUserId: React.Dispatch<React.SetStateAction<string>>;
   setCartId: React.Dispatch<React.SetStateAction<string | undefined>>;
   setRole: React.Dispatch<React.SetStateAction<string>>;
+  logout: () => void
 }

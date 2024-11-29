@@ -2,6 +2,7 @@ import { Customer } from "../models/Customer.type";
 import axios from "axios";
 import { config } from "../utils/config";
 import { hashPassword, verifyPassword } from "../utils/encryption";
+import { createCart } from "./Cart.service";
 
 const BASE_URL: string | undefined = `${config.BASE_URL}/customers`;
 
@@ -59,8 +60,15 @@ export const createCustomer = async (customer: Customer): Promise<Customer> => {
         }
 
         const encryptedPwd = await hashPassword(customer.password);
+        
+        const cartObj = {
+            customerId: customer!.id,
+            items: []
+        }
 
-        const response = await axios.post(BASE_URL, { ...customer, password: encryptedPwd });
+        const newCart = await createCart(cartObj);
+
+        const response = await axios.post(BASE_URL, { ...customer, password: encryptedPwd, cartId: newCart.id });
         return response.data;
     } catch (error) {
         throw new Error(`Failed to create customer: ${error}`);
@@ -81,14 +89,5 @@ export const deleteCustomer = async (id: string): Promise<void> => {
         await axios.delete(`${BASE_URL}/${id}`);
     } catch (error) {
         throw new Error(`Failed to delete customer with id ${id}: ${error}`);
-    }
-};
-
-export const updateCustomerCart = async (id: string, cartId: string): Promise<Customer> => {
-    try {
-        const response = await axios.patch(`${BASE_URL}/${id}`, { cartId });
-        return response.data;
-    } catch (error) {
-        throw new Error(`Failed to update cart for customer with id ${id}: ${error}`);
     }
 };

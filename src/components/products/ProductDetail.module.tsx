@@ -1,35 +1,57 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Truck, RotateCcw, Shield, Package } from "lucide-react";
 import { useProduct } from "../../customs/hooks/useProduct";
-import { updateCustomerCart } from "../../services/Customer.service";
 import { useCustomer } from "../../customs/hooks/useCustomer";
+import { customerContext } from "../../contextAPI/customers/createContext";
+import { useCart } from "../../customs/hooks/useCart";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
-  const [cartHover, setCartHover] = useState(false);
 
   const { product, isFetchingProduct, fetchErrorId } = useProduct(id);
   const { customer, isFetchingCustomer } = useCustomer();
+  const { userId, cartId } = useContext(customerContext);
+  const { cart, updateCart } = useCart(cartId);
+
+  console.log(cartId);
 
   const handleAddToCart = async () => {
-    if (!customer) {
-      alert("Please log in to add items to the cart");
+    if (!cartId) {
+      alert("Cart not found!");
       return;
     }
-
+  
+    const newItem = {
+      productId: product?.id!,
+      quantity: quantity,
+    };
+  
+    const updatedItems = [...(cart?.items || [])];
+    const existingItemIndex = updatedItems.findIndex(
+      (item) => item.productId === newItem.productId
+    );
+  
+    if (existingItemIndex >= 0) {
+      updatedItems[existingItemIndex].quantity += newItem.quantity;
+    } else {
+      updatedItems.push(newItem);
+    }
+  
+    const updatedCart = { customerId: userId ,items: updatedItems };
+  
     try {
-      const updatedCustomer = await updateCustomerCart(customer.id, product!.id);
-      console.log("Cart updated:", updatedCustomer);
-      alert("Product added to cart successfully!");
+      await updateCart.mutateAsync({ id: cartId, updates: updatedCart });
+      navigate('/cart');
     } catch (error) {
       console.error("Error updating cart:", error);
-      alert("Failed to add product to cart. Please try again.");
+      alert("Failed to update cart. Please try again.");
     }
   };
+  
 
   if (isFetchingProduct || isFetchingCustomer) return <div>Loading...</div>;
   if (fetchErrorId) return <div>Error: {fetchErrorId.message}</div>;

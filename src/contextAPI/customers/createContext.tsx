@@ -5,9 +5,10 @@ export const customerContext = createContext<ContextType>({
   isLoggedIn: false,
   userId: '',
   cartId: '',
-  role: 'Customer',
+  role: '',
   setIsLoggedIn: () => {},
   setUserId: () => {},
   setCartId: () => {},
   setRole: () => {},
+  logout: () => {}
 });

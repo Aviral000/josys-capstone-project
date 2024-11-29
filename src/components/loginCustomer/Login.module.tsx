@@ -15,15 +15,28 @@ type UserForm = {
 const Login: React.FC = () => {
     const [formData, setFormData] = useState<UserForm>({ email: '', password: '' });
     const navigate = useNavigate();
-    const { setIsLoggedIn, setUserId, setCartId, setRole } = useContext(customerContext);
+    const { setIsLoggedIn, setUserId, setCartId, setRole, cartId } = useContext(customerContext);
 
     const mutation = useMutation({
         mutationFn: ({ email, password }: { email: string; password: string }) => verifyCustomer(email, password),
         onSuccess: (data) => {
+            const user = Array.isArray(data) ? data[0] : data;
+
+            if (!user) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'No user data found',
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+                return;
+            }
+
             setIsLoggedIn(true);
-            setUserId(data.id);
-            setCartId(data.cartId || undefined);
-            setRole(data.roleId || 'Customer');
+            setUserId(user.id || '');
+            setCartId(user.cartId || undefined);
+            setRole(user.role || 'Customer');
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',

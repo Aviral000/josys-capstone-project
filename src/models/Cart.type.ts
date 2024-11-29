@@ -1,6 +1,6 @@
 export interface Cart {
-    id: string;
-    customerId: string;
+    id?: string;
+    customerId?: string;
     items: CartItem[];
 }
   

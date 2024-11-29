@@ -4,7 +4,7 @@ import { customerContext } from '../../contextAPI/customers/createContext';
 const RegSlider: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const { role, setIsLoggedIn, setUserId, setCartId, setRole } = useContext(customerContext);
+  const { isLoggedIn, logout } = useContext(customerContext);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -28,11 +28,7 @@ const RegSlider: React.FC = () => {
   }, [isOpen]);
 
   const handleLogout = () => {
-    setIsLoggedIn(false);
-    setUserId('');
-    setCartId(undefined);
-    setRole('Customer');
-    setIsOpen(false);
+    logout();
   };
 
   return (
@@ -46,7 +42,7 @@ const RegSlider: React.FC = () => {
 
       {isOpen && (
         <>
-          {!role || role === 'Customer' ? (
+          {!isLoggedIn ? (
             <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
               <div className="py-1 font-semibold" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                 <a
@@ -80,11 +76,11 @@ const RegSlider: React.FC = () => {
               </div>
             </div>
           ) : (
-            <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+            <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-red-800 ring-1 ring-red ring-opacity-5">
               <div className="py-1 font-semibold" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                 <button
                   onClick={handleLogout}
-                  className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  className="block w-full text-left px-4 py-2 text-sm text-red-100 hover:bg-red-900"
                   role="menuitem"
                 >
                   Logout

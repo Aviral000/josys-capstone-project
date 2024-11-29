@@ -8,10 +8,9 @@ import {
 } from "../../services/Customer.service";
 import { Customer } from "../../models/Customer.type";
 
-const useCustomer = (customerId?: string) => {
+export const useCustomer = (customerId?: string) => {
   const queryClient = useQueryClient();
 
-  // Fetch all customers
   const {
     data: customers,
     error: fetchError,
@@ -22,7 +21,6 @@ const useCustomer = (customerId?: string) => {
     queryFn: getAllCustomers,
   });
 
-  // Fetch a single customer by ID
   const {
     data: customer,
     error: fetchErrorId,
@@ -34,15 +32,13 @@ const useCustomer = (customerId?: string) => {
     enabled: !!customerId,
   });
 
-  // Mutation to create a customer
   const createCustomerMutation = useMutation({
     mutationFn: createCustomer,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["customers"] }); // Refetch customers
+      queryClient.invalidateQueries({ queryKey: ["customers"] });
     },
   });
 
-  // Mutation to update a customer
   const updateCustomerMutation = useMutation({
     mutationFn: ({ id, updates }: { id: string; updates: Partial<Customer> }) =>
       updateCustomer(id, updates),
@@ -52,7 +48,6 @@ const useCustomer = (customerId?: string) => {
     },
   });
 
-  // Mutation to delete a customer
   const deleteCustomerMutation = useMutation({
     mutationFn: deleteCustomer,
     onSuccess: () => {
@@ -74,5 +69,3 @@ const useCustomer = (customerId?: string) => {
     deleteCustomer: deleteCustomerMutation,
   };
 };
-
-export { useCustomer };

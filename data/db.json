@@ -85,6 +85,18 @@
       "roleId": "3",
       "addressIds": [],
       "cartId": ""
+    },
+    {
+      "firstName": "Aviral",
+      "lastName": "Malik",
+      "email": "avim@gmail.com",
+      "phoneNumber": "9528410058",
+      "password": "$2a$10$Wz3nmV4uUOcPtCVczF1RI.dTBrGdQK8gG3IlWEAcQD3QrNDc.2Ff2",
+      "id": "ee80cd0e-f378-417f-bcb7-36dcc2c89805",
+      "name": "Aviral Malik",
+      "roleId": "3",
+      "addressIds": [],
+      "cartId": "5168708a-5858-4dc5-b38a-bc1f615d1658"
     }
   ],
   "addresses": [
@@ -117,6 +129,15 @@
           "quantity": 1
         }
       ]
+    },
+    {
+      "items": [
+        {
+          "productId": "302",
+          "quantity": 2
+        }
+      ],
+      "id": "5168708a-5858-4dc5-b38a-bc1f615d1658"
     }
   ],
   "products": [
@@ -370,7 +391,6 @@
       "stock": 20,
       "uploadedDate": ""
     },
-
     {
       "id": "316",
       "productName": "Kids' Running T-Shirt",
@@ -471,19 +491,31 @@
       "id": "501",
       "categoryName": "Men",
       "icon": "https://example.com/icons/men.png",
-      "subTypeIds": ["601", "602", "603"]
+      "subTypeIds": [
+        "601",
+        "602",
+        "603"
+      ]
     },
     {
       "id": "502",
       "categoryName": "Women",
       "icon": "https://example.com/icons/women.png",
-      "subTypeIds": ["601", "602", "603"]
+      "subTypeIds": [
+        "601",
+        "602",
+        "603"
+      ]
     },
     {
       "id": "503",
       "categoryName": "Kids",
       "icon": "https://example.com/icons/kids.png",
-      "subTypeIds": ["601", "602", "603"]
+      "subTypeIds": [
+        "601",
+        "602",
+        "603"
+      ]
     }
   ],
   "vendors": [

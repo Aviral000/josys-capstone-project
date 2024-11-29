@@ -8,20 +8,26 @@ import WomenClothing from './pages/WomenClothing.page';
 import KidsClothing from './pages/KidsClothing.page';
 import ProductPage from './pages/Product.page';
 import CartPage from './pages/Cart.page';
+import { CustomerProvider } from './contextAPI/customers/contextProvider';
+import CProtectedRoute from './route/CProtected.route';
 
 const App: React.FC = () => {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/user-register" element={<SignupPage />} />
-        <Route path='/user-login' element={<LoginPage />} />
-        <Route path='/shop/men-clothing' element={<MenClothing />} />
-        <Route path='/shop/women-clothing' element={<WomenClothing />} />
-        <Route path='/shop/kids-clothing' element={<KidsClothing />} />
-        <Route path='/product/:id' element={<ProductPage />} />
-        <Route path='/cart' element={<CartPage />} />
-      </Routes>
+      <CustomerProvider>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/user-register" element={<SignupPage />} />
+          <Route path='/user-login' element={<LoginPage />} />
+          <Route element={<CProtectedRoute />}>
+            <Route path='/shop/men-clothing' element={<MenClothing />} />
+            <Route path='/shop/women-clothing' element={<WomenClothing />} />
+            <Route path='/shop/kids-clothing' element={<KidsClothing />} />
+            <Route path='/product/:id' element={<ProductPage />} />
+            <Route path='/cart' element={<CartPage />} />
+          </Route>
+        </Routes>
+      </CustomerProvider>
     </Router>
   );
 };

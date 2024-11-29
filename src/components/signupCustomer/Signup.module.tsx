@@ -1,217 +1,224 @@
-import React, { useState } from 'react';
-import { useMutation } from '@tanstack/react-query';
-import { Customer } from '../../models/Customer.type';
-import { createCustomer } from '../../services/Customer.service';
-import { v4 as uuidv4 } from 'uuid';
-import { useNavigate } from 'react-router-dom';
-import back1 from '../../assets/main/bg-4.webp';
-import Swal from 'sweetalert2';
-import { doPasswordsMatch, isStrongPassword, isValidEmail, isValidPhoneNumber } from './Signup.validator';
+import React, { useState } from "react";
+import { Customer } from "../../models/Customer.type";
+import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import {
+  doPasswordsMatch,
+  isStrongPassword,
+  isValidEmail,
+  isValidPhoneNumber,
+} from "./Signup.validator";
+import { useCustomer } from "../../customs/hooks/useCustomer";
+import back1 from "../../assets/main/bg-4.webp";
 
 const Signup: React.FC = () => {
-    const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phoneNumber: '',
-        password: '',
-        confirm_password: ''
-    });
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    password: "",
+    confirm_password: "",
+  });
+  const { createCustomer } = useCustomer();
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
-    const mutation = useMutation({
-        mutationFn: (data: Omit<Customer, 'id' | 'addressIds' | 'cartId'>) => 
-            createCustomer({
-                ...data,
-                id: uuidv4(),
-                name: `${data.firstName} ${data.lastName}`,
-                roleId: '3',
-                addressIds: [],
-                cartId: ""
-            }),
-        onSuccess: () => {
-            Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "Registration Successful",
-                showConfirmButton: false,
-                timer: 1500
-            });
-            navigate('/user-login');
-        },
-        onError: (error) => {
-            Swal.fire({
-                position: "top-end",
-                icon: "error",
-                title: `${error.message}`,
-                showConfirmButton: false,
-                timer: 5000
-            });
-        }
-    });
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFormData(prev => ({
-            ...prev,
-            [e.target.name]: e.target.value
-        }));
+    if (!isValidEmail(formData.email)) {
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Invalid email format",
+        showConfirmButton: false,
+        timer: 5000,
+      });
+      return;
+    }
+
+    if (!isValidPhoneNumber(formData.phoneNumber)) {
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Invalid phone number. It should start with 6-9 and be 10 digits long.",
+        showConfirmButton: false,
+        timer: 5000,
+      });
+      return;
+    }
+
+    if (!isStrongPassword(formData.password)) {
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title:
+          "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.",
+        showConfirmButton: false,
+        timer: 5000,
+      });
+      return;
+    }
+
+    if (!doPasswordsMatch(formData.password, formData.confirm_password)) {
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Passwords do not match",
+        showConfirmButton: false,
+        timer: 5000,
+      });
+      return;
+    }
+
+    const { confirm_password, ...customerData } = formData;
+    const newCustomer: Customer = {
+      ...customerData,
+      id: uuidv4(),
+      name: `${customerData.firstName} ${customerData.lastName}`,
+      roleId: "3",
+      addressIds: [],
+      cartId: "",
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-    
-        if (!isValidEmail(formData.email)) {
-            Swal.fire({
-                position: "top-end",
-                icon: "error",
-                title: "Invalid email format",
-                showConfirmButton: false,
-                timer: 5000
-            });
-            return;
-        }
-    
-        if (!isValidPhoneNumber(formData.phoneNumber)) {
-            Swal.fire({
-                position: "top-end",
-                icon: "error",
-                title: "Invalid phone number. It should start with 6-9 and be 10 digits long.",
-                showConfirmButton: false,
-                timer: 5000
-            });
-            return;
-        }
-    
-        if (!isStrongPassword(formData.password)) {
-            Swal.fire({
-                position: "top-end",
-                icon: "error",
-                title: "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.",
-                showConfirmButton: false,
-                timer: 5000
-            });
-            return;
-        }
-    
-        if (!doPasswordsMatch(formData.password, formData.confirm_password)) {
-            Swal.fire({
-                position: "top-end",
-                icon: "error",
-                title: "Passwords do not match",
-                showConfirmButton: false,
-                timer: 5000
-            });
-            return;
-        }
-    
-        const { confirm_password, ...customerData } = formData;
-        const newCustomer = {
-            ...customerData,
-            id: uuidv4(),
-            name: `${customerData.firstName} ${customerData.lastName}`,
-            roleId: '3',
-            addressIds: []
-        };
+    createCustomer.mutate(newCustomer, {
+      onSuccess: () => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Registration Successful",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate("/user-login");
+      },
+      onError: (error: any) => {
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: `${error.message}`,
+          showConfirmButton: false,
+          timer: 5000,
+        });
+      },
+    });
+  };
 
-        mutation.mutate(newCustomer);
-    };
-
-    return (
-        <div className="min-h-screen flex items-center justify-center">
-            <div 
-                className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat blur-sm"
-                style={{ backgroundImage: `url(${back1})` }}
-            />
-            
-            <div className="relative z-10 w-full max-w-md p-8 bg-white bg-opacity-60 backdrop-blur-lg rounded-2xl shadow-xl">
-                <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Create Account</h2>
-                
-                <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-2 gap-4">
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700">First Name</label>
-                            <input
-                                type="text"
-                                name="firstName"
-                                value={formData.firstName}
-                                onChange={handleChange}
-                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700">Last Name</label>
-                            <input
-                                type="text"
-                                name="lastName"
-                                value={formData.lastName}
-                                onChange={handleChange}
-                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                                required
-                            />
-                        </div>
-                    </div>
-
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Email</label>
-                        <input
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                            required
-                        />
-                    </div>
-
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Phone Number</label>
-                        <input
-                            type="tel"
-                            name="phoneNumber"
-                            value={formData.phoneNumber}
-                            onChange={handleChange}
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                            required
-                        />
-                    </div>
-
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Password</label>
-                        <input
-                            type="password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                            required
-                        />
-                    </div>
-
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Confirm Password</label>
-                        <input
-                            type="password"
-                            name="confirm_password"
-                            value={formData.confirm_password}
-                            onChange={handleChange}
-                            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                            required
-                        />
-                    </div>
-
-                    <button
-                        type="submit"
-                        disabled={mutation.isPending}
-                        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-indigo-400"
-                    >
-                        {mutation.isPending ? 'Creating Account...' : 'Sign Up'}
-                    </button>
-                </form>
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div
+        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat blur-sm"
+        style={{ backgroundImage: `url(${back1})` }}
+      />
+      <div className="relative z-10 w-full max-w-md p-8 bg-white bg-opacity-60 backdrop-blur-lg rounded-2xl shadow-xl">
+        <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
+          Create Account
+        </h2>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                First Name
+              </label>
+              <input
+                type="text"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                required
+              />
             </div>
-        </div>
-    );
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Last Name
+              </label>
+              <input
+                type="text"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                required
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Phone Number
+            </label>
+            <input
+              type="tel"
+              name="phoneNumber"
+              value={formData.phoneNumber}
+              onChange={handleChange}
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Password
+            </label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Confirm Password
+            </label>
+            <input
+              type="password"
+              name="confirm_password"
+              value={formData.confirm_password}
+              onChange={handleChange}
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={createCustomer.isPending}
+            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-indigo-400"
+          >
+            {createCustomer.isPending ? "Creating Account..." : "Sign Up"}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
 };
 
 export default Signup;
