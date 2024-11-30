@@ -1,13 +1,13 @@
 import  { useLayoutEffect, useRef } from 'react'
 import MemoizedHeader from '../components/header/Header.module';
 import AdBannerModule from '../components/header/AdBanner.module';
-import ResponsiveBanner from '../components/advertisement/ResponsiveBanner.module';
 import gsap from 'gsap';
-import KidsCategoryModule from '../components/kidsclothes/KidsCategory.module';
-import KidsSection from '../components/kidsclothes/KidsSection.module';
+import AllProduct from '../components/productdisplay/AllProduct.module';
+import UpperFooterModule from '../components/footer/UpperFooter.module';
+import MiddleFooterModule from '../components/footer/MiddleFooter.module';
 import LowerFooterModule from '../components/footer/LowerFooter.module';
 
-const KidsClothing = () => {
+const ProductDisplayPage = () => {
     const containerRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
@@ -30,22 +30,20 @@ const KidsClothing = () => {
 
     return (
         <>
-            <div ref={containerRef}>
-                <AdBannerModule />
-                <MemoizedHeader />
-            </div>
-            <div>
-                <ResponsiveBanner />
-            </div>
-            <div>
-                <KidsCategoryModule />
-            </div>
-            <div>
-                <KidsSection />
-                <LowerFooterModule />
-            </div>
+        <div ref={containerRef}>
+            <AdBannerModule />
+            <MemoizedHeader />
+        </div>
+        <div>
+            <AllProduct />
+        </div>
+        <div>
+            <UpperFooterModule />
+            <MiddleFooterModule />
+            <LowerFooterModule />
+        </div>
         </>
     )
 }
 
-export default KidsClothing
+export default ProductDisplayPage

@@ -1,6 +1,6 @@
 import { Vendor } from "../models/Vendor.type";
 import axios from "axios";
-import crypto from "crypto";
+import { v4 as uuidv4 } from "uuid";
 import { config } from "../utils/config";
 
 const BASE_URL: string | undefined = `${config.BASE_URL}/vendors`;
@@ -25,7 +25,7 @@ export const getVendorById = async (id: string): Promise<Vendor> => {
 
 export const createVendor = async (vendor: Omit<Vendor, "id">): Promise<Vendor> => {
     try {
-        const newVendor = { ...vendor, id: crypto.randomUUID() };
+        const newVendor = { ...vendor, id: uuidv4() };
         const response = await axios.post(BASE_URL, newVendor);
         return response.data;
     } catch (error) {

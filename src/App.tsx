@@ -10,6 +10,9 @@ import ProductPage from './pages/Product.page';
 import CartPage from './pages/Cart.page';
 import { CustomerProvider } from './contextAPI/customers/contextProvider';
 import CProtectedRoute from './route/CProtected.route';
+import CheckoutPage from './pages/Checkout.page';
+import ThankPage from './pages/Thank.page';
+import ProductDisplayPage from './pages/ProductDisplay.page';
 
 const App: React.FC = () => {
   return (
@@ -25,6 +28,9 @@ const App: React.FC = () => {
             <Route path='/shop/kids-clothing' element={<KidsClothing />} />
             <Route path='/product/:id' element={<ProductPage />} />
             <Route path='/cart' element={<CartPage />} />
+            <Route path='/checkout' element={<CheckoutPage />} />
+            <Route path='/thank-you' element={<ThankPage />} />
+            <Route path='/shop/all-products' element={<ProductDisplayPage />} />
           </Route>
         </Routes>
       </CustomerProvider>

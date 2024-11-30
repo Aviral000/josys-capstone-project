@@ -75,9 +75,9 @@ export const createCustomer = async (customer: Customer): Promise<Customer> => {
     }
 };
 
-export const updateCustomer = async (id: string, updates: Partial<Customer>): Promise<Customer> => {
+export const updateCustomer = async (id: string, updates: Omit<Customer, 'id'>): Promise<Customer> => {
     try {
-        const response = await axios.patch(`${BASE_URL}/${id}`, updates);
+        const response = await axios.put(`${BASE_URL}/${id}`, updates);
         return response.data;
     } catch (error) {
         throw new Error(`Failed to update customer with id ${id}: ${error}`);

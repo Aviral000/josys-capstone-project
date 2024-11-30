@@ -24,43 +24,42 @@ const ResponsiveBanner: React.FC = () => {
   const image = bannerData.image ? bannerData.image : back1;
 
   return (
+    <>
     <div
       className="relative w-full h-[50vh] lg:h-[80vh] md:h-[60vh] bg-cover bg-center -z-10"
       style={{
         backgroundImage: `url(${image})`,
       }}
     >
-      {/* Text Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center px-8">
-        <div className="text-white">
+      <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-end px-8 pb-20">
+        <div className="text-slate-800">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">{bannerData.heading}</h1>
           <p className="text-lg md:text-xl mb-2">{bannerData.discount}</p>
           <p className="text-sm md:text-base">{bannerData.description}</p>
         </div>
       </div>
-
-      {/* Buttons */}
-      <div className="absolute bottom-8 left-8 space-x-4">
-        <button
-          onClick={() => navigate('/shop/men-clothing')}
-          className="bg-white text-black px-5 py-2 text-sm md:text-base font-medium rounded-md shadow hover:bg-gray-200"
-        >
-          SHOP MEN <span className="text-xl">→</span>
-        </button>
-        <button
-          onClick={() => navigate('/shop/women-clothing')}
-          className="bg-white text-black px-5 py-2 text-sm md:text-base font-medium rounded-md shadow hover:bg-gray-200"
-        >
-          SHOP WOMEN <span className="text-xl">→</span>
-        </button>
-        <button
-          onClick={() => navigate('/shop/kids-clothing')}
-          className="bg-white text-black px-5 py-2 text-sm md:text-base font-medium rounded-md shadow hover:bg-gray-200"
-        >
-          SHOP KIDS <span className="text-xl">→</span>
-        </button>
-      </div>
     </div>
+    <div className="absolute bottom-8 left-8 space-x-4">
+    <button
+      onClick={() => navigate('/shop/men-clothing')}
+      className="bg-white text-black px-5 py-2 text-sm md:text-base font-medium rounded-md shadow hover:bg-gray-200"
+    >
+      SHOP MEN <span className="text-xl">→</span>
+    </button>
+    <button
+      onClick={() => navigate('/shop/women-clothing')}
+      className="bg-white text-black px-5 py-2 text-sm md:text-base font-medium rounded-md shadow hover:bg-gray-200"
+    >
+      SHOP WOMEN <span className="text-xl">→</span>
+    </button>
+    <button
+      onClick={() => navigate('/shop/kids-clothing')}
+      className="bg-white text-black px-5 py-2 text-sm md:text-base font-medium rounded-md shadow hover:bg-gray-200"
+    >
+      SHOP KIDS <span className="text-xl">→</span>
+    </button>
+  </div>
+  </>
   );
 };
 

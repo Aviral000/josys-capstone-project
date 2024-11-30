@@ -89,11 +89,19 @@ const ProductDetail = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="space-y-4">
           <div className="border rounded-md overflow-hidden">
-            <img
-              src={product!.images[selectedImage]}
-              alt={product!.productName}
-              className="w-full h-96 object-cover transition-transform duration-300 hover:scale-105"
-            />
+          {product!.images[selectedImage].slice(-4).toLowerCase() === ".mp4" ? (
+            <video
+                src={product!.images[selectedImage]}
+                className="w-full h-96 object-cover transition-transform duration-300 hover:scale-105"
+                autoPlay
+              />
+            ) : (
+              <img
+                src={product!.images[selectedImage]}
+                alt={product!.productName}
+                className="w-full h-96 object-cover transition-transform duration-300 hover:scale-105"
+              />
+            )}
           </div>
 
           <div className="flex space-x-2 overflow-x-auto">
@@ -105,11 +113,21 @@ const ProductDetail = () => {
                 }`}
                 onMouseOver={() => setSelectedImage(index)}
               >
-                <img
-                  src={image}
-                  alt={`Product view ${index + 1}`}
-                  className="w-24 h-24 object-cover"
-                />
+                {image.slice(-4).toLowerCase() === ".mp4" ? (
+                  <video
+                    src={image}
+                    className="w-24 h-24 object-cover"
+                    onMouseOver={(e) => (e.currentTarget.play())}
+                    onMouseOut={(e) => (e.currentTarget.pause())}
+                    muted
+                  />
+                ) : (
+                  <img
+                    src={image}
+                    alt={`Product view ${index + 1}`}
+                    className="w-24 h-24 object-cover"
+                  />
+                )}
               </div>
             ))}
           </div>
@@ -118,9 +136,9 @@ const ProductDetail = () => {
         <div className="space-y-6">
           <div>
             <h1 className="text-2xl font-bold mb-2">{product!.productName}</h1>
-            <div className="flex items-center space-x-4 mb-4">
-              <span className="text-blue-600 hover:underline cursor-pointer">
-                #1 Best Seller
+            <div className="flex items-center space-x-4 space-y-4 mb-4 border-2 p-4">
+              <span className="text-slate-800 font-semibold">
+                {product!.productDesc}
               </span>
             </div>
           </div>

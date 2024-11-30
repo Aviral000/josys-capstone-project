@@ -7,17 +7,14 @@ import {
   doPasswordsMatch,
   isStrongPassword,
   isValidEmail,
-  isValidPhoneNumber,
 } from "./Signup.validator";
 import { useCustomer } from "../../customs/hooks/useCustomer";
-import back1 from "../../assets/main/bg-4.webp";
+import back1 from "../../assets/main/v-bg-1.webp";
 
 const Signup: React.FC = () => {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    companyName: "",
     email: "",
-    phoneNumber: "",
     password: "",
     confirm_password: "",
   });
@@ -39,17 +36,6 @@ const Signup: React.FC = () => {
         position: "top-end",
         icon: "error",
         title: "Invalid email format",
-        showConfirmButton: false,
-        timer: 5000,
-      });
-      return;
-    }
-
-    if (!isValidPhoneNumber(formData.phoneNumber)) {
-      Swal.fire({
-        position: "top-end",
-        icon: "error",
-        title: "Invalid phone number. It should start with 6-9 and be 10 digits long.",
         showConfirmButton: false,
         timer: 5000,
       });
@@ -83,10 +69,8 @@ const Signup: React.FC = () => {
     const newCustomer: Customer = {
       ...customerData,
       id: uuidv4(),
-      name: `${customerData.firstName} ${customerData.lastName}`,
-      roleId: "3",
+      roleId: "2",
       addressIds: "",
-      cartId: "",
     };
 
     createCustomer.mutate(newCustomer, {

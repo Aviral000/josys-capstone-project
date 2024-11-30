@@ -3,11 +3,13 @@ import { useCart } from "../../customs/hooks/useCart";
 import { customerContext } from "../../contextAPI/customers/createContext";
 import { useProduct } from "../../customs/hooks/useProduct";
 import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
 
 const Cart: React.FC = () => {
   const { cartId } = useContext(customerContext);
   const { cart, updateCart, deleteCartItem } = useCart(cartId);
   const { products } = useProduct();
+  const navigate = useNavigate();
 
   const [quantities, setQuantities] = useState<Record<string, number>>(
     cart?.items.reduce((acc, item) => ({ ...acc, [item.productId]: item.quantity }), {}) || {}
@@ -162,7 +164,7 @@ const Cart: React.FC = () => {
               <p className="font-bold">₹{totalPrice.toFixed(2)}</p>
             </div>
           </div>
-          <button className="w-full bg-black text-white py-2 mt-4 rounded-md hover:bg-gray-800">
+          <button onClick={() => navigate('/checkout')} className="w-full bg-black text-white py-2 mt-4 rounded-md hover:bg-gray-800">
             CHECKOUT
           </button>
           <button className="text-sm mt-2 text-blue-500 underline w-full text-center">

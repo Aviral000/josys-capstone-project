@@ -7,10 +7,7 @@
       "name": "John Doe",
       "email": "john.doe@example.com",
       "phoneNumber": "1234567890",
-      "addressIds": [
-        "101",
-        "102"
-      ],
+      "addressIds": "",
       "cartId": "201",
       "password": "hashed_password"
     },
@@ -23,7 +20,7 @@
       "password": "Avimalik",
       "roleId": "3",
       "id": "315326bf-840e-4181-b44d-ab9b9f97b201",
-      "addressIds": [],
+      "addressIds": "",
       "cartId": ""
     },
     {
@@ -35,7 +32,7 @@
       "id": "eb25a1dd-29fe-461b-8903-ef34a6bfa620",
       "name": "Rakesh Kumar",
       "roleId": "3",
-      "addressIds": [],
+      "addressIds": "",
       "cartId": ""
     },
     {
@@ -47,7 +44,7 @@
       "id": "52e4a05f-9faf-4295-809c-fad6826b0e53",
       "name": "Anil Kapoor",
       "roleId": "3",
-      "addressIds": [],
+      "addressIds": "",
       "cartId": ""
     },
     {
@@ -59,7 +56,7 @@
       "id": "85da6f14-db5d-4912-a3d4-9d29ce9743ba",
       "name": "Anil Sharma",
       "roleId": "3",
-      "addressIds": [],
+      "addressIds": "",
       "cartId": ""
     },
     {
@@ -71,7 +68,7 @@
       "id": "800c2fcf-a526-4d5e-9343-a2ac43a6b417",
       "name": "Pappu Kumar",
       "roleId": "3",
-      "addressIds": [],
+      "addressIds": "",
       "cartId": ""
     },
     {
@@ -83,36 +80,32 @@
       "id": "cdc366bf-80ba-4598-9dd4-18db7d758df6",
       "name": "Mukesh Kapoor",
       "roleId": "3",
-      "addressIds": [],
+      "addressIds": "",
       "cartId": ""
     },
     {
+      "name": "Aviral Malik",
+      "addressIds": "H. No-126, Phase-7, Vasundhara Residency",
       "firstName": "Aviral",
       "lastName": "Malik",
-      "email": "avim@gmail.com",
       "phoneNumber": "9528410058",
+      "email": "avim@gmail.com",
       "password": "$2a$10$Wz3nmV4uUOcPtCVczF1RI.dTBrGdQK8gG3IlWEAcQD3QrNDc.2Ff2",
-      "id": "ee80cd0e-f378-417f-bcb7-36dcc2c89805",
-      "name": "Aviral Malik",
       "roleId": "3",
-      "addressIds": [],
-      "cartId": "5168708a-5858-4dc5-b38a-bc1f615d1658"
-    }
-  ],
-  "addresses": [
-    {
-      "id": "101",
-      "lines": "123 Main St",
-      "city": "Los Angeles",
-      "state": "CA",
-      "pincode": "90001"
+      "cartId": "5168708a-5858-4dc5-b38a-bc1f615d1658",
+      "id": "ee80cd0e-f378-417f-bcb7-36dcc2c89805"
     },
     {
-      "id": "102",
-      "lines": "456 Elm St",
-      "city": "San Francisco",
-      "state": "CA",
-      "pincode": "94101"
+      "firstName": "Suzanne",
+      "lastName": "Mischov",
+      "email": "suzzie@gmail.com",
+      "phoneNumber": "6745333234",
+      "password": "$2a$10$OHd9mU9hNwTL4vs/R7zAGumnz5zvM4zzOmGw1SFB4s.UhZso18WtO",
+      "id": "625e8c27-f4d9-482c-b0cc-d69ba5569639",
+      "name": "Suzanne Mischov",
+      "roleId": "3",
+      "addressIds": "",
+      "cartId": "19e36dc0-7ac2-4e08-bc9e-113d1d5a8a0e"
     }
   ],
   "carts": [
@@ -131,13 +124,12 @@
       ]
     },
     {
-      "items": [
-        {
-          "productId": "303",
-          "quantity": 5
-        }
-      ],
-      "id": "5168708a-5858-4dc5-b38a-bc1f615d1658"
+      "id": "5168708a-5858-4dc5-b38a-bc1f615d1658",
+      "items": []
+    },
+    {
+      "id": "19e36dc0-7ac2-4e08-bc9e-113d1d5a8a0e",
+      "items": []
     }
   ],
   "products": [
@@ -145,7 +137,7 @@
       "id": "301",
       "productName": "Women's Running Outfit",
       "productDesc": "Lightweight and breathable running t-shirt.",
-      "cost": 25,
+      "cost": 2500,
       "vendorId": "401",
       "categoryId": "502",
       "subtypeId": "601",
@@ -163,7 +155,7 @@
       "id": "302",
       "productName": "Women's Yoga Leggings",
       "productDesc": "Comfortable and stretchy yoga leggings.",
-      "cost": 40,
+      "cost": 1600,
       "vendorId": "402",
       "categoryId": "502",
       "subtypeId": "601",
@@ -181,7 +173,7 @@
       "id": "303",
       "productName": "Lose Gym t-shirt",
       "productDesc": "Comfortable and baggy look gym t-shirt",
-      "cost": 40,
+      "cost": 1450,
       "vendorId": "402",
       "categoryId": "501",
       "subtypeId": "601",
@@ -199,7 +191,7 @@
       "id": "304",
       "productName": "Women's Track Suit",
       "productDesc": "Gray full-track Suit, ready to go in fields",
-      "cost": 40,
+      "cost": 4000,
       "vendorId": "402",
       "categoryId": "502",
       "subtypeId": "601",
@@ -217,7 +209,7 @@
       "id": "305",
       "productName": "Leather Shoes",
       "productDesc": "Comfortable shoes for both men and women",
-      "cost": 80,
+      "cost": 8000,
       "vendorId": "401",
       "categoryId": "501",
       "subtypeId": "602",
@@ -235,13 +227,14 @@
       "id": "306",
       "productName": "Men's Running Shorts",
       "productDesc": "Lightweight and sweat-wicking shorts for running.",
-      "cost": 35,
+      "cost": 1800,
       "vendorId": "403",
       "categoryId": "501",
       "subtypeId": "601",
       "images": [
-        "https://img.freepik.com/free-photo/runner-shorts_1203-8145.jpg",
-        "https://img.freepik.com/free-photo/runner-shorts_1203-8146.jpg"
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/7af42e73ac2549e88138b134ae7dcba0_9366/LINEAR_SINGLE_JERSEY_SHORTS_Blue_IS6703_21_model.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/370c64a39cc64e91b0c0670477a81317_9366/LINEAR_SINGLE_JERSEY_SHORTS_Blue_IS6703_22_model.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/28bedcb524c745c3b1b880da104aae26_9366/LINEAR_SINGLE_JERSEY_SHORTS_Blue_IS6703_25_model.jpg"
       ],
       "discount": 20,
       "stock": 50,
@@ -251,13 +244,13 @@
       "id": "307",
       "productName": "Men's Football Cleats",
       "productDesc": "Professional-grade football shoes for the field.",
-      "cost": 70,
+      "cost": 7000,
       "vendorId": "404",
       "categoryId": "501",
       "subtypeId": "602",
       "images": [
-        "https://img.freepik.com/free-photo/football-cleats_1203-8160.jpg",
-        "https://img.freepik.com/free-photo/football-cleats_1203-8162.jpg"
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/f6c9060de38b459a87b0e961ba8f050d_9366/Copa_Pure_2_League_FG_Beige_IF5448_22_model.jpg",
+        "https://assets.adidas.com/videos/ar_1,w_720,c_fill,q_auto,f_auto/6d7f940248764d818bc81d8162d9f4c7_d98c/Copa_Pure_2_League_FG_Beige_IF5448_video.mp4"
       ],
       "discount": 25,
       "stock": 25,
@@ -267,13 +260,13 @@
       "id": "308",
       "productName": "Men's Gym Bag",
       "productDesc": "Spacious and durable gym bag for everyday use.",
-      "cost": 50,
+      "cost": 2000,
       "vendorId": "407",
       "categoryId": "501",
       "subtypeId": "603",
       "images": [
-        "https://img.freepik.com/free-photo/gym-bag_1203-8171.jpg",
-        "https://img.freepik.com/free-photo/gym-bag_1203-8173.jpg"
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/c90fc6c922c7410096c7a41168f7c41f_9366/ADILENIUM_SMALL_ITEM_BAG_Black_IT3263_01_standard.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/3c1a671965c341b781dd84bb8c859c7b_9366/ADILENIUM_SMALL_ITEM_BAG_Black_IT3263_02_standard.jpg"
       ],
       "discount": 30,
       "stock": 30,
@@ -283,13 +276,13 @@
       "id": "309",
       "productName": "Men's Basketball Jersey",
       "productDesc": "Breathable jersey designed for basketball players.",
-      "cost": 45,
+      "cost": 2300,
       "vendorId": "406",
       "categoryId": "501",
       "subtypeId": "601",
       "images": [
-        "https://img.freepik.com/free-photo/basketball-jersey_1203-8143.jpg",
-        "https://img.freepik.com/free-photo/basketball-jersey_1203-8144.jpg"
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/b5fddf8e841d4f129f7e048bda5e54d0_9366/Hoop_York_City_Tee_Gender_Neutral_Green_IT4988_25_model.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/23fe00f8845a4f63bfc8f46334349126_9366/Hoop_York_City_Tee_Gender_Neutral_Green_IT4988_23_hover_model.jpg"
       ],
       "discount": 15,
       "stock": 40,
@@ -299,13 +292,13 @@
       "id": "310",
       "productName": "Men's Training Shoes",
       "productDesc": "Perfect shoes for gym and workout sessions.",
-      "cost": 75,
+      "cost": 7500,
       "vendorId": "405",
       "categoryId": "501",
       "subtypeId": "602",
       "images": [
-        "https://img.freepik.com/free-photo/training-shoes_1203-8127.jpg",
-        "https://img.freepik.com/free-photo/training-shoes_1203-8128.jpg"
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/b29ce826cb6742359618dcf0e526b986_9366/Rapidmove_ADV_Trainer_White_HP3270_06_standard.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/27bfc200dd03489eb385f2beefcd291d_9366/Rapidmove_ADV_Trainer_White_HP3270_05_standard.jpg"
       ],
       "discount": 20,
       "stock": 30,
@@ -315,13 +308,13 @@
       "id": "311",
       "productName": "Women's Tennis Skirt",
       "productDesc": "Stylish and flexible skirt for tennis players.",
-      "cost": 30,
+      "cost": 3650,
       "vendorId": "404",
       "categoryId": "502",
       "subtypeId": "601",
       "images": [
-        "https://img.freepik.com/free-photo/tennis-skirt_1203-8130.jpg",
-        "https://img.freepik.com/free-photo/tennis-skirt_1203-8131.jpg"
+        "https://img.freepik.com/free-photo/young-female-tennis-player-with-racket_23-2148290260.jpg?t=st=1732891197~exp=1732894797~hmac=04ed3c0c831a8a72febfc976649be6983bfd96177467118addc1840a3b69a601&w=1060",
+        "https://img.freepik.com/free-photo/tennis-match-with-young-athlete-hitting-phase_23-2148290226.jpg?t=st=1732891219~exp=1732894819~hmac=e1b347ab2f3911579f56035db83bd3052dbff0aba73c52e41dd2d5c4bc32d85d&w=996"
       ],
       "discount": 25,
       "stock": 40,
@@ -331,13 +324,13 @@
       "id": "312",
       "productName": "Women's Running Shoes",
       "productDesc": "Lightweight running shoes for active women.",
-      "cost": 60,
+      "cost": 6500,
       "vendorId": "405",
       "categoryId": "502",
       "subtypeId": "602",
       "images": [
-        "https://img.freepik.com/free-photo/womens-running-shoes_1203-8124.jpg",
-        "https://img.freepik.com/free-photo/womens-running-shoes_1203-8125.jpg"
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/bc4b52ea20944a4c8e56ae750169a021_9366/Galaxy_6_Shoes_Black_GW4131_01_standard.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/b8950b913f5a40068ab4ae75016a3d64_9366/Galaxy_6_Shoes_Black_GW4131_02_standard_hover.jpg"
       ],
       "discount": 15,
       "stock": 30,
@@ -345,15 +338,15 @@
     },
     {
       "id": "313",
-      "productName": "Women's Yoga Mat",
-      "productDesc": "Non-slip mat for yoga and pilates.",
-      "cost": 20,
+      "productName": "Women's Bag",
+      "productDesc": "Carry stuff while you are out for training",
+      "cost": 3400,
       "vendorId": "407",
       "categoryId": "502",
       "subtypeId": "603",
       "images": [
-        "https://img.freepik.com/free-photo/yoga-mat_1203-8140.jpg",
-        "https://img.freepik.com/free-photo/yoga-mat_1203-8141.jpg"
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/be5c563f38f6418da898a827257bbe21_9366/Classic_Foundation_Backpack_Pink_IR9824_01_standard.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/1495010eb6cc40ae8836ea214ce30e79_9366/Classic_Foundation_Backpack_Pink_IR9824_05_hover_standard.jpg"
       ],
       "discount": 10,
       "stock": 50,
@@ -361,15 +354,15 @@
     },
     {
       "id": "314",
-      "productName": "Women's Gym Gloves",
-      "productDesc": "Padded gloves for better grip during workouts.",
-      "cost": 15,
+      "productName": "Women's Socks",
+      "productDesc": "3-Stripes Cushioned Sportswear Low-Cut Socks 3 Pairs",
+      "cost": 500,
       "vendorId": "406",
       "categoryId": "502",
       "subtypeId": "603",
       "images": [
-        "https://img.freepik.com/free-photo/gym-gloves_1203-8138.jpg",
-        "https://img.freepik.com/free-photo/gym-gloves_1203-8139.jpg"
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/df24656b61c7402f802603b2679c8710_9366/3-Stripes_Cushioned_Sportswear_Low-Cut_Socks_3_Pairs_White_HT3456_02_standard.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/667a788568ad461cb48aaf10009cbaf6_9366/3-Stripes_Cushioned_Sportswear_Low-Cut_Socks_3_Pairs_White_HT3456_03_standard_hover_hover_hover_hover_hover.jpg"
       ],
       "discount": 20,
       "stock": 80,
@@ -378,14 +371,14 @@
     {
       "id": "315",
       "productName": "Women's Sports Jacket",
-      "productDesc": "Windproof jacket for outdoor sports.",
-      "cost": 90,
+      "productDesc": "Own The Run Jacket",
+      "cost": 8400,
       "vendorId": "403",
       "categoryId": "502",
       "subtypeId": "601",
       "images": [
-        "https://img.freepik.com/free-photo/sports-jacket_1203-8132.jpg",
-        "https://img.freepik.com/free-photo/sports-jacket_1203-8133.jpg"
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/888e023e6f9c41438edffb1d0bc7a918_9366/Own_The_Run_Jacket_Black_IN1576_21_model.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/442412fce59e4a13859bb7e4ea023cb3_9366/Own_The_Run_Jacket_Black_IN1576_23_hover_model.jpg"
       ],
       "discount": 35,
       "stock": 20,
@@ -395,13 +388,13 @@
       "id": "316",
       "productName": "Kids' Running T-Shirt",
       "productDesc": "Breathable t-shirt for young runners.",
-      "cost": 15,
+      "cost": 1500,
       "vendorId": "405",
       "categoryId": "503",
       "subtypeId": "601",
       "images": [
-        "https://img.freepik.com/free-photo/kids-tshirt_1203-8134.jpg",
-        "https://img.freepik.com/free-photo/kids-tshirt_1203-8135.jpg"
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/7e9e64e4c3d649058d0f8096334cf531_9366/AEROREADY_3-Stripes_Woven_Shorts_Black_IB8872_21_model.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/992156d455734401aeb78afc707ab985_9366/AEROREADY_3-Stripes_Woven_Shorts_Black_IB8872_23_hover_model.jpg"
       ],
       "discount": 15,
       "stock": 40,
@@ -411,15 +404,15 @@
       "id": "317",
       "productName": "Kids' Football Shoes",
       "productDesc": "Durable shoes for young football players.",
-      "cost": 25,
+      "cost": 2500,
       "vendorId": "407",
       "categoryId": "503",
       "subtypeId": "602",
       "images": [
-        "https://img.freepik.com/free-photo/kids-football-shoes_1203-8136.jpg",
-        "https://img.freepik.com/free-photo/kids-football-shoes_1203-8137.jpg"
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ac15c3ab21074725872bc131f8b34c2c_9366/Copa_Pure.3_Turf_Boots_White_GZ2543_22_model.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/a4bf1eb918834ac88adfbe77474cc80d_9366/Copa_Pure.3_Turf_Boots_White_GZ2543_01_standard_hover.jpg"
       ],
-      "discount": 20,
+      "discount": 10,
       "stock": 25,
       "uploadedDate": ""
     },
@@ -427,15 +420,15 @@
       "id": "318",
       "productName": "Kids' Backpack",
       "productDesc": "Lightweight backpack for sports gear.",
-      "cost": 20,
+      "cost": 2000,
       "vendorId": "406",
       "categoryId": "503",
       "subtypeId": "603",
       "images": [
-        "https://img.freepik.com/free-photo/kids-backpack_1203-8142.jpg",
-        "https://img.freepik.com/free-photo/kids-backpack_1203-8143.jpg"
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/759c5c8009944bc99edad0f610d1fa4d_9366/Printed_Backpack_Kids_Purple_IW1116_01_standard.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/24b9195b9042453299be9b5e841f7b8a_9366/Printed_Backpack_Kids_Purple_IW1116_04_standard.jpg"
       ],
-      "discount": 10,
+      "discount": 25,
       "stock": 50,
       "uploadedDate": ""
     },
@@ -443,15 +436,15 @@
       "id": "319",
       "productName": "Kids' Swimwear",
       "productDesc": "Comfortable swimwear for kids.",
-      "cost": 18,
+      "cost": 1800,
       "vendorId": "404",
       "categoryId": "503",
       "subtypeId": "601",
       "images": [
-        "https://img.freepik.com/free-photo/kids-swimwear_1203-8144.jpg",
-        "https://img.freepik.com/free-photo/kids-swimwear_1203-8145.jpg"
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/561fac5112fc4c948c55aefc0122add2_9366/Solid_Small_Logo_Swimsuit_Black_HR7477_01_laydown.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/b33dd91f2c9b4bceb6c5aefc0122b2e7_9366/Solid_Small_Logo_Swimsuit_Black_HR7477_02_laydown_hover.jpg"
       ],
-      "discount": 10,
+      "discount": 50,
       "stock": 30,
       "uploadedDate": ""
     },
@@ -459,16 +452,34 @@
       "id": "320",
       "productName": "Kids' Sports Cap",
       "productDesc": "Stylish cap for outdoor sports.",
-      "cost": 12,
+      "cost": 1200,
       "vendorId": "403",
       "categoryId": "503",
       "subtypeId": "603",
       "images": [
-        "https://img.freepik.com/free-photo/kids-cap_1203-8146.jpg",
-        "https://img.freepik.com/free-photo/kids-cap_1203-8147.jpg"
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/30de5e0f8ec7486a9191612d054f5d3d_9366/Cap_Kids_Black_IY7795_01_standard.jpg"
       ],
-      "discount": 5,
+      "discount": 15,
       "stock": 100,
+      "uploadedDate": ""
+    },
+    {
+      "id": "321",
+      "productName": "Women's White Jacket",
+      "productDesc": "adidas Originals and Edison Chen transform iconic sports silhouettes, merging western court with eastern culture",
+      "cost": 12000,
+      "vendorId": "403",
+      "categoryId": "502",
+      "subtypeId": "601",
+      "images": [
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/f15bcca737f14318bd600d10024ccfbb_9366/adidas_Z.N.E._Full-Zip_Hoodie_White_JE7849_25_model.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8c86677e126340fe8cdadf50e04db7f5_9366/adidas_Z.N.E._Full-Zip_Hoodie_White_JE7849_01_laydown.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/55ab1e1313ef467692cfecc58006d85d_9366/adidas_Z.N.E._Full-Zip_Hoodie_White_JE7849_HM3.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/638c22caa3e1482dbe50e3d5918539ae_9366/adidas_Z.N.E._Full-Zip_Hoodie_White_JE7849_HM4.jpg",
+        "https://assets.adidas.com/videos/ar_1,w_720,c_fill,q_auto,f_auto/54de62bdd4ab4a7d8326ec1b50db93c6_d98c/adidas_Z.N.E._Full-Zip_Hoodie_White_JE7849_video.mp4"
+      ],
+      "discount": 20,
+      "stock": 10,
       "uploadedDate": ""
     }
   ],
@@ -522,37 +533,65 @@
     {
       "id": "401",
       "companyName": "ActiveWear Co.",
-      "email": "contact@activewearco.com"
+      "email": "contact@activewearco.com",
+      "roleId": "2",
+      "verified": true,
+      "password": "",
+      "address": ""
     },
     {
       "id": "402",
       "companyName": "Yoga Essentials",
-      "email": "support@yogaessentials.com"
+      "email": "support@yogaessentials.com",
+      "roleId": "2",
+      "verified": true,
+      "password": "",
+      "address": ""
     },
     {
       "id": "403",
       "companyName": "ProSports",
-      "email": "info@prosports.com"
+      "email": "info@prosports.com",
+      "roleId": "2",
+      "verified": true,
+      "password": "",
+      "address": ""
     },
     {
       "id": "404",
       "companyName": "FitGear",
-      "email": "sales@fitgear.com"
+      "email": "sales@fitgear.com",
+      "roleId": "2",
+      "verified": true,
+      "password": "",
+      "address": ""
     },
     {
       "id": "405",
       "companyName": "EliteActive",
-      "email": "elite@active.com"
+      "email": "elite@active.com",
+      "roleId": "2",
+      "verified": true,
+      "password": "",
+      "address": ""
     },
     {
       "id": "406",
       "companyName": "KidsZone",
-      "email": "support@kidszone.com"
+      "email": "support@kidszone.com",
+      "roleId": "2",
+      "verified": true,
+      "password": "",
+      "address": ""
     },
     {
       "id": "407",
       "companyName": "SportyStyle",
-      "email": "contact@sportystyle.com"
+      "email": "contact@sportystyle.com",
+      "roleId": "2",
+      "verified": true,
+      "password": "",
+      "address": ""
     }
   ],
   "users": [
@@ -562,6 +601,82 @@
       "email": "admin@example.com",
       "password": "admin1",
       "roleId": "1"
+    }
+  ],
+  "orders": [
+    {
+      "customerId": "ee80cd0e-f378-417f-bcb7-36dcc2c89805",
+      "items": [
+        {
+          "productId": "303",
+          "quantity": 5
+        },
+        {
+          "productId": "318",
+          "quantity": 1
+        }
+      ],
+      "status": "pending",
+      "id": "a28a17bb-ec13-4450-95f4-c956d319b73c"
+    },
+    {
+      "customerId": "ee80cd0e-f378-417f-bcb7-36dcc2c89805",
+      "items": [
+        {
+          "productId": "303",
+          "quantity": 1
+        }
+      ],
+      "status": "pending",
+      "id": "bb0818cc-615b-44a9-86a4-9ef40e6dee34"
+    },
+    {
+      "customerId": "ee80cd0e-f378-417f-bcb7-36dcc2c89805",
+      "items": [
+        {
+          "productId": "303",
+          "quantity": 1
+        }
+      ],
+      "status": "pending",
+      "id": "21891cd7-21a8-44c6-ade5-b96e945f695e"
+    },
+    {
+      "customerId": "ee80cd0e-f378-417f-bcb7-36dcc2c89805",
+      "items": [
+        {
+          "productId": "303",
+          "quantity": 1
+        }
+      ],
+      "status": "pending",
+      "id": "f2763280-ce14-4ec7-89f3-609c6a5c657f"
+    },
+    {
+      "customerId": "ee80cd0e-f378-417f-bcb7-36dcc2c89805",
+      "items": [
+        {
+          "productId": "303",
+          "quantity": 2
+        },
+        {
+          "productId": "301",
+          "quantity": 3
+        }
+      ],
+      "status": "pending",
+      "id": "409bdda6-1657-4469-8239-32de2224fe11"
+    },
+    {
+      "customerId": "625e8c27-f4d9-482c-b0cc-d69ba5569639",
+      "items": [
+        {
+          "productId": "307",
+          "quantity": 1
+        }
+      ],
+      "status": "pending",
+      "id": "ade1172b-419e-480c-bb80-aab92c04d767"
     }
   ],
   "roles": [

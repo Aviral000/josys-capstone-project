@@ -42,7 +42,7 @@ const categories: Category[] = [
   },
   {
     id: '504',
-    category_name: 'sales',
+    category_name: 'All',
     sub_type_ids: ['604', '605']
   }
 ];
@@ -51,8 +51,8 @@ const subTypes: SubType[] = [
   { id: '601', name: 'Clothing' },
   { id: '602', name: 'Footwear' },
   { id: '603', name: 'Accessories' },
-  { id: '604', name: 'Black Friday Sales' },
-  { id: '605', name: '50% Off Deals' }
+  { id: '604', name: 'Products' },
+  { id: '605', name: 'Black Friday Sales' }
 ];
 
 const NavigationMenuItem: React.FC<MenuItemProps> = ({ category, index }) => {
@@ -87,8 +87,8 @@ const NavigationMenuItem: React.FC<MenuItemProps> = ({ category, index }) => {
               <MenuItem key={subId} className="hover:bg-gray-100">
                 <Link 
                   className="block w-full px-2 py-2 font-serif font-semibold"
-                  // to={`/shop/${category.category_name.toLowerCase()}/${subCategory.name.toLowerCase()}`}
-                  to={`/shop/${category.category_name.toLowerCase()}-clothing`}
+                  to={`/shop/${category.category_name.toLowerCase()}-${subCategory.name.toLowerCase()}`}
+                  // to={`/shop/${category.category_name.toLowerCase()}-clothing`}
                 >
                   {subCategory.name}
                 </Link>

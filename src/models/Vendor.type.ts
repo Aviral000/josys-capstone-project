@@ -2,5 +2,7 @@ export interface Vendor {
     id: string;
     companyName: string;
     email: string;
-    productIds: string[];
+    verified: boolean,
+    password: string,
+    address: string
 }

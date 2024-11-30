@@ -47,7 +47,7 @@ const MiddleBanner: React.FC = () => {
       </div>
       <div className="absolute bottom-8 left-8 space-x-4">
         <button
-          onClick={() => navigate('/product/306')}
+          onClick={() => navigate('/product/321')}
           className="bg-white text-black px-5 py-2 text-sm md:text-base font-medium rounded-md shadow hover:bg-gray-200"
         >
           SHOP Now <span className="text-xl">→</span>
