@@ -9,11 +9,21 @@ import {
   isValidEmail,
   isValidPhoneNumber,
 } from "./Signup.validator";
-import { useCustomer } from "../../customs/hooks/useCustomer";
 import back1 from "../../assets/main/bg-4.webp";
+import { useCustomer } from "../../customs/hooks/generic/useCustomer";
+
+type FormData = {
+  firstName: string;
+  lastName: string,
+  email: string;
+  phoneNumber: string;
+  password: string;
+  confirm_password: string;
+  
+};
 
 const Signup: React.FC = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
     email: "",
@@ -21,7 +31,7 @@ const Signup: React.FC = () => {
     password: "",
     confirm_password: "",
   });
-  const { createCustomer } = useCustomer();
+  const { create } = useCustomer();
   const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,6 +51,7 @@ const Signup: React.FC = () => {
         title: "Invalid email format",
         showConfirmButton: false,
         timer: 5000,
+        toast: true
       });
       return;
     }
@@ -52,6 +63,7 @@ const Signup: React.FC = () => {
         title: "Invalid phone number. It should start with 6-9 and be 10 digits long.",
         showConfirmButton: false,
         timer: 5000,
+        toast: true
       });
       return;
     }
@@ -64,6 +76,7 @@ const Signup: React.FC = () => {
           "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.",
         showConfirmButton: false,
         timer: 5000,
+        toast: true
       });
       return;
     }
@@ -75,6 +88,7 @@ const Signup: React.FC = () => {
         title: "Passwords do not match",
         showConfirmButton: false,
         timer: 5000,
+        toast: true
       });
       return;
     }
@@ -89,7 +103,7 @@ const Signup: React.FC = () => {
       cartId: "",
     };
 
-    createCustomer.mutate(newCustomer, {
+    create.mutate(newCustomer, {
       onSuccess: () => {
         Swal.fire({
           position: "top-end",
@@ -97,6 +111,7 @@ const Signup: React.FC = () => {
           title: "Registration Successful",
           showConfirmButton: false,
           timer: 1500,
+          toast: true
         });
         navigate("/user-login");
       },
@@ -107,6 +122,7 @@ const Signup: React.FC = () => {
           title: `${error.message}`,
           showConfirmButton: false,
           timer: 5000,
+          toast: true
         });
       },
     });
@@ -210,10 +226,10 @@ const Signup: React.FC = () => {
 
           <button
             type="submit"
-            disabled={createCustomer.isPending}
+            disabled={create.isPending}
             className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-indigo-400"
           >
-            {createCustomer.isPending ? "Creating Account..." : "Sign Up"}
+            {create.isPending ? "Creating Account..." : "Sign Up"}
           </button>
         </form>
       </div>

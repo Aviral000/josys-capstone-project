@@ -2,10 +2,10 @@ import React, { useContext, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import back1 from '../../assets/main/bg-4.webp';
-import { isValidEmail } from './Login.validator';
-import { verifyCustomer } from '../../services/Customer.service';
-import { customerContext } from '../../contextAPI/customers/createContext';
+import adback1 from '../../assets/main/a-bg-1.webp';
+import { isValidEmail } from './Login.validation';
+import { verifyAdmin } from '../../services/User.service';
+import { adminContext } from '../../contextAPI/admins/CreateContextAdmin';
 
 type UserForm = {
   email: string,
@@ -15,28 +15,31 @@ type UserForm = {
 const Login: React.FC = () => {
     const [formData, setFormData] = useState<UserForm>({ email: '', password: '' });
     const navigate = useNavigate();
-    const { setIsLoggedIn, setUserId, setCartId, setRole } = useContext(customerContext);
+    const { setAdminId, setIsLoggedIn, setRole } = useContext(adminContext);
+
+    console.log(formData.password);
 
     const mutation = useMutation({
-        mutationFn: ({ email, password }: { email: string; password: string }) => verifyCustomer(email, password),
+        mutationFn: () => verifyAdmin(formData),
         onSuccess: (data) => {
-            const user = Array.isArray(data) ? data[0] : data;
+            const admin = Array.isArray(data) ? data[0] : data;
 
-            if (!user) {
+            if (!admin) {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'error',
                     title: 'No user data found',
                     showConfirmButton: false,
                     timer: 1500,
+                    toast: true
                 });
                 return;
             }
 
+            setAdminId(admin.id);
             setIsLoggedIn(true);
-            setUserId(user.id || '');
-            setCartId(user.cartId || undefined);
-            setRole(user.role || 'Customer');
+            setRole('Admin');
+
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
@@ -45,7 +48,7 @@ const Login: React.FC = () => {
                 timer: 1500,
                 toast: true
             });
-            navigate('/');
+            navigate(`/company/admin/${admin.id}`);
         },
         onError: (error: any) => {
             Swal.fire({
@@ -54,6 +57,7 @@ const Login: React.FC = () => {
                 title: `${error}`,
                 showConfirmButton: false,
                 timer: 1500,
+                toast: true
             });
         },
     });
@@ -67,7 +71,7 @@ const Login: React.FC = () => {
 
         if (!isValidEmail(formData.email)) {
             Swal.fire({
-                position: 'top-end',
+                position: 'top-right',
                 icon: 'error',
                 title: 'Invalid email format',
                 showConfirmButton: false,
@@ -79,7 +83,7 @@ const Login: React.FC = () => {
 
         if (formData.password.trim() === '') {
             Swal.fire({
-                position: 'top-end',
+                position: 'top-right',
                 icon: 'error',
                 title: 'Password cannot be empty',
                 showConfirmButton: false,
@@ -89,14 +93,14 @@ const Login: React.FC = () => {
             return;
         }
 
-        mutation.mutate({ email: formData.email, password: formData.password });
+        mutation.mutate();
     };
 
     return (
         <div className="min-h-screen flex items-center justify-center">
             <div
                 className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat blur-sm"
-                style={{ backgroundImage: `url(${back1})` }}
+                style={{ backgroundImage: `url(${adback1})` }}
             />
             <div className="relative z-10 w-full max-w-md p-8 bg-white bg-opacity-60 backdrop-blur-lg rounded-2xl shadow-xl">
                 <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Login</h2>

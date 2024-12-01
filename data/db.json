@@ -12,78 +12,6 @@
       "password": "hashed_password"
     },
     {
-      "firstName": "Aviral",
-      "lastName": "Malik",
-      "name": "Aviral Malik",
-      "email": "avimalik02@gmail.com",
-      "phoneNumber": "9528410057",
-      "password": "Avimalik",
-      "roleId": "3",
-      "id": "315326bf-840e-4181-b44d-ab9b9f97b201",
-      "addressIds": "",
-      "cartId": ""
-    },
-    {
-      "firstName": "Rakesh",
-      "lastName": "Kumar",
-      "email": "rakesh@gmail.com",
-      "phoneNumber": "9956224531",
-      "password": "Rakesh@2024",
-      "id": "eb25a1dd-29fe-461b-8903-ef34a6bfa620",
-      "name": "Rakesh Kumar",
-      "roleId": "3",
-      "addressIds": "",
-      "cartId": ""
-    },
-    {
-      "firstName": "Anil",
-      "lastName": "Kapoor",
-      "email": "anil@gmail.com",
-      "phoneNumber": "8956224533",
-      "password": "$2a$10$b6sstThDPbO07X8M.pQSMOLph75mB7wL89cG81ZOimRODs./C9kiq",
-      "id": "52e4a05f-9faf-4295-809c-fad6826b0e53",
-      "name": "Anil Kapoor",
-      "roleId": "3",
-      "addressIds": "",
-      "cartId": ""
-    },
-    {
-      "firstName": "Anil",
-      "lastName": "Sharma",
-      "email": "anil22@gmail.com",
-      "phoneNumber": "6956224533",
-      "password": "$2a$10$eyvkcmLtDyR9FzNGVVhdI.xj/9k8F5J1Mja3LIYb.9/xKZzoFN84S",
-      "id": "85da6f14-db5d-4912-a3d4-9d29ce9743ba",
-      "name": "Anil Sharma",
-      "roleId": "3",
-      "addressIds": "",
-      "cartId": ""
-    },
-    {
-      "firstName": "Pappu",
-      "lastName": "Kumar",
-      "email": "pappu@gmail.com",
-      "phoneNumber": "7895624567",
-      "password": "$2a$10$jmMaPJcZkPpAVxI3US4LxOki/nJP0kw/9VRQmXKnVQVE4FBQ.ckTS",
-      "id": "800c2fcf-a526-4d5e-9343-a2ac43a6b417",
-      "name": "Pappu Kumar",
-      "roleId": "3",
-      "addressIds": "",
-      "cartId": ""
-    },
-    {
-      "firstName": "Mukesh",
-      "lastName": "Kapoor",
-      "email": "mukesh@gmail.com",
-      "phoneNumber": "6467245561",
-      "password": "$2a$10$uVLaRF.8k8Dk5VPP7Nt9v.HwbPuMXf9cjtCtWBI/zR8ZxOv8L797G",
-      "id": "cdc366bf-80ba-4598-9dd4-18db7d758df6",
-      "name": "Mukesh Kapoor",
-      "roleId": "3",
-      "addressIds": "",
-      "cartId": ""
-    },
-    {
       "name": "Aviral Malik",
       "addressIds": "H. No-126, Phase-7, Vasundhara Residency",
       "firstName": "Aviral",
@@ -106,6 +34,18 @@
       "roleId": "3",
       "addressIds": "",
       "cartId": "19e36dc0-7ac2-4e08-bc9e-113d1d5a8a0e"
+    },
+    {
+      "firstName": "Payal",
+      "lastName": "Tomar",
+      "email": "payal.tomar@gmail.com",
+      "phoneNumber": "9995642333",
+      "password": "$2a$10$rvoXZBGf9mby1zRm6fjBmu6cCGMp0IIM9e9Orh/cSDGHmfWxqKSA2",
+      "id": "159de222-68ff-4e63-a208-012bb153a7c4",
+      "name": "Payal Tomar",
+      "roleId": "3",
+      "addressIds": "H. No-126, Phase-7, Vasundhara Residency",
+      "cartId": "a503a9e6-aed0-465c-a0d5-87988d1086b7"
     }
   ],
   "carts": [
@@ -124,12 +64,16 @@
       ]
     },
     {
-      "id": "5168708a-5858-4dc5-b38a-bc1f615d1658",
-      "items": []
+      "items": [],
+      "id": "5168708a-5858-4dc5-b38a-bc1f615d1658"
     },
     {
-      "id": "19e36dc0-7ac2-4e08-bc9e-113d1d5a8a0e",
-      "items": []
+      "items": [],
+      "id": "19e36dc0-7ac2-4e08-bc9e-113d1d5a8a0e"
+    },
+    {
+      "items": [],
+      "id": "a503a9e6-aed0-465c-a0d5-87988d1086b7"
     }
   ],
   "products": [
@@ -537,7 +481,8 @@
       "roleId": "2",
       "verified": true,
       "password": "",
-      "address": ""
+      "address": "",
+      "phoneNumber": "1234567890"
     },
     {
       "id": "402",
@@ -546,7 +491,8 @@
       "roleId": "2",
       "verified": true,
       "password": "",
-      "address": ""
+      "address": "",
+      "phoneNumber": "1234567890"
     },
     {
       "id": "403",
@@ -555,7 +501,8 @@
       "roleId": "2",
       "verified": true,
       "password": "",
-      "address": ""
+      "address": "",
+      "phoneNumber": "1234567890"
     },
     {
       "id": "404",
@@ -564,7 +511,8 @@
       "roleId": "2",
       "verified": true,
       "password": "",
-      "address": ""
+      "address": "",
+      "phoneNumber": "1234567890"
     },
     {
       "id": "405",
@@ -573,7 +521,8 @@
       "roleId": "2",
       "verified": true,
       "password": "",
-      "address": ""
+      "address": "",
+      "phoneNumber": "1234567890"
     },
     {
       "id": "406",
@@ -582,7 +531,8 @@
       "roleId": "2",
       "verified": true,
       "password": "",
-      "address": ""
+      "address": "",
+      "phoneNumber": "1234567890"
     },
     {
       "id": "407",
@@ -591,7 +541,28 @@
       "roleId": "2",
       "verified": true,
       "password": "",
-      "address": ""
+      "address": "",
+      "phoneNumber": "1234567890"
+    },
+    {
+      "companyName": "Flyer Vi",
+      "email": "flyer.vi@vi.com",
+      "password": "$2a$10$2B7U4xsk37FuzvMXVDqyIePfOJtK.xbnvxqd84J8G25qjylXdNCem",
+      "address": "HSR layout-6, main road, Bengaluru",
+      "phoneNumber": "7648336747",
+      "id": "6c6f6537-bf09-4c71-9de3-89fa673ffb5f",
+      "roleId": "2",
+      "verified": false
+    },
+    {
+      "companyName": "Ninja Sneaker",
+      "email": "sneaker@ninja.com",
+      "password": "$2a$10$aIfYG5NccL3kpnSvl0gAfuOcuq/GYiXFm2fTt80R9qIo80U6dhOTe",
+      "address": "Sector-47, Noida",
+      "phoneNumber": "7648336000",
+      "roleId": "2",
+      "verified": false,
+      "id": "df372c53-472a-4c72-8fd9-a3e404057546"
     }
   ],
   "users": [
@@ -677,6 +648,21 @@
       ],
       "status": "pending",
       "id": "ade1172b-419e-480c-bb80-aab92c04d767"
+    },
+    {
+      "customerId": "159de222-68ff-4e63-a208-012bb153a7c4",
+      "items": [
+        {
+          "productId": "313",
+          "quantity": 1
+        },
+        {
+          "productId": "318",
+          "quantity": 1
+        }
+      ],
+      "status": "pending",
+      "id": "3d87e06f-76d6-42d4-895e-16f837f4eb25"
     }
   ],
   "roles": [
@@ -695,23 +681,23 @@
   ],
   "banner": [
     {
-      "discount": "20%",
-      "description": "Get discount on every GiGi products",
-      "id": 1
+      "discount": "+40%",
+      "description": "Black Friday Sale is on Boom",
+      "id": "1"
     },
     {
       "heading": "BLACK FRIDAY",
       "discount": "UPTO 60% + EXTRA 20% OFF",
       "description": "Buy More! Save More!",
       "image": "",
-      "id": 2
+      "id": "2"
     },
     {
       "heading": "CLOTHES: November Collection by Edison Chen",
       "discount": "UPTO 30% + EXTRA 10% OFF",
       "description": "adidas Originals and Edison Chen transform iconic sports silhouettes, merging western court with eastern culture.",
       "image": "",
-      "id": 3
+      "id": "3"
     }
   ]
 }

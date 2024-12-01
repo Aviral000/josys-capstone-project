@@ -4,16 +4,19 @@ import { config } from "../utils/config"
 
 const BASE_URL = `${config.BASE_URL}/banner`;
 
-export const getBannerDetails = async (): Promise<AdBanner> => {
+export const getBannerDetails = async (): Promise<AdBanner[]> => {
     try {
         const response = await axios.get(BASE_URL);
-        return response.data;
+        if (Array.isArray(response.data)) {
+            return response.data;
+        }
+        return [];
     } catch (error) {
-        throw new Error("Server Error from fetching Banner");
+        throw new Error("Server Error from fetching Banners");
     }
-}
+};
 
-export const replaceBanner = async (id: number = 1, userObj: Omit<AdBanner, 'id'>): Promise<void> => {
+export const replaceBanner = async (id: string, userObj: Omit<AdBanner, 'id'>): Promise<void> => {
     try {
         const url = `${BASE_URL}/${id}`;
         await axios.put(url, userObj);
@@ -22,16 +25,30 @@ export const replaceBanner = async (id: number = 1, userObj: Omit<AdBanner, 'id'
     }
 }
 
-const resetObj = {
+type resetTpye = {
+    heading ?: string;
+    description : string,
+    discount: string,
+    image?: string
+}
+
+const resetObj: resetTpye = {
+    heading: "",
     description: "",
-    discount: ""
+    discount: "",
+    image: ""
 }
 
 export const resetBanner = async (): Promise<void> => {
     try {
-        const url = `${BASE_URL}/1`;
-        await axios.put(url, resetObj);
+        const bannerIds = [1, 2, 3];
+        const resetPromises = bannerIds.map((id) => {
+            const url = `${BASE_URL}/${id}`;
+            return axios.put(url, resetObj);
+        });
+
+        await Promise.all(resetPromises);
     } catch (error) {
-        throw new Error(`Server Error from updating Banner: ${error}`);
+        throw new Error(`Server Error from resetting Banners: ${error}`);
     }
-}
+};

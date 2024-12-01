@@ -1,18 +1,18 @@
 import React, { useContext, useState } from "react";
 import { useCart } from "../../customs/hooks/useCart";
 import { customerContext } from "../../contextAPI/customers/createContext";
-import { useCustomer } from "../../customs/hooks/useCustomer";
 import Swal from "sweetalert2";
 import { useProduct } from "../../customs/hooks/useProduct";
 import { Customer } from "../../models/Customer.type";
 import { useOrder } from "../../customs/hooks/useOrder";
 import { Order } from "../../models/Order.type";
 import { useNavigate } from "react-router-dom";
+import { useCustomer } from "../../customs/hooks/generic/useCustomer";
 
 const Checkout: React.FC = () => {
   const { userId, cartId } = useContext(customerContext);
   const { cart, updateCart } = useCart(cartId);
-  const { customer, updateCustomer } = useCustomer(userId);
+  const { entity, update } = useCustomer(userId);
   const { products } = useProduct();
   const { createOrder } = useOrder();
   const navigate = useNavigate();
@@ -47,23 +47,29 @@ const Checkout: React.FC = () => {
       text: `You have selected ${method}.`,
       timer: 2000,
       showConfirmButton: false,
+      position: "bottom-left",
+      toast: true
     });
   };
 
   const handleAddAddress = () => {
+    if (!entity) {
+      Swal.fire({
+        icon: "error",
+        title: "Update Failed",
+        text: "Customer data is missing.",
+        timer: 2000,
+        showConfirmButton: false,
+      });
+      return;
+    }
+  
     const customerObj: Customer = {
-      name: customer?.name || "",
+      ...entity,
       addressIds: address,
-      firstName: customer?.firstName || "",
-      lastName: customer?.lastName || "",
-      phoneNumber: customer?.phoneNumber || "",
-      email: customer?.email || "",
-      password: customer?.password || "",
-      roleId: customer?.roleId || "",
-      cartId: customer?.cartId || "",
     };
   
-    updateCustomer.mutate(
+    update.mutate(
       { id: userId, updates: customerObj },
       {
         onSuccess: () => {
@@ -74,6 +80,8 @@ const Checkout: React.FC = () => {
             text: "Your address has been successfully updated!",
             timer: 2000,
             showConfirmButton: false,
+            position: "bottom-left",
+            toast: true
           });
         },
         onError: (error) => {
@@ -96,7 +104,7 @@ const Checkout: React.FC = () => {
 
 
     const handlePlaceOrder = () => {
-        if (!customer?.id || !cartId || cartItems.length === 0) {
+        if (!entity?.id || !cartId || cartItems.length === 0) {
           Swal.fire({
             icon: "error",
             title: "Order Failed",
@@ -108,7 +116,7 @@ const Checkout: React.FC = () => {
         }
       
         const createOrderObj: Order = {
-          customerId: customer.id,
+          customerId: entity.id,
           items: cartObj,
           status: "pending",
         };
@@ -168,7 +176,7 @@ const Checkout: React.FC = () => {
             <h2 className="text-lg font-bold">CONTACT</h2>
             <input
               type="email"
-              value={customer?.email || ""}
+              value={entity?.email || ""}
               readOnly
               className="w-full border p-3 rounded-md mt-2 bg-gray-100 cursor-not-allowed"
             />
@@ -187,12 +195,12 @@ const Checkout: React.FC = () => {
                 onClick={handleAddAddress}
                 className="bg-zinc-900 text-white py-2 px-4 rounded-md mt-4 hover:bg-zinc-800"
             >
-                {customer?.addressIds ? 'Update Address' : 'Add Address'}
+                {entity?.addressIds ? 'Update Address' : 'Add Address'}
             </button>
           </div>
 
-          {customer?.addressIds &&<div>
-            <span className="text-2xl font-semibold pr-3">✓ Address</span><span className="font-bold pr-3">: </span><span className="text-teal-800 text-balance font-medium">{customer?.addressIds}</span>
+          {entity?.addressIds &&<div>
+            <span className="text-2xl font-semibold pr-3">✓ Address</span><span className="font-bold pr-3">: </span><span className="text-teal-800 text-balance font-medium">{entity?.addressIds}</span>
           </div>}
 
           <div className="mb-6 mt-6">

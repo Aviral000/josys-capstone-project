@@ -5,7 +5,6 @@ import { useProduct } from "../../customs/hooks/useProduct";
 import { useQuery } from "@tanstack/react-query";
 import { getAllSubCategories } from "../../services/SubCategory.service";
 import { SubType } from "../../models/Category.type";
-import { FaFilter } from "react-icons/fa";
 
 const WomenCategory: React.FC = () => {
   const { categories, isFetchingCategories, fetchError: categoryFetchError } = useCategory();
@@ -21,9 +20,7 @@ const WomenCategory: React.FC = () => {
     queryFn: getAllSubCategories,
   });
 
-  const [filterDrawerOpen, setFilterDrawerOpen] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
-  const [searchTerm, setSearchTerm] = useState("");
 
   const subTypeRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
@@ -54,30 +51,6 @@ const WomenCategory: React.FC = () => {
     womenCategory?.subTypeIds?.map((subTypeId) =>
       subTypes?.find((subType) => subType.id === subTypeId)
     ) || [];
-
-  const handleSearch = () => {
-    if (searchTerm.trim()) {
-      const womenProducts = products!.filter((product) => product.categoryId === womenCategory?.id);
-      setFilteredProducts(
-        womenProducts.filter((product) =>
-          product.productName.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-      );
-    } else {
-      const womenProducts = products!.filter((product) => product.categoryId === womenCategory?.id);
-      setFilteredProducts(womenProducts);
-    }
-  };
-
-  const handleSubCategoryFilter = (subTypeId: string) => {
-    const womenProducts = products!.filter((product) => product.categoryId === womenCategory?.id);
-    setFilteredProducts(womenProducts.filter((product) => product.subtypeId === subTypeId));
-    scrollToSubCategory(subTypeId);
-  };
-
-  const toggleFilterDrawer = () => {
-    setFilterDrawerOpen(!filterDrawerOpen);
-  };
 
   const scrollToSubCategory = (subTypeId: string) => {
     const targetRef = subTypeRefs.current[subTypeId];

@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ProductCard from "./ProductCard.module";
 import CategoryCard from "./CategoryCard.module";
 import { useProduct } from "../../customs/hooks/useProduct";
@@ -9,9 +9,9 @@ const AllProduct: React.FC = () => {
   const { categories } = useCategory();
 
   const [isFilterVisible, setFilterVisible] = useState(false);
-  const [sortBy, setSortBy] = useState<string>(""); // Selected sort order
-  const [discount, setDiscount] = useState<number>(0); // Minimum discount
-  const [priceRange, setPriceRange] = useState<[number, number]>([500, 25000]); // Price range
+  const [sortBy, setSortBy] = useState<string>("");
+  const [discount, setDiscount] = useState<number>(0);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 25000]);
   const [appliedFilters, setAppliedFilters] = useState({
     sortBy: "",
     discount: 0,
@@ -49,7 +49,6 @@ const AllProduct: React.FC = () => {
       return 0;
     });
 
-  // Close drawer when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (drawerRef.current && !drawerRef.current.contains(event.target as Node)) {
@@ -84,7 +83,6 @@ const AllProduct: React.FC = () => {
         })}
       </div>
 
-      {/* Filter and Sort Section */}
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">All Products</h1>
         <button
@@ -109,7 +107,6 @@ const AllProduct: React.FC = () => {
         </button>
       </div>
 
-      {/* Filter Drawer */}
       {isFilterVisible && (
         <div
           ref={drawerRef}
@@ -117,7 +114,6 @@ const AllProduct: React.FC = () => {
         >
           <h2 className="text-lg font-semibold mb-4">Filter Products</h2>
 
-          {/* Sort By */}
           <div className="mb-4">
             <h3 className="text-sm font-medium mb-2">Sort By</h3>
             <select
@@ -131,7 +127,6 @@ const AllProduct: React.FC = () => {
             </select>
           </div>
 
-          {/* Discount Filter */}
           <div className="mb-4">
             <h3 className="text-sm font-medium mb-2">Minimum Discount (%)</h3>
             <input
@@ -142,7 +137,6 @@ const AllProduct: React.FC = () => {
             />
           </div>
 
-          {/* Price Range Filter */}
           <div className="mb-4">
             <h3 className="text-sm font-medium mb-2">Price Range</h3>
             <div className="flex space-x-2">
@@ -165,7 +159,6 @@ const AllProduct: React.FC = () => {
             </div>
           </div>
 
-          {/* Apply and Clear Buttons */}
           <div className="flex space-x-2">
             <button
               className="mt-4 w-full bg-black text-white py-2 rounded-md hover:bg-gray-800"
@@ -183,7 +176,6 @@ const AllProduct: React.FC = () => {
         </div>
       )}
 
-      {/* Display Products */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {filteredProducts?.map((product) => (
           <ProductCard key={product.id} product={product} />

@@ -60,11 +60,12 @@ const Cart: React.FC = () => {
           const updatedItems = cartItems.filter((item) => item.id !== productId);
   
           Swal.fire({
-            position: "top-end",
+            position: "bottom-right",
             icon: "success",
             title: "Item deleted successfully!",
             showConfirmButton: false,
             timer: 1500,
+            toast: true
           });
   
           updateCart.mutate({ id: cartId, updates: { items: updatedItems.map((item) => ({ productId: item.id, quantity: item.quantity })) } });
@@ -72,7 +73,7 @@ const Cart: React.FC = () => {
         onError: (error) => {
           console.error("Error deleting item:", error);
           Swal.fire({
-            position: "top-end",
+            position: "bottom-right",
             icon: "error",
             title: "Failed to delete item. Please try again.",
             showConfirmButton: false,

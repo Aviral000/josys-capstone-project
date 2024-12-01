@@ -7,11 +7,11 @@ export const useBanner = () => {
 
     const { data, error, isLoading, isError } = useQuery({
         queryKey: ['banner'],
-        queryFn: getBannerDetails,
+        queryFn: getBannerDetails
     });
 
     const mutation = useMutation({
-        mutationFn: ({ id, bannerData }: { id: number; bannerData: Omit<AdBanner, 'id'> }) => 
+        mutationFn: ({ id, bannerData }: { id: string; bannerData: Omit<AdBanner, 'id'> }) => 
             replaceBanner(id, bannerData),
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['banner'] });
@@ -26,7 +26,7 @@ export const useBanner = () => {
     })
 
     return {
-        data,
+        data: data ? data : [],
         error,
         isLoading,
         isError,

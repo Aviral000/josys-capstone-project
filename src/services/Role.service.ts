@@ -1,6 +1,6 @@
 import { Role } from "../models/Role.type";
 import axios from "axios";
-import crypto from "crypto";
+import { v4 as uuidv4 } from "uuid";
 import { config } from "../utils/config";
 
 const BASE_URL: string | undefined = `${config.BASE_URL}/roles`;
@@ -25,7 +25,7 @@ export const getRoleById = async (id: string): Promise<Role> => {
 
 export const createRole = async (role: Omit<Role, "id">): Promise<Role> => {
     try {
-        const newRole = { ...role, id: crypto.randomUUID() };
+        const newRole = { ...role, id: uuidv4() };
         const response = await axios.post(BASE_URL, newRole);
         return response.data;
     } catch (error) {

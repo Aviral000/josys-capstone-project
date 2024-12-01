@@ -4,5 +4,7 @@ export interface Vendor {
     email: string;
     verified: boolean,
     password: string,
-    address: string
+    address: string,
+    phoneNumber: string,
+    roleId: string
 }

@@ -14,7 +14,7 @@ const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
 
   const { product, isFetchingProduct, fetchErrorId } = useProduct(id);
-  const { customer, isFetchingCustomer } = useCustomer();
+  const { isFetchingCustomer } = useCustomer();
   const { userId, cartId } = useContext(customerContext);
   const { cart, updateCart } = useCart(cartId);
 
@@ -45,6 +45,8 @@ const ProductDetail = () => {
         text: `${product?.productName} is already in your cart.`,
         timer: 2000,
         showConfirmButton: false,
+        toast: true,
+        position: "top-right"
       });
       return;
     } else {
@@ -61,6 +63,8 @@ const ProductDetail = () => {
         text: `${product?.productName} has been added to your cart.`,
         timer: 2000,
         showConfirmButton: false,
+        position: "top-right",
+        toast: true
       });
       navigate("/cart");
     } catch (error) {

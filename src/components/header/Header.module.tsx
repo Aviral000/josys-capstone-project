@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { debounce } from 'lodash';
 import { useProduct } from '../../customs/hooks/useProduct';
@@ -6,7 +6,6 @@ import ProDropper from '../../customs/components/ProDropper.module';
 import { Search, ShoppingCart, User } from 'lucide-react';
 import RegSlider from '../../customs/components/RegSlider.module';
 
-// Types for better type safety
 type Product = {
   id: string;
   productName: string;
@@ -14,7 +13,6 @@ type Product = {
   images: string[];
 };
 
-// Separate SearchResult component for better organization
 const SearchResult = ({ 
   product, 
   onSelect 
@@ -97,7 +95,7 @@ const Header = () => {
   const [showSearchBox, setShowSearchBox] = useState(false);
   const searchContainerRef = useRef<HTMLDivElement>(null);
 
-  const debouncedSearch = useCallback(
+  const debouncedSearch = (
     debounce((query: string) => {
       if (!products) return;
       
@@ -109,8 +107,7 @@ const Header = () => {
       } else {
         setSearchResults([]);
       }
-    }, 300),
-    [products]
+    }, 500)
   );
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {

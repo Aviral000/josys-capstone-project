@@ -13,26 +13,42 @@ import CProtectedRoute from './route/CProtected.route';
 import CheckoutPage from './pages/Checkout.page';
 import ThankPage from './pages/Thank.page';
 import ProductDisplayPage from './pages/ProductDisplay.page';
+import VProtectedRoute from './route/VProtected.route';
+import Signup from './components/signupVendor/Signup.module';
+import AProtectedRoute from './route/AProtected.route';
+import LoginAdminPage from './pages/LoginAdmin.page';
+import { AdminProvider } from './contextAPI/admins/ContextProviderAdmin';
+import DashboardAdminPage from './pages/AdminDashboard';
 
 const App: React.FC = () => {
   return (
     <Router>
       <CustomerProvider>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/user-register" element={<SignupPage />} />
-          <Route path='/user-login' element={<LoginPage />} />
-          <Route element={<CProtectedRoute />}>
-            <Route path='/shop/men-clothing' element={<MenClothing />} />
-            <Route path='/shop/women-clothing' element={<WomenClothing />} />
-            <Route path='/shop/kids-clothing' element={<KidsClothing />} />
-            <Route path='/product/:id' element={<ProductPage />} />
-            <Route path='/cart' element={<CartPage />} />
-            <Route path='/checkout' element={<CheckoutPage />} />
-            <Route path='/thank-you' element={<ThankPage />} />
-            <Route path='/shop/all-products' element={<ProductDisplayPage />} />
-          </Route>
-        </Routes>
+        <AdminProvider>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/user-register" element={<SignupPage />} />
+            <Route path='/user-login' element={<LoginPage />} />
+            <Route element={<CProtectedRoute />}>
+              <Route path='/shop/men-clothing' element={<MenClothing />} />
+              <Route path='/shop/women-clothing' element={<WomenClothing />} />
+              <Route path='/shop/kids-clothing' element={<KidsClothing />} />
+              <Route path='/product/:id' element={<ProductPage />} />
+              <Route path='/cart' element={<CartPage />} />
+              <Route path='/checkout' element={<CheckoutPage />} />
+              <Route path='/thank-you' element={<ThankPage />} />
+              <Route path='/shop/all-products' element={<ProductDisplayPage />} />
+            </Route>
+            <Route path='/vendor-register' element={<Signup />} />
+            <Route element={<VProtectedRoute />}>
+
+            </Route>
+            <Route path='/company/admin-panel' element={<LoginAdminPage />} />
+            <Route element={<AProtectedRoute />} >
+              <Route path='/company/admin/:id' element={<DashboardAdminPage />} />
+            </Route>
+          </Routes>
+        </AdminProvider>
       </CustomerProvider>
     </Router>
   );

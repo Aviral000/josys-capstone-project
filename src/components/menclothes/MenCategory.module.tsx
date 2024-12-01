@@ -5,8 +5,6 @@ import { useProduct } from "../../customs/hooks/useProduct";
 import { useQuery } from "@tanstack/react-query";
 import { getAllSubCategories } from "../../services/SubCategory.service";
 import { SubType } from "../../models/Category.type";
-import { FaFilter } from "react-icons/fa";
-import MenSection from "./MenSection.module";
 
 const MenCategory: React.FC = () => {
   const { categories, isFetchingCategories, fetchError: categoryFetchError } = useCategory();
@@ -18,9 +16,7 @@ const MenCategory: React.FC = () => {
       queryFn: getAllSubCategories,
     });
 
-  const [filterDrawerOpen, setFilterDrawerOpen] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
-  const [searchTerm, setSearchTerm] = useState("");
 
   const subTypeRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
@@ -45,31 +41,7 @@ const MenCategory: React.FC = () => {
   const menSubTypes =
     menCategory?.subTypeIds?.map((subTypeId) =>
       subTypes?.find((subType) => subType.id === subTypeId)
-    ) || [];
-
-  const handleSearch = () => {
-    if (searchTerm.trim()) {
-      const menProducts = products!.filter((product) => product.categoryId === menCategory?.id);
-      setFilteredProducts(
-        menProducts.filter((product) =>
-          product.productName.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-      );
-    } else {
-      const menProducts = products!.filter((product) => product.categoryId === menCategory?.id);
-      setFilteredProducts(menProducts);
-    }
-  };
-
-  const handleSubCategoryFilter = (subTypeId: string) => {
-    const menProducts = products!.filter((product) => product.categoryId === menCategory?.id);
-    setFilteredProducts(menProducts.filter((product) => product.subtypeId === subTypeId));
-    scrollToSubCategory(subTypeId);
-  };
-
-  const toggleFilterDrawer = () => {
-    setFilterDrawerOpen(!filterDrawerOpen);
-  };
+    ) || [];;
 
   const scrollToSubCategory = (subTypeId: string) => {
     const targetRef = subTypeRefs.current[subTypeId];
