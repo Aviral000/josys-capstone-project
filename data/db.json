@@ -16,7 +16,7 @@
       "addressIds": "H. No-126, Phase-7, Vasundhara Residency",
       "firstName": "Aviral",
       "lastName": "Malik",
-      "phoneNumber": "9528410058",
+      "phoneNumber": "9528410057",
       "email": "avim@gmail.com",
       "password": "$2a$10$Wz3nmV4uUOcPtCVczF1RI.dTBrGdQK8gG3IlWEAcQD3QrNDc.2Ff2",
       "roleId": "3",
@@ -96,11 +96,10 @@
       "uploadedDate": ""
     },
     {
-      "id": "302",
       "productName": "Women's Yoga Leggings",
       "productDesc": "Comfortable and stretchy yoga leggings.",
-      "cost": 1600,
-      "vendorId": "402",
+      "cost": 8000,
+      "vendorId": "6c6f6537-bf09-4c71-9de3-89fa673ffb5f",
       "categoryId": "502",
       "subtypeId": "601",
       "images": [
@@ -111,7 +110,8 @@
       ],
       "discount": 15,
       "stock": 18,
-      "uploadedDate": ""
+      "uploadedDate": "",
+      "id": "302"
     },
     {
       "id": "303",
@@ -408,11 +408,10 @@
       "uploadedDate": ""
     },
     {
-      "id": "321",
       "productName": "Women's White Jacket",
       "productDesc": "adidas Originals and Edison Chen transform iconic sports silhouettes, merging western court with eastern culture",
       "cost": 12000,
-      "vendorId": "403",
+      "vendorId": "6c6f6537-bf09-4c71-9de3-89fa673ffb5f",
       "categoryId": "502",
       "subtypeId": "601",
       "images": [
@@ -423,8 +422,62 @@
         "https://assets.adidas.com/videos/ar_1,w_720,c_fill,q_auto,f_auto/54de62bdd4ab4a7d8326ec1b50db93c6_d98c/adidas_Z.N.E._Full-Zip_Hoodie_White_JE7849_video.mp4"
       ],
       "discount": 20,
-      "stock": 10,
-      "uploadedDate": ""
+      "stock": 8,
+      "uploadedDate": "",
+      "id": "321"
+    },
+    {
+      "productName": "Adicolor Trench Coat Twill",
+      "productDesc": "A trench coat made in part with a blend of recycled and renewable materials.",
+      "cost": 14000,
+      "vendorId": "6c6f6537-bf09-4c71-9de3-89fa673ffb5f",
+      "stock": 5,
+      "discount": 12,
+      "images": [
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/f6bc00d6abc34055a53ad656f55c8803_9366/Adicolor_Trench_Coat_Twill_Beige_IZ0382_21_model.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/761adb039069418383a4875613b4d4d3_9366/Adicolor_Trench_Coat_Twill_Beige_IZ0382_25_model.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ec887a07a87f4f1db3f227758a105a28_9366/Adicolor_Trench_Coat_Twill_Beige_IZ0382_23_hover_model.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/7a40fa877e8744e081a8bd1dbcfc00f6_9366/Adicolor_Trench_Coat_Twill_Beige_IZ0382_01_laydown.jpg"
+      ],
+      "categoryId": "502",
+      "subtypeId": "601",
+      "uploadedDate": "02/12/2024",
+      "id": "8cd4635e-a909-49f0-b7ae-34b001aed1e6"
+    },
+    {
+      "id": "effa03c1-1fd5-4767-8bab-175e9843eb4b",
+      "productName": "NMD Shoes",
+      "productDesc": "Infants' NMD shoes made in part with recycled materials.",
+      "cost": 4000,
+      "vendorId": "6c6f6537-bf09-4c71-9de3-89fa673ffb5f",
+      "stock": 44,
+      "discount": 55,
+      "images": [
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/7f02a349b8e143e5a43baf47014ef576_9366/NMD_Shoes_Black_HQ6116_01_standard.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/1a7f34e17fc04e34a3d5af47014f1046_9366/NMD_Shoes_Black_HQ6116_02_standard_hover.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d808bcd31b8e4e9eaa70af47014f2f6d_9366/NMD_Shoes_Black_HQ6116_05_standard.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/f201401f47ab4ec6bbe2af47014f24cb_9366/NMD_Shoes_Black_HQ6116_04_standard.jpg"
+      ],
+      "categoryId": "503",
+      "subtypeId": "602",
+      "uploadedDate": "02/12/2024"
+    },
+    {
+      "id": "30c3602f-02a6-4d3e-be7b-2147a57d337b",
+      "productName": "Spieler E05.1-J Badminton Racket",
+      "productDesc": "A badminton racket built for recreational players",
+      "cost": 2000,
+      "vendorId": "df372c53-472a-4c72-8fd9-a3e404057546",
+      "stock": 17,
+      "discount": 25,
+      "images": [
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/c111a9b8e85643ae9675afb200b26173_9366/Spieler_E05.1-J_Badminton_Racket_Red_IQ7511_01_standard.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/f74a446019814d7394d0afb200b26afd_9366/Spieler_E05.1-J_Badminton_Racket_Red_IQ7511_41_detail_hover.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/a79e6fe8aa044abe9a7aafb200b2723c_9366/Spieler_E05.1-J_Badminton_Racket_Red_IQ7511_42_detail.jpg"
+      ],
+      "categoryId": "503",
+      "subtypeId": "603",
+      "uploadedDate": "02/12/2024"
     }
   ],
   "sub_types": [
@@ -550,9 +603,9 @@
       "password": "$2a$10$2B7U4xsk37FuzvMXVDqyIePfOJtK.xbnvxqd84J8G25qjylXdNCem",
       "address": "HSR layout-6, main road, Bengaluru",
       "phoneNumber": "7648336747",
-      "id": "6c6f6537-bf09-4c71-9de3-89fa673ffb5f",
       "roleId": "2",
-      "verified": false
+      "verified": true,
+      "id": "6c6f6537-bf09-4c71-9de3-89fa673ffb5f"
     },
     {
       "companyName": "Ninja Sneaker",
@@ -561,8 +614,18 @@
       "address": "Sector-47, Noida",
       "phoneNumber": "7648336000",
       "roleId": "2",
-      "verified": false,
+      "verified": true,
       "id": "df372c53-472a-4c72-8fd9-a3e404057546"
+    },
+    {
+      "companyName": "Sneaky Shoes",
+      "email": "sneaky@bob.com",
+      "password": "$2a$10$CFkQoMqHusVLYqgHF01.sulLdk8Q55nhLoNE8iTdrM3nOfzrjLHPa",
+      "address": "Sector-47, Noida",
+      "phoneNumber": "7648336123",
+      "roleId": "2",
+      "verified": false,
+      "id": "108fbc3c-35f5-4ce0-939a-b7d5e91f44c1"
     }
   ],
   "users": [
@@ -587,7 +650,7 @@
           "quantity": 1
         }
       ],
-      "status": "pending",
+      "status": "processed",
       "id": "a28a17bb-ec13-4450-95f4-c956d319b73c"
     },
     {
@@ -661,8 +724,30 @@
           "quantity": 1
         }
       ],
-      "status": "pending",
+      "status": "processed",
       "id": "3d87e06f-76d6-42d4-895e-16f837f4eb25"
+    },
+    {
+      "customerId": "ee80cd0e-f378-417f-bcb7-36dcc2c89805",
+      "items": [
+        {
+          "productId": "310",
+          "quantity": 1
+        }
+      ],
+      "status": "pending",
+      "id": "6f379e18-3d96-48a2-9302-923246d6ee10"
+    },
+    {
+      "customerId": "ee80cd0e-f378-417f-bcb7-36dcc2c89805",
+      "items": [
+        {
+          "productId": "8cd4635e-a909-49f0-b7ae-34b001aed1e6",
+          "quantity": 2
+        }
+      ],
+      "status": "processed",
+      "id": "d589b9b9-af99-41f6-8c6e-1f33649d1dc7"
     }
   ],
   "roles": [
@@ -681,7 +766,7 @@
   ],
   "banner": [
     {
-      "discount": "+40%",
+      "discount": "+60%",
       "description": "Black Friday Sale is on Boom",
       "id": "1"
     },

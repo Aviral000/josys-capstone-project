@@ -2,10 +2,10 @@ import React, { useContext, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Truck, RotateCcw, Shield, Package } from "lucide-react";
 import { useProduct } from "../../customs/hooks/useProduct";
-import { useCustomer } from "../../customs/hooks/useCustomer";
 import { customerContext } from "../../contextAPI/customers/createContext";
 import { useCart } from "../../customs/hooks/useCart";
 import Swal from 'sweetalert2';
+import { useCustomer } from "../../customs/hooks/generic/useCustomer";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -14,7 +14,7 @@ const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
 
   const { product, isFetchingProduct, fetchErrorId } = useProduct(id);
-  const { isFetchingCustomer } = useCustomer();
+  const { isFetchingEntities } = useCustomer();
   const { userId, cartId } = useContext(customerContext);
   const { cart, updateCart } = useCart(cartId);
 
@@ -78,7 +78,7 @@ const ProductDetail = () => {
   };
   
 
-  if (isFetchingProduct || isFetchingCustomer) return <div>Loading...</div>;
+  if (isFetchingProduct || isFetchingEntities) return <div>Loading...</div>;
   if (fetchErrorId) return <div>Error: {fetchErrorId.message}</div>;
 
   const features = [

@@ -6,6 +6,10 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [adminId, setAdminId] = useState('');
   const [role, setRole] = useState('');
 
+  if(role) {
+    localStorage.setItem('role', role);
+  }
+
   const logout = (): void => {
     setIsLoggedIn(false);
     setAdminId('');

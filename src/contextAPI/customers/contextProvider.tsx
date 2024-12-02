@@ -7,6 +7,12 @@ export const CustomerProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [cartId, setCartId] = useState<string | undefined>(undefined);
   const [role, setRole] = useState('');
 
+  if(isLoggedIn || role) {
+    localStorage.setItem('isLoggedIn', String(isLoggedIn));
+    localStorage.setItem('role', role);
+    localStorage.setItem('userId', userId);
+  }
+
   const logout = (): void => {
     setIsLoggedIn(false);
     setUserId('');

@@ -39,7 +39,6 @@ const SearchResult = ({
   </Link>
 );
 
-// Separate SearchBox component for better modularity
 const SearchBox = ({
   isOpen,
   searchTerm,

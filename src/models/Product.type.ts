@@ -9,5 +9,5 @@ export interface Product {
     images: string[];
     discount: number;
     stock: number;
-    uploadedDate: string
+    uploadedDate?: string
 }

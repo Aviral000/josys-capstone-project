@@ -40,6 +40,10 @@ export const verifyVendor = async (email: string, password: string): Promise<Ven
         if(await verifyPassword(password, response.data[0].password) === false) {
             throw new Error("Incorrect password");
         }
+
+        if(response.data[0].verified === false) {
+            throw new Error("Please wait! Unverified Seller");
+        }
         
         return response.data;
     } catch (error) {

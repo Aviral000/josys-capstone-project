@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import vgback1 from '../../assets/main/v-bg-1.webp';
 import { isValidEmail } from './Login.validator';
-import { verifyCustomer } from '../../services/Customer.service';
+import { verifyVendor } from '../../services/Vendor.service';
 import { VendorContext } from '../../contextAPI/vendors/CreateContext';
 
 type UserForm = {
@@ -18,7 +18,7 @@ const Login: React.FC = () => {
     const { setIsLoggedIn, setVendorId, setRole } = useContext(VendorContext);
 
     const mutation = useMutation({
-        mutationFn: ({ email, password }: { email: string; password: string }) => verifyCustomer(email, password),
+        mutationFn: ({ email, password }: { email: string; password: string }) => verifyVendor(email, password),
         onSuccess: (data) => {
             const vendor = Array.isArray(data) ? data[0] : data;
 

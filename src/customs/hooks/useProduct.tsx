@@ -40,7 +40,7 @@ const useProduct = (productId?: string) => {
   });
 
   const updateProductMutation = useMutation({
-    mutationFn: ({ id, updates }: { id: string; updates: Partial<Product> }) =>
+    mutationFn: ({ id, updates }: { id: string; updates: Omit<Product, 'id'> }) =>
       updateProduct(id, updates),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['products']});

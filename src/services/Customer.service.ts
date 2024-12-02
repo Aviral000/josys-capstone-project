@@ -77,6 +77,26 @@ export const createCustomer = async (customer: Customer): Promise<Customer> => {
 
 export const updateCustomer = async (id: string, updates: Omit<Customer, 'id'>): Promise<Customer> => {
     try {
+        if (updates.phoneNumber && updates.phoneNumber.length !== 10) {
+            throw new Error('Phone number must be exactly 10 digits.');
+        }
+
+        const existingCustomer = await getCustomerById(id);
+
+        if (updates.phoneNumber && updates.phoneNumber !== existingCustomer.phoneNumber) {
+            const existingPhoneCustomers = await getCustomersByQuery('phoneNumber', updates.phoneNumber);
+            if (existingPhoneCustomers.some((customer) => customer.id !== id)) {
+                throw new Error('The provided phone number is already in use by another customer.');
+            }
+        }
+
+        if (updates.email && updates.email !== existingCustomer.email) {
+            const existingEmailCustomers = await getCustomersByQuery('email', updates.email);
+            if (existingEmailCustomers.some((customer) => customer.id !== id)) {
+                throw new Error('The provided email address is already in use by another customer.');
+            }
+        }
+
         const response = await axios.put(`${BASE_URL}/${id}`, updates);
         return response.data;
     } catch (error) {

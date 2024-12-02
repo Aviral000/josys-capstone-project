@@ -27,13 +27,11 @@ export const getProductById = async (id: string): Promise<Product> => {
 export const createProduct = async (product: Omit<Product, "id">): Promise<Product> => {
     try {
         const date = formatDate(new Date());
-        console.log(date);
         const newProduct: Product = {
             ...product,
             id: uuidv4(),
             uploadedDate: date
         };
-        console.log(newProduct);
         const response = await axios.post(BASE_URL, newProduct);
         return response.data;
     } catch (error) {
@@ -41,9 +39,9 @@ export const createProduct = async (product: Omit<Product, "id">): Promise<Produ
     }
 };
 
-export const updateProduct = async (id: string, updates: Partial<Product>): Promise<Product> => {
+export const updateProduct = async (id: string, updates: Omit<Product, 'id'>): Promise<Product> => {
     try {
-        const response = await axios.patch(`${BASE_URL}/${id}`, updates);
+        const response = await axios.put(`${BASE_URL}/${id}`, updates);
         return response.data;
     } catch (error) {
         throw new Error(`Failed to update product with id ${id}: ${error}`);

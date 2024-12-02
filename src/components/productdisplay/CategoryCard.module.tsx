@@ -25,7 +25,7 @@ const navigate = useNavigate();
             <div>
               <p className="text-sm font-medium">{product.productName}</p>
               <p className="text-sm text-gray-500">
-                ₹{product.cost.toFixed(2)}
+                ₹{product.cost}
               </p>
             </div>
           </div>

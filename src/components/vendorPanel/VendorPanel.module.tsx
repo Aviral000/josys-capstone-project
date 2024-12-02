@@ -1,16 +1,14 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { adminContext } from "../../contextAPI/admins/CreateContextAdmin";
-import AdminVerify from "./adminVerification/AdminVerify.module";
-import PBV from "./productsbyvendor/PBV.module";
-import DA from "./disciplinaryAction/DA.module";
-import AM from "./advertisementManagement/AM.module";
-import OrderedProducts from "./orderedproducts/OrderedProducts.module";
+import { VendorContext } from "../../contextAPI/vendors/CreateContext";
+import VP from "./vendorProfile/VP.module";
+import VendorProducts from "./vendorproducts/VendorProduct";
+import AddProduct from "./addproduct/AddProduct.module";
 
-const AdminPanel: React.FC = () => {
-  const [selectedOption, setSelectedOption] = useState<string>("Vendor Verifications");
-  const { logout } = useContext(adminContext);
+const VendorPanel: React.FC = () => {
+  const [selectedOption, setSelectedOption] = useState<string>("Vendor Profile");
+  const { logout } = useContext(VendorContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -32,7 +30,7 @@ const AdminPanel: React.FC = () => {
           title: "Logout Successful",
           showConfirmButton: false,
           timer: 1500,
-          toast: true
+          toast: true,
         });
       }
     });
@@ -40,16 +38,14 @@ const AdminPanel: React.FC = () => {
 
   const renderContent = () => {
     switch (selectedOption) {
-      case "Vendor Verifications":
-        return <AdminVerify />;
-      case "Ordered Products":
-        return <OrderedProducts />
-      case "Products by Vendor":
-        return <PBV />;
-      case "Disciplinary Actions":
-        return <DA />;
-      case "Advertisement Banner":
-        return <AM />;
+      case "Vendor Profile":
+        return <VP />;
+      case "Vendor's Products":
+        return <VendorProducts />;
+      case "Add new Product":
+        return <AddProduct />;
+      case "Request for Advertisement":
+        return <div>Request for Advertisement will be shown here.</div>;
       default:
         return <div>Select an option to see details.</div>;
     }
@@ -59,10 +55,10 @@ const AdminPanel: React.FC = () => {
     <div className="min-h-screen flex bg-gray-100">
       <div className="w-1/4 bg-white shadow-lg">
         <h2 className="text-2xl font-bold text-center py-4 border-b border-gray-200">
-          Admin Panel
+          Vendor Panel
         </h2>
         <ul className="space-y-2 p-4">
-          {["Vendor Verifications", "Products by Vendor", "Ordered Products", "Disciplinary Actions", "Advertisement Banner"].map(
+          {["Vendor Profile", "Vendor's Products", "Add new Product", "Request for Advertisement"].map(
             (option) => (
               <li
                 key={option}
@@ -94,4 +90,4 @@ const AdminPanel: React.FC = () => {
   );
 };
 
-export default AdminPanel;
+export default VendorPanel;

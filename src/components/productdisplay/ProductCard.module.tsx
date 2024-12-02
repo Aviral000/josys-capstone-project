@@ -16,7 +16,7 @@ const navigate = useNavigate();
       </div>
 
       <div className="text-center">
-        <p className="text-lg font-bold mb-1">₹{product.cost.toFixed(2)}</p>
+        <p className="text-lg font-bold mb-1">₹{product.cost}</p>
         <p className="text-sm font-medium text-gray-800 mb-1">{product.productName}</p>
         <p className="text-xs text-gray-500">{product.productDesc}</p>
         <p className="text-xs text-gray-500"><span className="text-red-600 line-through">₹{product.cost}</span> → ₹{(product.cost - ((product.cost * product.discount) / 100)).toFixed(2) }</p>
