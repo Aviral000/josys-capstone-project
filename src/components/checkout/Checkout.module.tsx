@@ -8,12 +8,14 @@ import { useOrder } from "../../customs/hooks/useOrder";
 import { Order } from "../../models/Order.type";
 import { useNavigate } from "react-router-dom";
 import { useCustomer } from "../../customs/hooks/generic/useCustomer";
+import ProductDetail from "../products/ProductDetail.module";
+import { Product } from "../../models/Product.type";
 
 const Checkout: React.FC = () => {
   const { userId, cartId } = useContext(customerContext);
   const { cart, updateCart } = useCart(cartId);
   const { entity, update } = useCustomer(userId);
-  const { products } = useProduct();
+  const { products, updateProduct } = useProduct();
   const { createOrder } = useOrder();
   const navigate = useNavigate();
 
@@ -29,7 +31,24 @@ const Checkout: React.FC = () => {
       price: (product?.cost || 0) - ((product?.cost || 0) * (product?.discount || 0)) / 100,
       originalPrice: product?.cost || 0,
       image: product?.images[0] || "https://via.placeholder.com/150",
+      stock: product?.stock
     };
+  }) || [];
+
+  const cartItemStock = cart?.items.map((cartItem) => {
+    const product = products?.find((p) => p.id === cartItem.productId);
+    return {
+      productName: product?.productName,
+      productDesc: product?.productDesc,
+      cost: product?.cost,
+      vendorId: product?.vendorId,
+      categoryId: product?.categoryId,
+      subtypeId: product?.subtypeId,
+      images: product?.images,
+      discount: product?.discount,
+      stock: (product!.stock) - cartItem.quantity,
+      uploadedDate: product?.uploadedDate,
+    } as Omit<Product, "id">;
   }) || [];
 
   const cartObj = cartItems.map((item) => {
@@ -103,7 +122,7 @@ const Checkout: React.FC = () => {
     cartItems?.reduce((acc, item) => acc + item.price * item.quantity, 0) || 0;
 
 
-    const handlePlaceOrder = () => {
+    const handlePlaceOrder = async () => {
         if (!entity?.id || !cartId || cartItems.length === 0) {
           Swal.fire({
             icon: "error",
@@ -114,6 +133,7 @@ const Checkout: React.FC = () => {
           });
           return;
         }
+
       
         const createOrderObj: Order = {
           customerId: entity.id,
@@ -127,8 +147,18 @@ const Checkout: React.FC = () => {
               id: cartId,
               items: [],
             };
+
+            cartItemStock.forEach((item, index) => {
+              const productId = cart?.items[index].productId;
+              if (!productId) return;
+            
+              updateProduct.mutateAsync({
+                id: productId,
+                updates: item,
+              });
+            });
       
-            updateCart.mutate(
+            updateCart.mutateAsync(
               { id: cartId, updates: emptyCart },
               {
                 onSuccess: () => {

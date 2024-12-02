@@ -64,8 +64,8 @@
       ]
     },
     {
-      "items": [],
-      "id": "5168708a-5858-4dc5-b38a-bc1f615d1658"
+      "id": "5168708a-5858-4dc5-b38a-bc1f615d1658",
+      "items": []
     },
     {
       "items": [],
@@ -78,7 +78,6 @@
   ],
   "products": [
     {
-      "id": "301",
       "productName": "Women's Running Outfit",
       "productDesc": "Lightweight and breathable running t-shirt.",
       "cost": 2500,
@@ -92,8 +91,9 @@
         "https://img.freepik.com/free-photo/young-woman-standing-with-skateboard_23-2147678050.jpg?t=st=1732722025~exp=1732725625~hmac=298f050c51bbd152d3964e369d551a9d4fec6d54f291caadf676cd349207ac19&w=996"
       ],
       "discount": 40,
-      "stock": 100,
-      "uploadedDate": ""
+      "stock": 96,
+      "uploadedDate": "",
+      "id": "301"
     },
     {
       "productName": "Women's Yoga Leggings",
@@ -114,7 +114,6 @@
       "id": "302"
     },
     {
-      "id": "303",
       "productName": "Lose Gym t-shirt",
       "productDesc": "Comfortable and baggy look gym t-shirt",
       "cost": 1450,
@@ -128,8 +127,9 @@
         "https://img.freepik.com/free-photo/man-tank-top-looking-smartphone-while-working-out-outdoors_23-2148773849.jpg?t=st=1732722410~exp=1732726010~hmac=667e291faaa0d1c21f339299ef84b3d479d1df220342dd2bbfe83d837f6fd474&w=996"
       ],
       "discount": 65,
-      "stock": 80,
-      "uploadedDate": ""
+      "stock": 77,
+      "uploadedDate": "",
+      "id": "303"
     },
     {
       "id": "304",
@@ -748,6 +748,32 @@
       ],
       "status": "processed",
       "id": "d589b9b9-af99-41f6-8c6e-1f33649d1dc7"
+    },
+    {
+      "customerId": "ee80cd0e-f378-417f-bcb7-36dcc2c89805",
+      "items": [
+        {
+          "productId": "301",
+          "quantity": 1
+        }
+      ],
+      "status": "pending",
+      "id": "d0864ae4-3304-4270-8d95-ff21a0b2c0ea"
+    },
+    {
+      "customerId": "ee80cd0e-f378-417f-bcb7-36dcc2c89805",
+      "items": [
+        {
+          "productId": "303",
+          "quantity": 3
+        },
+        {
+          "productId": "301",
+          "quantity": 3
+        }
+      ],
+      "status": "pending",
+      "id": "3d1a9987-a7a5-4799-85d3-38e6ad728f5b"
     }
   ],
   "roles": [

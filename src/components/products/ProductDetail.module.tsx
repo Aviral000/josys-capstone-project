@@ -191,9 +191,9 @@ const ProductDetail = () => {
                 Add to Cart
               </button>
               <button
-                className="w-1/2 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg transition-colors"
+                className="w-1/2 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg transition-colors cursor-not-allowed" disabled
               >
-                Buy Now
+                Coming Soon
               </button>
             </div>
           </div>
