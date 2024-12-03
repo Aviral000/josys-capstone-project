@@ -46,6 +46,30 @@
       "roleId": "3",
       "addressIds": "H. No-126, Phase-7, Vasundhara Residency",
       "cartId": "a503a9e6-aed0-465c-a0d5-87988d1086b7"
+    },
+    {
+      "firstName": "Raina",
+      "lastName": "Singhal",
+      "email": "raina@gmail.com",
+      "phoneNumber": "9522412257",
+      "password": "$2a$10$32uKmh6SmHCNH2BK7Cl0cOnoYDrl1Tjk8zFiS5xLheCFokep2PjFa",
+      "id": "624876f6-e824-47c4-b91d-528b48574d81",
+      "name": "Raina Singhal",
+      "roleId": "3",
+      "addressIds": "",
+      "cartId": "50a243a0-fea0-49f2-84b7-cb9a4bf1d9ad"
+    },
+    {
+      "firstName": "Manni",
+      "lastName": "Pikas",
+      "email": "manni@gmail.com",
+      "phoneNumber": "9522412280",
+      "password": "$2a$10$zXv2bjeXZEMZF/jE3VNmS.P6t8wuSI/wFwqSUjpyQckoHdeVN6JiS",
+      "id": "ceca9810-20b8-4b0c-a3ed-f6f7a92f4bbe",
+      "name": "Manni Pikas",
+      "roleId": "3",
+      "addressIds": "",
+      "cartId": "5b42264d-2eb8-488a-b690-499ecbebf997"
     }
   ],
   "carts": [
@@ -64,8 +88,22 @@
       ]
     },
     {
-      "id": "5168708a-5858-4dc5-b38a-bc1f615d1658",
-      "items": []
+      "customerId": "ee80cd0e-f378-417f-bcb7-36dcc2c89805",
+      "items": [
+        {
+          "productId": "306",
+          "quantity": 1
+        },
+        {
+          "productId": "307",
+          "quantity": 1
+        },
+        {
+          "productId": "303",
+          "quantity": 1
+        }
+      ],
+      "id": "5168708a-5858-4dc5-b38a-bc1f615d1658"
     },
     {
       "items": [],
@@ -74,6 +112,15 @@
     {
       "items": [],
       "id": "a503a9e6-aed0-465c-a0d5-87988d1086b7"
+    },
+    {
+      "customerId": "624876f6-e824-47c4-b91d-528b48574d81",
+      "items": [],
+      "id": "50a243a0-fea0-49f2-84b7-cb9a4bf1d9ad"
+    },
+    {
+      "id": "5b42264d-2eb8-488a-b690-499ecbebf997",
+      "items": []
     }
   ],
   "products": [
@@ -127,7 +174,7 @@
         "https://img.freepik.com/free-photo/man-tank-top-looking-smartphone-while-working-out-outdoors_23-2148773849.jpg?t=st=1732722410~exp=1732726010~hmac=667e291faaa0d1c21f339299ef84b3d479d1df220342dd2bbfe83d837f6fd474&w=996"
       ],
       "discount": 65,
-      "stock": 77,
+      "stock": 76,
       "uploadedDate": "",
       "id": "303"
     },
@@ -410,7 +457,7 @@
     {
       "productName": "Women's White Jacket",
       "productDesc": "adidas Originals and Edison Chen transform iconic sports silhouettes, merging western court with eastern culture",
-      "cost": 12000,
+      "cost": 15000,
       "vendorId": "6c6f6537-bf09-4c71-9de3-89fa673ffb5f",
       "categoryId": "502",
       "subtypeId": "601",
@@ -598,7 +645,7 @@
       "phoneNumber": "1234567890"
     },
     {
-      "companyName": "Flyer Vi",
+      "companyName": "Flyer ViV",
       "email": "flyer.vi@vi.com",
       "password": "$2a$10$2B7U4xsk37FuzvMXVDqyIePfOJtK.xbnvxqd84J8G25qjylXdNCem",
       "address": "HSR layout-6, main road, Bengaluru",
@@ -774,6 +821,17 @@
       ],
       "status": "pending",
       "id": "3d1a9987-a7a5-4799-85d3-38e6ad728f5b"
+    },
+    {
+      "customerId": "ceca9810-20b8-4b0c-a3ed-f6f7a92f4bbe",
+      "items": [
+        {
+          "productId": "303",
+          "quantity": 1
+        }
+      ],
+      "status": "processed",
+      "id": "17563d9b-a8c0-4692-97fc-6051e575e41c"
     }
   ],
   "roles": [
@@ -792,8 +850,8 @@
   ],
   "banner": [
     {
-      "discount": "+60%",
-      "description": "Black Friday Sale is on Boom",
+      "discount": "50%",
+      "description": "SALE SALE SALE",
       "id": "1"
     },
     {

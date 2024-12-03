@@ -1,8 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Truck, RotateCcw, Shield, Package } from "lucide-react";
 import { useProduct } from "../../customs/hooks/useProduct";
-import { customerContext } from "../../contextAPI/customers/createContext";
 import { useCart } from "../../customs/hooks/useCart";
 import Swal from 'sweetalert2';
 import { useCustomer } from "../../customs/hooks/generic/useCustomer";
@@ -15,7 +14,9 @@ const ProductDetail = () => {
 
   const { product, isFetchingProduct, fetchErrorId } = useProduct(id);
   const { isFetchingEntities } = useCustomer();
-  const { userId, cartId } = useContext(customerContext);
+  const userId = localStorage.getItem("userId") || "";
+  const cartId = localStorage.getItem("cartId") || undefined;
+
   const { cart, updateCart } = useCart(cartId);
 
   const handleAddToCart = async () => {

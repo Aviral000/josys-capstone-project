@@ -37,6 +37,10 @@ const Login: React.FC = () => {
             setUserId(user.id || '');
             setCartId(user.cartId || undefined);
             setRole(user.role || 'Customer');
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('userId', user.id);
+            localStorage.setItem('cartId', user.cartId);
+            localStorage.setItem('role', 'Customer');
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',

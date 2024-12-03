@@ -1,10 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
-import { customerContext } from "../../contextAPI/customers/createContext";
 import { useCustomer } from "../../customs/hooks/useCustomer";
 
 const CustomerProfile: React.FC = () => {
-  const { userId } = useContext(customerContext);
+  const userId = localStorage.getItem('userId') || "";
   const { customer, isFetchingCustomer, isFetchError, fetchError, updateCustomer } = useCustomer(userId);
   const [editingCustomer, setEditingCustomer] = useState<any>(null);
 

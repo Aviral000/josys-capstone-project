@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useCart } from "../../customs/hooks/useCart";
-import { customerContext } from "../../contextAPI/customers/createContext";
 import Swal from "sweetalert2";
 import { useProduct } from "../../customs/hooks/useProduct";
 import { Customer } from "../../models/Customer.type";
@@ -8,11 +7,11 @@ import { useOrder } from "../../customs/hooks/useOrder";
 import { Order } from "../../models/Order.type";
 import { useNavigate } from "react-router-dom";
 import { useCustomer } from "../../customs/hooks/generic/useCustomer";
-import ProductDetail from "../products/ProductDetail.module";
 import { Product } from "../../models/Product.type";
 
 const Checkout: React.FC = () => {
-  const { userId, cartId } = useContext(customerContext);
+  const userId = localStorage.getItem("userId") || "";
+  const cartId = localStorage.getItem("cartId") || undefined;
   const { cart, updateCart } = useCart(cartId);
   const { entity, update } = useCustomer(userId);
   const { products, updateProduct } = useProduct();

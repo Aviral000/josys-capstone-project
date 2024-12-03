@@ -6,7 +6,6 @@ import Cart from '../components/cart/Cart.module';
 
 const CartPage = () => {
     const containerRef = useRef<HTMLDivElement>(null);
-    const cartRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     const animation = gsap.fromTo(
@@ -21,22 +20,8 @@ const CartPage = () => {
         }
     );
 
-    const animation2 = gsap.fromTo(
-        cartRef.current,
-        {
-            y: 100,
-            opacity: 0
-        }, {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            delay: 1
-        }
-    )
-
     return () => {
-        animation.kill();
-        animation2.kill()
+        animation.kill()
     }
 }, [])
 
@@ -46,7 +31,7 @@ const CartPage = () => {
             <AdBannerModule />
             <MemoizedHeader />
         </div>
-        <div ref={cartRef}>
+        <div>
             <Cart />
         </div>
         </>

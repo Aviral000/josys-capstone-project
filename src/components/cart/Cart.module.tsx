@@ -1,12 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useCart } from "../../customs/hooks/useCart";
-import { customerContext } from "../../contextAPI/customers/createContext";
 import { useProduct } from "../../customs/hooks/useProduct";
 import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
 
 const Cart: React.FC = () => {
-  const { cartId } = useContext(customerContext);
+  const cartId = localStorage.getItem("cartId") || undefined;
   const { cart, updateCart, deleteCartItem } = useCart(cartId);
   const { products } = useProduct();
   const navigate = useNavigate();

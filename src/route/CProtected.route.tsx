@@ -1,15 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
-import { customerContext } from '../contextAPI/customers/createContext';
 
 interface ProtectedRouteProps {
   redirectPath?: string;
 }
 
 const CProtectedRoute: React.FC<ProtectedRouteProps> = ({ redirectPath = '/user-login' }) => {
-  const { isLoggedIn, role } = useContext(customerContext);
+  const isLoggedIn = localStorage.getItem('isLoggedIn')
+  const role = localStorage.getItem('role');
 
-  if (!isLoggedIn || role !== 'Customer') {
+  if (isLoggedIn === 'false' || role !== 'Customer') {
     return <Navigate to={redirectPath} replace />;
   }
 

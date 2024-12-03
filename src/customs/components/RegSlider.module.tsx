@@ -4,7 +4,8 @@ import { customerContext } from '../../contextAPI/customers/createContext';
 const RegSlider: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const { isLoggedIn, logout } = useContext(customerContext);
+  const { logout } = useContext(customerContext);
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -42,7 +43,7 @@ const RegSlider: React.FC = () => {
 
       {isOpen && (
         <>
-          {!isLoggedIn ? (
+          {isLoggedIn !== 'true' ? (
             <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
               <div className="py-1 font-semibold" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                 <a

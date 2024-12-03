@@ -7,7 +7,7 @@ export interface ContextType {
   role: string;
   setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
   setUserId: React.Dispatch<React.SetStateAction<string>>;
-  setCartId: React.Dispatch<React.SetStateAction<string | undefined>>;
+  setCartId: React.Dispatch<React.SetStateAction<string>>;
   setRole: React.Dispatch<React.SetStateAction<string>>;
   logout: () => void
 }
