@@ -80,20 +80,41 @@ describe('SignupPage component', () => {
     }, { timeout: 2000 });
   });
 
-  test('Shows error if email patt', async () => {
+  test('Shows error if email pattern is invalid', async () => {
     render(<Signup />, { wrapper: AllProviders });
-
+  
     fireEvent.change(screen.getByPlaceholderText('First Name'), { target: { value: 'John' } });
     fireEvent.change(screen.getByPlaceholderText('Last Name'), { target: { value: 'Doe' } });
-    fireEvent.change(screen.getByPlaceholderText('Email'), { target: { value: 'john.doe@example.com' } });
-    fireEvent.change(screen.getByPlaceholderText('Phone Number'), { target: { value: '987654' } });
+    fireEvent.change(screen.getByPlaceholderText('Email'), { target: { value: 'john.doe' } });
+    fireEvent.change(screen.getByPlaceholderText('Phone Number'), { target: { value: '9876543210' } });
     fireEvent.change(screen.getByPlaceholderText('Password'), { target: { value: 'StrongPass123!' } });
     fireEvent.change(screen.getByPlaceholderText('Confirm Password'), { target: { value: 'StrongPass123!' } });
-
+  
     fireEvent.click(screen.getByRole('button', { name: /Sign Up/i }));
-
+  
     await waitFor(() => {
-      expect(mockedUseNavigate).toHaveBeenCalledWith('/user-register');
-    }, { timeout: 2000 });
+      expect(mockedUseNavigate).not.toHaveBeenCalled();
+    });
+
+    expect(screen.getByText('Invalid email format')).toBeInTheDocument();
+  });
+
+  test('Shows error if phone initials are not between 6 to 9', async () => {
+    render(<Signup />, { wrapper: AllProviders });
+  
+    fireEvent.change(screen.getByPlaceholderText('First Name'), { target: { value: 'John' } });
+    fireEvent.change(screen.getByPlaceholderText('Last Name'), { target: { value: 'Doe' } });
+    fireEvent.change(screen.getByPlaceholderText('Email'), { target: { value: 'john.doe@email.com' } });
+    fireEvent.change(screen.getByPlaceholderText('Phone Number'), { target: { value: '98765432' } });
+    fireEvent.change(screen.getByPlaceholderText('Password'), { target: { value: 'StrongPass123!' } });
+    fireEvent.change(screen.getByPlaceholderText('Confirm Password'), { target: { value: 'StrongPass123!' } });
+  
+    fireEvent.click(screen.getByRole('button', { name: /Sign Up/i }));
+  
+    await waitFor(() => {
+      expect(mockedUseNavigate).not.toHaveBeenCalled();
+    });
+
+    expect(screen.getByText(/Invalid phone number/i)).toBeInTheDocument();
   });
 });
