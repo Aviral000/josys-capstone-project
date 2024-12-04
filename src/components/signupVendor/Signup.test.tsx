@@ -83,33 +83,41 @@ describe('Signup Page component Vendor Side', () => {
     });
   });
 
-//   test('displays error for invalid email format', async () => {
-//     render(<Signup />, { wrapper: AllProviders });
+  test('displays error for invalid email format', async () => {
+    render(<Signup />, { wrapper: AllProviders });
 
-//     fireEvent.change(screen.getByPlaceholderText('Email'), { target: { value: 'invalid-email' } });
-//     fireEvent.change(screen.getByPlaceholderText('Password'), { target: { value: 'StrongPass123!' } });
+    fireEvent.change(screen.getByPlaceholderText('Company Name'), { target: { value: 'Pink Po' } });
+    fireEvent.change(screen.getByPlaceholderText('Phone Number'), { target: { value: '9528541456' } });
+    fireEvent.change(screen.getByPlaceholderText('Email'), { target: { value: 'pink.com' } });
+    fireEvent.change(screen.getByPlaceholderText('Company Address'), { target: { value: 'Gafar Market, New Delhi' } });
+    fireEvent.change(screen.getByPlaceholderText('Password'), { target: { value: 'Pink@2024' } });
+    fireEvent.change(screen.getByPlaceholderText('Confirm Password'), { target: { value: 'Pink@2024' } });
 
-//     fireEvent.click(screen.getByRole('button', { name: /Login/i }));
+    fireEvent.click(screen.getByRole('button', { name: /Sign Up/i }));
 
-//     await waitFor(() => {
-//       expect(mockedUseNavigate).not.toHaveBeenCalled();
-//     });
+    await waitFor(() => {
+      expect(mockedUseNavigate).not.toHaveBeenCalled();
+    });
 
-//     expect(screen.getByText('Invalid email format')).toBeInTheDocument();
-//   });
+    expect(screen.getByText('Invalid email format')).toBeInTheDocument();
+  });
 
-//   test('displays error when password is empty', async () => {
-//     render(<Signup />, { wrapper: AllProviders });
+  test('displays error when password is empty', async () => {
+    render(<Signup />, { wrapper: AllProviders });
 
-//     fireEvent.change(screen.getByPlaceholderText('Email'), { target: { value: 'john.doe@example.com' } });
-//     fireEvent.change(screen.getByPlaceholderText('Password'), { target: { value: '' } });
+    fireEvent.change(screen.getByPlaceholderText('Company Name'), { target: { value: 'Pink Po' } });
+    fireEvent.change(screen.getByPlaceholderText('Phone Number'), { target: { value: '9528541456' } });
+    fireEvent.change(screen.getByPlaceholderText('Email'), { target: { value: 'pink@po.com' } });
+    fireEvent.change(screen.getByPlaceholderText('Company Address'), { target: { value: 'Gafar Market, New Delhi' } });
+    fireEvent.change(screen.getByPlaceholderText('Password'), { target: { value: 'Pink' } });
+    fireEvent.change(screen.getByPlaceholderText('Confirm Password'), { target: { value: 'Pink@2024' } });
 
-//     fireEvent.click(screen.getByRole('button', { name: /Sign Up/i }));
+    fireEvent.click(screen.getByRole('button', { name: /Sign Up/i }));
 
-//     await waitFor(() => {
-//       expect(mockedUseNavigate).not.toHaveBeenCalled();
-//     });
+    await waitFor(() => {
+      expect(mockedUseNavigate).not.toHaveBeenCalled();
+    });
 
-//     expect(screen.getByText('Password cannot be empty')).toBeInTheDocument();
-//   });
+    expect(screen.getByText(/Password must be at least 8 characters/i)).toBeInTheDocument();
+  });
 });
