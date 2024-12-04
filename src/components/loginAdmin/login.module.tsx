@@ -48,7 +48,7 @@ const Login: React.FC = () => {
                 timer: 1500,
                 toast: true
             });
-            navigate(`/company/admin/${admin.id}`);
+            navigate(`/company/admin`);
         },
         onError: (error: any) => {
             Swal.fire({
@@ -114,6 +114,7 @@ const Login: React.FC = () => {
                             onChange={handleChange}
                             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                             required
+                            placeholder='Email'
                         />
                     </div>
                     <div>
@@ -125,6 +126,7 @@ const Login: React.FC = () => {
                             onChange={handleChange}
                             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                             required
+                            placeholder='Password'
                         />
                     </div>
                     <button

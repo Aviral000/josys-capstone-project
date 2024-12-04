@@ -52,7 +52,7 @@ const App: React.FC = () => {
               </Route>
               <Route path='/company/admin-panel' element={<LoginAdminPage />} />
               <Route element={<AProtectedRoute />} >
-                <Route path='/company/admin/:id' element={<DashboardAdminPage />} />
+                <Route path='/company/admin' element={<DashboardAdminPage />} />
               </Route>
             </Routes>
           </AdminProvider>

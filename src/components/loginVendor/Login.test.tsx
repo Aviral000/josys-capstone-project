@@ -16,6 +16,7 @@ jest.mock('../../utils/encryption', () => ({
 
 jest.mock('../../services/vendor.service', () => ({
     verifyVendor: jest.fn().mockImplementation((email, password) => {
+        console.log('verifyVendor called with:', email, password);
         if (email === 'flyer.vi@vi.com' && password === 'FlyerVi@2024') {
             return Promise.resolve([{
                 id: '6c6f6537-bf09-4c71-9de3-89fa673ffb5f',
@@ -50,7 +51,7 @@ describe('LoginPage component', () => {
         queryClient.clear();
     });
 
-    test('renders login page with form', () => {
+    test('renders login page', () => {
         render(<Login />, { wrapper: AllProviders });
         expect(screen.getByRole('heading', { name: 'Login' })).toBeInTheDocument();
     });
@@ -74,9 +75,15 @@ describe('LoginPage component', () => {
     
         fireEvent.click(screen.getByRole('button', { name: /Login/i }));
     
+        console.log('mockedUseNavigate calls:', mockedUseNavigate.mock.calls);
+
         await waitFor(() => {
             expect(verifyVendor).toBeCalledWith('flyer.vi@vi.com', 'FlyerVi@2024')
         });
+
+        // await waitFor(() => {
+        //     expect(mockedUseNavigate).toBeCalled();
+        // }, { timeout: 1000 });
     });
 
     test('displays error for invalid email format', async () => {

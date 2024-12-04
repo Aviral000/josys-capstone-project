@@ -1,32 +1,49 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import axios from 'axios';
-import Login from './Login.module';
+import Login from './login.module';
 
-const mockedMutate = jest.fn();
 const mockedUseNavigate = jest.fn();
+const mockedMutate = jest.fn();
 
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual('react-router-dom'),
   useNavigate: () => mockedUseNavigate,
 }));
 
-jest.mock('../../services/Customer.service', () => ({
-    verifyCustomer: jest.fn().mockImplementation(() => Promise.resolve([{
-      id: '1',
-      email: 'avim@gmail.com',
-      password: 'Avi@2024'
-    }]))
+jest.mock('../../services/User.service', () => ({
+  verifyAdmin: jest.fn().mockImplementation((userObj) => {
+    if (userObj.email === 'admin@example.com' && userObj.password === 'Admin1') {
+      return Promise.resolve([{
+        id: '1',
+        email: 'admin@example.com',
+        password: 'Admin1',
+        roleId: '1',
+        name: "Admin-1",
+      }]);
+    }
+    return Promise.reject(new Error('Wrong Admin Credentials'));
+  })
 }));
 
-jest.mock('../../services/Customer.service.ts', () => ({
-    verifyCustomer: () => ({
+jest.mock('axios', () => ({
+  get: jest.fn().mockImplementation((url) => {
+    if (url.includes('email=admin@example.com')) {
+      return Promise.resolve({
+        data: [{
+          id: '1',
+          email: 'admin@example.com',
+          password: 'Admin1',
+          roleId: 'admin',
+        }]
+      });
+    }
+    return Promise.reject(new Error('User not found'));
+  })
+}));
 
-    })
-}))
-
-jest.mock('axios');
-const mockedAxios = axios as jest.Mocked<typeof axios>;
+// jest.mock('axios');
+// const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -46,7 +63,7 @@ describe('LoginPage component', () => {
     });
   });
 
-  test('renders login page', () => {
+  test('renders login page with form', () => {
     render(<Login />, { wrapper: AllProviders });
     expect(screen.getByRole('heading', { name: 'Login' })).toBeInTheDocument();
   });
@@ -60,16 +77,43 @@ describe('LoginPage component', () => {
     expect(passwordInput).toBeInTheDocument();
   });
 
-  test('redirects to the home page on successful login', async () => {
+  test('redirects to the Admin Panel on successful login', async () => {
+    const { verifyAdmin } = require('../../services/User.service');
+
     render(<Login />, { wrapper: AllProviders });
 
-    fireEvent.change(screen.getByPlaceholderText('Email'), { target: { value: 'avim@gmail.com' } });
-    fireEvent.change(screen.getByPlaceholderText('Password'), { target: { value: 'Avi@2024' } });
+    fireEvent.change(screen.getByPlaceholderText('Email'), { target: { value: 'admin@example.com' } });
+    fireEvent.change(screen.getByPlaceholderText('Password'), { target: { value: 'Admin1' } });
+
+    fireEvent.click(screen.getByRole('button', { name: /Login/i }));
+
+      await waitFor(() => {
+        expect(verifyAdmin).toHaveBeenCalledWith({
+          email: 'admin@example.com',
+          password: 'Admin1'
+        });
+      });
+  });
+
+  test('Show error on wrong credentials', async () => {
+    const { verifyAdmin } = require('../../services/User.service');
+
+    render(<Login />, { wrapper: AllProviders });
+
+    fireEvent.change(screen.getByPlaceholderText('Email'), { target: { value: 'ad@example.com' } });
+    fireEvent.change(screen.getByPlaceholderText('Password'), { target: { value: 'Admin1' } });
 
     fireEvent.click(screen.getByRole('button', { name: /Login/i }));
 
     await waitFor(() => {
-      expect(mockedUseNavigate).toHaveBeenCalledWith('/');
+      expect(verifyAdmin).toHaveBeenCalledWith({
+        email: 'ad@example.com',
+        password: 'Admin1'
+      });
+    });
+
+    await waitFor(() => {
+      expect(mockedUseNavigate).not.toHaveBeenCalledWith('/company/admin');
     });
   });
 

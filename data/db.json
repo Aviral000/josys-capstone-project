@@ -88,21 +88,7 @@
       ]
     },
     {
-      "customerId": "ee80cd0e-f378-417f-bcb7-36dcc2c89805",
-      "items": [
-        {
-          "productId": "306",
-          "quantity": 1
-        },
-        {
-          "productId": "307",
-          "quantity": 1
-        },
-        {
-          "productId": "303",
-          "quantity": 1
-        }
-      ],
+      "items": [],
       "id": "5168708a-5858-4dc5-b38a-bc1f615d1658"
     },
     {
