@@ -72,7 +72,7 @@ const AM: React.FC = () => {
                 handleInputChange("1", "discount", e.target.value)
               }
               className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter discount..."
+              placeholder="Enter discount"
             />
           </div>
 
@@ -86,7 +86,7 @@ const AM: React.FC = () => {
                 handleInputChange("1", "description", e.target.value)
               }
               className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter description..."
+              placeholder="Enter description"
               rows={4}
             ></textarea>
           </div>

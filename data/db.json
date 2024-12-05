@@ -32,7 +32,7 @@
       "id": "625e8c27-f4d9-482c-b0cc-d69ba5569639",
       "name": "Suzanne Mischov",
       "roleId": "3",
-      "addressIds": "",
+      "addressIds": "H. No-126, Phase-7, Vasundhara Residency",
       "cartId": "19e36dc0-7ac2-4e08-bc9e-113d1d5a8a0e"
     },
     {
@@ -70,6 +70,18 @@
       "roleId": "3",
       "addressIds": "",
       "cartId": "5b42264d-2eb8-488a-b690-499ecbebf997"
+    },
+    {
+      "firstName": "Somi",
+      "lastName": "Gupta",
+      "email": "somi@gmail.com",
+      "phoneNumber": "9522412281",
+      "password": "$2a$10$.AZ/1wqmSnaUAswIXZ0lH.r6Y9zMr5E8nITGGctGCXoRTtKrFFNsy",
+      "id": "53ab4f10-817e-445c-b165-1d8193cf1871",
+      "name": "Somi Gupta",
+      "roleId": "3",
+      "addressIds": "",
+      "cartId": "62f15545-8518-4fe2-9f7b-f19ce3de5d59"
     }
   ],
   "carts": [
@@ -88,12 +100,18 @@
       ]
     },
     {
-      "items": [],
+      "customerId": "ee80cd0e-f378-417f-bcb7-36dcc2c89805",
+      "items": [
+        {
+          "productId": "307",
+          "quantity": 1
+        }
+      ],
       "id": "5168708a-5858-4dc5-b38a-bc1f615d1658"
     },
     {
-      "items": [],
-      "id": "19e36dc0-7ac2-4e08-bc9e-113d1d5a8a0e"
+      "id": "19e36dc0-7ac2-4e08-bc9e-113d1d5a8a0e",
+      "items": []
     },
     {
       "items": [],
@@ -107,6 +125,11 @@
     {
       "id": "5b42264d-2eb8-488a-b690-499ecbebf997",
       "items": []
+    },
+    {
+      "customerId": "53ab4f10-817e-445c-b165-1d8193cf1871",
+      "items": [],
+      "id": "62f15545-8518-4fe2-9f7b-f19ce3de5d59"
     }
   ],
   "products": [
@@ -362,7 +385,6 @@
       "uploadedDate": ""
     },
     {
-      "id": "316",
       "productName": "Kids' Running T-Shirt",
       "productDesc": "Breathable t-shirt for young runners.",
       "cost": 1500,
@@ -374,8 +396,9 @@
         "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/992156d455734401aeb78afc707ab985_9366/AEROREADY_3-Stripes_Woven_Shorts_Black_IB8872_23_hover_model.jpg"
       ],
       "discount": 15,
-      "stock": 40,
-      "uploadedDate": ""
+      "stock": 39,
+      "uploadedDate": "",
+      "id": "316"
     },
     {
       "id": "317",
@@ -818,6 +841,17 @@
       ],
       "status": "processed",
       "id": "17563d9b-a8c0-4692-97fc-6051e575e41c"
+    },
+    {
+      "customerId": "625e8c27-f4d9-482c-b0cc-d69ba5569639",
+      "items": [
+        {
+          "productId": "316",
+          "quantity": 1
+        }
+      ],
+      "status": "pending",
+      "id": "d45bf196-59ce-4cde-bd6e-a3360da2b94f"
     }
   ],
   "roles": [
@@ -854,5 +888,17 @@
       "image": "",
       "id": "3"
     }
-  ]
+  ],
+  "actions": [
+    {
+      "vendorId": "6c6f6537-bf09-4c71-9de3-89fa673ffb5f",
+      "complaintType": "Less images for porduct",
+      "complaintDetails": "Please make sure you have 2 or 3 good images for the product to get recognized by the customer",
+      "id": "bee0cfb9-a2ca-4bd4-a23c-0b1d182a15aa",
+      "uploadedDate": "05/12/2024",
+      "customerAction": false
+    }
+  ],
+  "requests": [],
+  "messages": []
 }

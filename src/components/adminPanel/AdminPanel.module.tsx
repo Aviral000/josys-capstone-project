@@ -7,6 +7,8 @@ import PBV from "./productsbyvendor/PBV.module";
 import DA from "./disciplinaryAction/DA.module";
 import AM from "./advertisementManagement/AM.module";
 import OrderedProducts from "./orderedproducts/OrderedProducts.module";
+import AllActions from "./allActions/AllActions.module";
+import RequestedBanner from "./Request for Banner/RequestedBanner.module";
 
 const AdminPanel: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<string>("Vendor Verifications");
@@ -48,8 +50,12 @@ const AdminPanel: React.FC = () => {
         return <PBV />;
       case "Disciplinary Actions":
         return <DA />;
+      case "Ads Request":
+        return <RequestedBanner />;
       case "Advertisement Banner":
         return <AM />;
+      case "All Actions":
+          return <AllActions />;
       default:
         return <div>Select an option to see details.</div>;
     }
@@ -62,7 +68,7 @@ const AdminPanel: React.FC = () => {
           Admin Panel
         </h2>
         <ul className="space-y-2 p-4">
-          {["Vendor Verifications", "Products by Vendor", "Ordered Products", "Disciplinary Actions", "Advertisement Banner"].map(
+          {["Vendor Verifications", "Products by Vendor", "Ordered Products", "Disciplinary Actions", "Ads Request", "Advertisement Banner", "All Actions"].map(
             (option) => (
               <li
                 key={option}

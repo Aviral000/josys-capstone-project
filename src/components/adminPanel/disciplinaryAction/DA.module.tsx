@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import debounce from "lodash/debounce";
 import { useVendor } from "../../../customs/hooks/useVendor";
+import { createAction } from "../../../services/Action.service";
+import { Actions } from "../../../models/Action.type";
+import Swal from "sweetalert2";
 
 const DA: React.FC = () => {
   const { vendors } = useVendor();
@@ -27,16 +30,25 @@ const DA: React.FC = () => {
     handleSearch(term);
   };
 
-  const handleSubmitComplaint = () => {
+  const handleSubmitComplaint = async () => {
     if (!filteredVendor) return;
-
-    console.log("Complaint Submitted", {
+    
+    const actionObj: Actions = {
       vendorId: filteredVendor.id,
-      complaintType,
-      complaintDetails,
-    });
+      complaintType: complaintType,
+      complaintDetails: complaintDetails
+    }
 
-    alert(`Complaint submitted for ${filteredVendor.companyName}`);
+    await createAction(actionObj);
+
+    Swal.fire({
+      position: "top-end",
+      icon: "warning",
+      title: `Actions against ${filteredVendor.companyName} has been taken`,
+      showConfirmButton: false,
+      timer: 1500,
+      toast: true
+    });
     setComplaintType("");
     setComplaintDetails("");
   };

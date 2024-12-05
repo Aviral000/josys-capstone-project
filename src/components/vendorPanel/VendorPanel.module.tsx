@@ -5,6 +5,8 @@ import { VendorContext } from "../../contextAPI/vendors/CreateContext";
 import VP from "./vendorProfile/VP.module";
 import VendorProducts from "./vendorproducts/VendorProduct";
 import AddProduct from "./addproduct/AddProduct.module";
+import Reports from "./reports/Reports.module";
+import RequestAd from "./requestad/RequestAd.module";
 
 const VendorPanel: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<string>("Vendor Profile");
@@ -45,7 +47,9 @@ const VendorPanel: React.FC = () => {
       case "Add new Product":
         return <AddProduct />;
       case "Request for Advertisement":
-        return <div>Request for Advertisement will be shown here.</div>;
+        return <RequestAd />;
+      case "Against Reports":
+        return <Reports />;
       default:
         return <div>Select an option to see details.</div>;
     }
@@ -58,7 +62,7 @@ const VendorPanel: React.FC = () => {
           Vendor Panel
         </h2>
         <ul className="space-y-2 p-4">
-          {["Vendor Profile", "Vendor's Products", "Add new Product", "Request for Advertisement"].map(
+          {["Vendor Profile", "Vendor's Products", "Add new Product", "Request for Advertisement", "Against Reports"].map(
             (option) => (
               <li
                 key={option}

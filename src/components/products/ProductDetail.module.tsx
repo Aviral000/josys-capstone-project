@@ -62,7 +62,7 @@ const ProductDetail = () => {
         icon: "success",
         title: "Added to Cart",
         text: `${product?.productName} has been added to your cart.`,
-        timer: 2000,
+        timer: 5000,
         showConfirmButton: false,
         position: "top-right",
         toast: true

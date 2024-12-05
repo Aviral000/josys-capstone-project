@@ -4,18 +4,18 @@ import { FaShippingFast, FaSyncAlt, FaCreditCard } from "react-icons/fa";
 
 const MiddleFooter: React.FC = () => {
   return (
-    <div className="bg-yellow-400 py-6 px-4">
+    <div data-testid='middle-footer' className="bg-yellow-400 py-6 px-4">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-black">
         <div className="flex flex-col md:flex-row items-center gap-40">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2" data-testid='FaShippingFast'>
             <FaShippingFast size={24} />
             <p className="text-lg font-medium">Fast Delivery</p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2" data-testid='FaSyncAlt'>
             <FaSyncAlt size={24} />
             <p className="text-lg font-medium">24-Hour Replacement</p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2" data-testid='FaCreditCard'>
             <FaCreditCard size={24} />
             <p className="text-lg font-medium">No-Cost EMI</p>
           </div>
