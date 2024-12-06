@@ -133,6 +133,27 @@ const Checkout: React.FC = () => {
           return;
         }
 
+        if (!entity.addressIds && !address) {
+          Swal.fire({
+            icon: "error",
+            title: "Address Required",
+            text: "Please add a delivery address before placing the order.",
+            timer: 2000,
+            showConfirmButton: false,
+          });
+          return;
+        }
+
+        if (!paymentMethod) {
+          Swal.fire({
+            icon: "error",
+            title: "Payment Method Required",
+            text: "Please select a payment method before placing the order.",
+            timer: 2000,
+            showConfirmButton: false,
+          });
+          return;
+        }
       
         const createOrderObj: Order = {
           customerId: entity.id,
