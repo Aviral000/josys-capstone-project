@@ -47,11 +47,11 @@ const Login: React.FC = () => {
             });
             navigate('/vendor-panel');
         },
-        onError: (error: any) => {
+        onError: (error) => {
             Swal.fire({
                 position: 'top-end',
                 icon: 'error',
-                title: 'Incorrect Credentials',
+                title: `Error: ${error.message}`,
                 showConfirmButton: false,
                 timer: 3000,
                 toast: true

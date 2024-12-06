@@ -30,6 +30,7 @@ const RegSlider: React.FC = () => {
 
   const handleLogout = () => {
     logout();
+    localStorage.removeItem('isLoggedIn');
   };
 
   return (

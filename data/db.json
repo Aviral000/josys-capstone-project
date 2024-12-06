@@ -56,7 +56,7 @@
       "id": "624876f6-e824-47c4-b91d-528b48574d81",
       "name": "Raina Singhal",
       "roleId": "3",
-      "addressIds": "",
+      "addressIds": "895/63 (Old-806)\nCivil Lines South, Jat Colony",
       "cartId": "50a243a0-fea0-49f2-84b7-cb9a4bf1d9ad"
     },
     {
@@ -118,9 +118,8 @@
       "id": "a503a9e6-aed0-465c-a0d5-87988d1086b7"
     },
     {
-      "customerId": "624876f6-e824-47c4-b91d-528b48574d81",
-      "items": [],
-      "id": "50a243a0-fea0-49f2-84b7-cb9a4bf1d9ad"
+      "id": "50a243a0-fea0-49f2-84b7-cb9a4bf1d9ad",
+      "items": []
     },
     {
       "id": "5b42264d-2eb8-488a-b690-499ecbebf997",
@@ -534,6 +533,24 @@
       "categoryId": "503",
       "subtypeId": "603",
       "uploadedDate": "02/12/2024"
+    },
+    {
+      "productName": "TEST MATCH CRICKET JERSEY",
+      "productDesc": "AN INSPIRING JERSEY FOR AVID CRICKET FANS MADE WITH RECYCLED MATERIALS.",
+      "cost": 6000,
+      "vendorId": "cd0ccc6a-c651-4479-a6d5-d4838287f03e",
+      "categoryId": "502",
+      "subtypeId": "601",
+      "images": [
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/e2a586c647e14068807e059f9e636147_9366/TEST_MATCH_CRICKET_JERSEY_White_JE0090_25_model.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/0e91f62a10604da8838cd6af2f429b8d_9366/TEST_MATCH_CRICKET_JERSEY_White_JE0090_21_model.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/591f487c4bd1420d92cd0be9a8f69d78_9366/TEST_MATCH_CRICKET_JERSEY_White_JE0090_23_hover_model.jpg",
+        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d910102fdeba42c2aabb82621f9a0987_9366/TEST_MATCH_CRICKET_JERSEY_White_JE0090_43_detail.jpg"
+      ],
+      "discount": 15,
+      "stock": 8,
+      "uploadedDate": "06/12/2024",
+      "id": "774fc9f1-da65-43e4-bae7-6ff771796ae0"
     }
   ],
   "sub_types": [
@@ -682,6 +699,16 @@
       "roleId": "2",
       "verified": false,
       "id": "108fbc3c-35f5-4ce0-939a-b7d5e91f44c1"
+    },
+    {
+      "companyName": "Snail Sneak",
+      "email": "snail@sneak.com",
+      "password": "$2a$10$zOY26glzsO91VyPU7Mv9Su4R1zxOatFZCBknu8foPFpqAytOrmT.m",
+      "address": "Sector 46, gurugram",
+      "phoneNumber": "6522412200",
+      "roleId": "2",
+      "verified": true,
+      "id": "cd0ccc6a-c651-4479-a6d5-d4838287f03e"
     }
   ],
   "users": [
@@ -852,6 +879,17 @@
       ],
       "status": "pending",
       "id": "d45bf196-59ce-4cde-bd6e-a3360da2b94f"
+    },
+    {
+      "customerId": "624876f6-e824-47c4-b91d-528b48574d81",
+      "items": [
+        {
+          "productId": "774fc9f1-da65-43e4-bae7-6ff771796ae0",
+          "quantity": 2
+        }
+      ],
+      "status": "processed",
+      "id": "f70cc896-a70e-4a52-a9b4-3a823bc55c67"
     }
   ],
   "roles": [
@@ -870,13 +908,13 @@
   ],
   "banner": [
     {
-      "discount": "50%",
-      "description": "SALE SALE SALE",
+      "discount": "under 2000",
+      "description": "Snail present you the most comfy sportwear",
       "id": "1"
     },
     {
-      "heading": "BLACK FRIDAY",
-      "discount": "UPTO 60% + EXTRA 20% OFF",
+      "heading": "Christman Boom",
+      "discount": "UPTO 50% + EXTRA 30% OFF",
       "description": "Buy More! Save More!",
       "image": "",
       "id": "2"
@@ -899,6 +937,12 @@
       "customerAction": false
     }
   ],
-  "requests": [],
-  "messages": []
+  "requests": [
+    {
+      "vendorId": "cd0ccc6a-c651-4479-a6d5-d4838287f03e",
+      "bannerNum": "1",
+      "bannerDesc": "Snail present you the most comfy sportwear under 2000",
+      "id": "82463aaa-a98a-4ccf-9170-bc8d24b711fc"
+    }
+  ]
 }
